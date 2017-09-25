@@ -89,7 +89,6 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": -7.4,
                     "yaw": 166.5,
                     "type": "info",
-                    "text": "Informacion Importante",
                     "cssClass": "custom-hotspot-info",
                     "clickHandlerFunc": panel,
                     "clickHandlerArgs": "myModal"
@@ -175,18 +174,15 @@ viewer = pannellum.viewer('panorama', {
       }}
 });
 //click para ver mas informacion
-  function panel(args){
     // Pillamos el modal
+  
+  function panel(hotSpotDiv,args){
     var modal = document.getElementById(args);
-    // Seleccionamos el span
     var span = document.getElementsByClassName("close")[0];
-    // cuando lo pulsa abrimos 
     modal.style.display = "block";
-    // cerrarlo
     span.onclick = function() {
       modal.style.display = "none";
     }
-    // Si selecciono fuera del contenido se cierra solo
     window.onclick = function(event) {
       if (event.target == modal) {
           modal.style.display = "none";
