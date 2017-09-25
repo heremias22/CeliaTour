@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  <title>Holita</title>
+    <!-- Javascript de pannellum framework -->
+    <script src="pannellum/pannellum.js"></script>
+    <!-- Css de pannellum framework -->
+    <link rel="stylesheet" href="pannellum/pannellum.css">
+     <!-- Estilos del panel de informacion -->
+    <link rel="stylesheet" href="panel.css">
+     <!-- Estilos generales -->
+    <link rel="stylesheet" href="estilos.css">
+    
+  </head>
+  <body>
+    
+    <div class="contenedor">
+      <div id="panorama">
+        <div id="controls">
+        <!-- Plantilla que se debe seguir para cada bloque de informacion -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Escudo Almeria</h2>
+              </div>
+              <div class="modal-body">
+                <img src="museo.jpg">
+                <p>Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body</p>
+                <p>Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>(compartir esto con X en redes sociales)</h3>
+              </div>
+            </div>
+          </div>
+          <div id="myModal1" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Objeto valioso</h2>
+              </div>
+              <div class="modal-body">
+                <img src="almeria.png">
+                <p>Sisi simba in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body</p>
+                <p>Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>(compartir esto con X en redes sociales)</h3>
+              </div>
+            </div>
+          </div>
+        <div class="ctrl" id="zoom-in">+</div>
+        <div class="ctrl" id="zoom-out">−</div>
+        <div class="ctrl" id="fullscreen">⤢</div>
+           </div>
+    </div>
+      </div>
+<script>
+  //create viewer
+viewer = pannellum.viewer('panorama', {   
+    "default": {
+      
+        "firstScene": "primera",
+        "sceneFadeDuration": 1000,
+        "autoLoad": true,
+        "showControls": false,
+        //Se utiliza para saber en el punto exacto donde colocar los hotspot al hacer click en consola informa del punto.
+        //"hotSpotDebug": true
+    },
+  //En escenas va cada foto donde vamos a saltar
+    "scenes": {
+        "primera": {
+          //Angulo de vision
+            "hfov": 110,
+          //Altura si sumanos va hacia arriba si restamos hacia abajo
+            "pitch": 70.4,
+          //A los lados, si sumanos va hacia la derecha y si restamos hacia la izquierda
+            "yaw": 174,
+            "type": "equirectangular",
+          //Aqui se carga la imagen
+            "panorama": "salonActosMedio.jpg",
+          //Array de puntos para pnchar los de info para informacion y scene para saltar a esa escena
+            "hotSpots": [
+                {
+                    "pitch": -7.4,
+                    "yaw": 166.5,
+                    "type": "info",
+                    "text": "Informacion Importante",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": panel,
+                    "clickHandlerArgs": "myModal"
+                },
+                {
+                    "pitch": 84.6,
+                    "yaw": 162.9,
+                    "type": "info",
+                    "text": "Informacion Importante",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": panel,
+                    "clickHandlerArgs": "myModal1"
+                },
+                {
+                    "pitch": -9.3,
+                    "yaw": -92.9,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-flecha",
+                    "sceneId":"tercera"
+                },
+                {
+                    "pitch": -7.4,
+                    "yaw": 91.3,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-flecha",
+                    "sceneId":"segunda"
+                }
+            ]
+        },
+      
+      "segunda": {
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "salonActosAtras.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -16.5,
+                    "yaw": 5.5,
+                    "type": "info",
+                    "text": "Informacion Importante",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": panel,
+                    "clickHandlerArgs": "myModal"
+                },
+                {
+                    "pitch": -24.1,
+                    "yaw": 181.9,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-atras",
+                    "sceneId":"primera"
+                }
+            ]
+        },
+      
+      "tercera": {
+         "hfov": 110,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "salonActosMesa.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -18.4,
+                    "yaw": -4.3,
+                    "type": "scene",
+                    "text": "Atras",
+                    "sceneId": "primera",
+                    "cssClass":"custom-hotspot-atras"
+                },
+                {
+                    "pitch": -1.7,
+                    "yaw": 169.3,
+                    "type": "info",
+                    "text": "Informacion Importante",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": panel,
+                    "clickHandlerArgs": "myModal"
+                }
+              
+              ]
+      }}
+});
+//click para ver mas informacion
+  function panel(args){
+    // Pillamos el modal
+    var modal = document.getElementById(args);
+    // Seleccionamos el span
+    var span = document.getElementsByClassName("close")[0];
+    // cuando lo pulsa abrimos 
+    modal.style.display = "block";
+    // cerrarlo
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    // Si selecciono fuera del contenido se cierra solo
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+    }
+  }
+
+  //botones de zoom y full screen
+document.getElementById('zoom-in').addEventListener('click', function(e) {
+    viewer.setHfov(viewer.getHfov() - 10);
+});
+document.getElementById('zoom-out').addEventListener('click', function(e) {
+    viewer.setHfov(viewer.getHfov() + 10);
+});
+document.getElementById('fullscreen').addEventListener('click', function(e) {
+    viewer.toggleFullscreen();
+});
+  
+</script>
+  </body>
+</html>
