@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="panel.css">
      <!-- Estilos generales -->
     <link rel="stylesheet" href="estilos.css">
+	<!--librerias JQuery & JQuery ui-->
+	<script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.8.16/jquery-ui.js"></script>
     
   </head>
   <body>
@@ -57,8 +60,16 @@
         <div class="ctrl" id="zoom-out">−</div>
         <div class="ctrl" id="fullscreen">⤢</div>
            </div>
+		<div id="transparente">
+			<div id="movil">
+				<div class="punto-minimapa" onclick="alert('has pulsado el punto')">
+					
+				</div>
+			</div>
+		</div>
     </div>
       </div>
+	
 <script>
   //create viewer
 viewer = pannellum.viewer('panorama', {   
@@ -195,6 +206,9 @@ viewer = pannellum.viewer('panorama', {
   }
 
   //botones de zoom y full screen
+	var fullScreen=0;
+	var alturaTransparente = $('#transparente').height();
+	var anchuraTransparente = $('#transparente').width();
 document.getElementById('zoom-in').addEventListener('click', function(e) {
     viewer.setHfov(viewer.getHfov() - 10);
 });
@@ -202,9 +216,66 @@ document.getElementById('zoom-out').addEventListener('click', function(e) {
     viewer.setHfov(viewer.getHfov() + 10);
 });
 document.getElementById('fullscreen').addEventListener('click', function(e) {
-    viewer.toggleFullscreen();
+	viewer.toggleFullscreen();
+	var altura=0;
+	if(fullScreen==0){
+		fullScreen++; 
+		altura = screen.height;
+		
+		
+	}else{
+	
+		fullScreen--;
+		altura = $(window).height();
+	}
+	alert(altura);
+	document.getElementById("transparente").style.top = altura-alturaTransparente-50+"px";
+	
 });
+
   
+</script>
+<script>
+		var alturaTransparente = $('#transparente').height();
+		
+
+	   
+	
+	
+	
+	$('#movil').draggable({
+		drag: function(evt,ui)
+		{
+		
+			// zoom fix
+			ui.position.top = ui.position.top;
+			ui.position.left = ui.position.left;
+			
+			
+			if (ui.position.left < 0)
+				 ui.position.left = anchuraTransparente - $(this).width(); 
+			if (ui.position.left + $(this).width() > anchuraTransparente)
+				  ui.position.left = 0;
+			if (ui.position.top < -461 ){
+				ui.position.top = alturaTransparente - $(this).height();
+			}
+			if (ui.position.top + $(this).height() > alturaTransparente+461){
+					ui.position.top = 0;
+			}
+				
+
+		}                 
+	});
+		
+		var anchura = $(window).width(); 
+		var altura = $(window).height();
+		
+		document.getElementById("transparente").style.top = altura-alturaTransparente-50+"px";
+	
+
+  </script>
+<script>
+	
 </script>
   </body>
 </html>
