@@ -209,24 +209,26 @@ viewer = pannellum.viewer('panorama', {
   }
 
   //botones de zoom y full screen
-	var fullScreen=0;
+	var fs=0;
 	var alturaTransparente = $('#transparente').height();
 	var anchuraTransparente = $('#transparente').width();
 document.getElementById('fullscreen').addEventListener('click', function(e) {
 	viewer.toggleFullscreen();
+		
 	var altura=0;
-	if(fullScreen==0){
-		fullScreen++; 
+	
+	if(fs==0){
+		fs+=1;	
 		altura = screen.height;
 		
 		
 	}else{
-	
-		fullScreen--;
-		altura = $(window).height()-100;
-    
+		fs-=1;
+		
+		altura = $(window).height()-130;
+		
 	}
-	
+		
 	document.getElementById("transparente").style.top = altura-alturaTransparente-50+"px";
 	
 });
