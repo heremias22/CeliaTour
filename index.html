@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-  <title>Holita</title>
+  <title>Celia Tour</title>
     <!-- Javascript de pannellum framework -->
     <script src="pannellum/pannellum.js"></script>
     <!-- Css de pannellum framework -->
@@ -20,7 +20,6 @@
     
     <div class="contenedor">
       <div id="panorama">
-        <div id="controls">
         <!-- Plantilla que se debe seguir para cada bloque de informacion -->
           <div id="myModal" class="modal">
             <!-- Modal content -->
@@ -56,10 +55,8 @@
               </div>
             </div>
           </div>
-        <div class="ctrl" id="zoom-in">+</div>
-        <div class="ctrl" id="zoom-out">−</div>
         <div class="ctrl" id="fullscreen">⤢</div>
-           </div>
+        
 		<div id="transparente">
 			<div id="movil">
 				<div class="punto-minimapa" onclick="alert('has pulsado el punto')">
@@ -79,6 +76,8 @@ viewer = pannellum.viewer('panorama', {
         "sceneFadeDuration": 1000,
         "autoLoad": true,
         "showControls": false,
+        "mouseZoom": false,
+        "preview": "previewCentro.jpg"
         //Se utiliza para saber en el punto exacto donde colocar los hotspot al hacer click en consola informa del punto.
         //"hotSpotDebug": true
     },
@@ -86,7 +85,7 @@ viewer = pannellum.viewer('panorama', {
     "scenes": {
         "primera": {
           //Angulo de vision
-            "hfov": 110,
+            "hfov": 120,
           //Altura si sumanos va hacia arriba si restamos hacia abajo
             "pitch": 70.4,
           //A los lados, si sumanos va hacia la derecha y si restamos hacia la izquierda
@@ -131,7 +130,7 @@ viewer = pannellum.viewer('panorama', {
         },
       
       "segunda": {
-            "hfov": 110,
+            "hfov": 120,
             "pitch": -3,
             "yaw": 117,
             "type": "equirectangular",
@@ -157,7 +156,7 @@ viewer = pannellum.viewer('panorama', {
         },
       
       "tercera": {
-         "hfov": 110,
+         "hfov": 120,
             "pitch": -3,
             "yaw": 117,
             "type": "equirectangular",
@@ -213,12 +212,6 @@ viewer = pannellum.viewer('panorama', {
 	var fullScreen=0;
 	var alturaTransparente = $('#transparente').height();
 	var anchuraTransparente = $('#transparente').width();
-document.getElementById('zoom-in').addEventListener('click', function(e) {
-    viewer.setHfov(viewer.getHfov() - 10);
-});
-document.getElementById('zoom-out').addEventListener('click', function(e) {
-    viewer.setHfov(viewer.getHfov() + 10);
-});
 document.getElementById('fullscreen').addEventListener('click', function(e) {
 	viewer.toggleFullscreen();
 	var altura=0;
