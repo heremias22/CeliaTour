@@ -226,9 +226,10 @@ document.getElementById('fullscreen').addEventListener('click', function(e) {
 	}else{
 	
 		fullScreen--;
-		altura = $(window).height();
+		altura = $(window).height()-100;
+    
 	}
-	alert(altura);
+	
 	document.getElementById("transparente").style.top = altura-alturaTransparente-50+"px";
 	
 });
