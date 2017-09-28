@@ -68,6 +68,7 @@
       </div>
 	
 <script>
+	
   //create viewer
 viewer = pannellum.viewer('panorama', {   
     "default": {
@@ -211,41 +212,27 @@ viewer = pannellum.viewer('panorama', {
   //botones de zoom y full screen
 	
 document.getElementById('fullscreen').addEventListener('click', function(e) {
+	
 	viewer.toggleFullscreen();
-
-});
+	});
 
   
 </script>
 <script>
-		var alturaTransparente = $('#transparente').height();
 		var anchuraTransparente = $('#transparente').width();
-
-	   
-	
-	
-	
+		var alturaTransparente = $('#transparente').height();
+		
 	$('#movil').draggable({
 		drag: function(evt,ui)
 		{
-		
-			// zoom fix
-			ui.position.top = ui.position.top;
-			ui.position.left = ui.position.left;
-			
-			
 			if (ui.position.left < 0)
 				 ui.position.left = anchuraTransparente - $(this).width(); 
 			if (ui.position.left + $(this).width() > anchuraTransparente)
 				  ui.position.left = 0;
-			if (ui.position.top < -461 ){
+			if (ui.position.top < -461 )
 				ui.position.top = alturaTransparente - $(this).height();
-			}
-			if (ui.position.top + $(this).height() > alturaTransparente+461){
+			if (ui.position.top + $(this).height() > alturaTransparente+461)
 					ui.position.top = 0;
-			}
-				
-
 		}                 
 	});
   </script>
