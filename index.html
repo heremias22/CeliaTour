@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -240,4 +241,248 @@ document.getElementById('fullscreen').addEventListener('click', function(e) {
 	
 </script>
   </body>
+=======
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  <title>Celia Tour</title>
+    <!-- Javascript de pannellum framework -->
+    <script src="pannellum/pannellum.js"></script>
+    <!-- Css de pannellum framework -->
+    <link rel="stylesheet" href="pannellum/pannellum.css">
+     <!-- Estilos del panel de informacion -->
+    <link rel="stylesheet" href="panel.css">
+     <!-- Estilos generales -->
+    <link rel="stylesheet" href="estilos.css">
+	<!--librerias JQuery & JQuery ui-->
+	<script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.8.16/jquery-ui.js"></script>
+    
+  </head>
+  <body>
+    
+    <div class="contenedor">
+      <div id="panorama">
+        <!-- Plantilla que se debe seguir para cada bloque de informacion -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Escudo Almeria</h2>
+              </div>
+              <div class="modal-body">
+                <img src="museo.jpg">
+                <p>Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body</p>
+                <p>Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>(compartir esto con X en redes sociales)</h3>
+              </div>
+            </div>
+          </div>
+          <div id="myModal1" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Objeto valioso</h2>
+              </div>
+              <div class="modal-body">
+                <img src="almeria.png">
+                <p>Sisi simba in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body</p>
+                <p>Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3>(compartir esto con X en redes sociales)</h3>
+              </div>
+            </div>
+          </div>
+        <div class="ctrl" id="fullscreen">⤢</div>
+        
+		<div id="transparente">
+			<div id="movil">
+				<div class="punto-minimapa" onclick="alert('has pulsado el punto')">
+					
+				</div>
+			</div>
+		</div>
+    </div>
+      </div>
+	
+<script>
+	
+  //create viewer
+viewer = pannellum.viewer('panorama', {   
+    "default": {
+      
+        "firstScene": "primera",
+        "sceneFadeDuration": 1000,
+        "autoLoad": true,
+        "showControls": false,
+        "mouseZoom": false,
+        "preview": "previewCentro.jpg"
+        //Se utiliza para saber en el punto exacto donde colocar los hotspot al hacer click en consola informa del punto.
+        //"hotSpotDebug": true
+    },
+  //En escenas va cada foto donde vamos a saltar
+    "scenes": {
+        "primera": {
+          //Angulo de vision
+            "hfov": 120,
+          //Altura si sumanos va hacia arriba si restamos hacia abajo
+            "pitch": 70.4,
+          //A los lados, si sumanos va hacia la derecha y si restamos hacia la izquierda
+            "yaw": 174,
+            "type": "equirectangular",
+          //Aqui se carga la imagen
+            "panorama": "salonActosMedio.jpg",
+          //Array de puntos para pnchar los de info para informacion y scene para saltar a esa escena
+            "hotSpots": [
+                {
+                    "pitch": -7.4,
+                    "yaw": 166.5,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": panel,
+                    "clickHandlerArgs": "myModal"
+                },
+                {
+                    "pitch": 84.6,
+                    "yaw": 162.9,
+                    "type": "info",
+                    "text": "Informacion Importante",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": panel,
+                    "clickHandlerArgs": "myModal1"
+                },
+                {
+                    "pitch": -9.3,
+                    "yaw": -92.9,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-flecha",
+                    "sceneId":"tercera"
+                },
+                {
+                    "pitch": -7.4,
+                    "yaw": 91.3,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-flecha",
+                    "sceneId":"segunda"
+                }
+            ]
+        },
+      
+      "segunda": {
+            "hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "salonActosAtras.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -16.5,
+                    "yaw": 5.5,
+                    "type": "info",
+                    "text": "Informacion Importante",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": panel,
+                    "clickHandlerArgs": "myModal"
+                },
+                {
+                    "pitch": -24.1,
+                    "yaw": 181.9,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-atras",
+                    "sceneId":"primera"
+                }
+            ]
+        },
+      
+      "tercera": {
+         "hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "salonActosMesa.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -18.4,
+                    "yaw": -4.3,
+                    "type": "scene",
+                    "text": "Atras",
+                    "sceneId": "primera",
+                    "cssClass":"custom-hotspot-atras"
+                },
+                {
+                    "pitch": -1.7,
+                    "yaw": 169.3,
+                    "type": "info",
+                    "text": "Informacion Importante",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": panel,
+                    "clickHandlerArgs": "myModal"
+                }
+              
+              ]
+      }}
+});
+//click para ver mas informacion
+  
+  function panel(hotSpotDiv,args){
+    // Get the modal
+    var modal = document.getElementById(args);
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+	var span2 = document.getElementsByClassName("close")[1]
+    // When the user clicks the button, open the modal 
+    modal.style.display = "block";
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+	span2.onclick = function() {
+      modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+    }
+  }
+
+  //botones de zoom y full screen
+	
+document.getElementById('fullscreen').addEventListener('click', function(e) {
+	
+	viewer.toggleFullscreen();
+	});
+
+  
+</script>
+<script>
+		var anchuraTransparente = $('#transparente').width();
+		var alturaTransparente = $('#transparente').height();
+		
+	$('#movil').draggable({
+		drag: function(evt,ui)
+		{
+			if (ui.position.left < 0)
+				 ui.position.left = anchuraTransparente - $(this).width(); 
+			if (ui.position.left + $(this).width() > anchuraTransparente)
+				  ui.position.left = 0;
+			if (ui.position.top < -461 )
+				ui.position.top = alturaTransparente - $(this).height();
+			if (ui.position.top + $(this).height() > alturaTransparente+461)
+					ui.position.top = 0;
+		}                 
+	});
+  </script>
+<script>
+	
+</script>
+  </body>
+>>>>>>> 2a6b80bf290bfc847d0cc2443251c20fe20dc89e
 </html>
