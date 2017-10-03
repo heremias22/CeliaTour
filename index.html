@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -69,19 +68,20 @@
       </div>
 	
 <script>
-	
   //create viewer
 viewer = pannellum.viewer('panorama', {   
     "default": {
       
-        "firstScene": "primera",
+        "firstScene": "cuarta",
         "sceneFadeDuration": 1000,
         "autoLoad": true,
         "showControls": false,
         "mouseZoom": false,
-        "preview": "previewCentro.jpg"
+        "preview": "previewCentro.jpg",
+		"compass": true,
+        "ignoreGPanoXMP": false
         //Se utiliza para saber en el punto exacto donde colocar los hotspot al hacer click en consola informa del punto.
-        //"hotSpotDebug": true
+        //"hotSpotDebug": false
     },
   //En escenas va cada foto donde vamos a saltar
     "scenes": {
@@ -94,7 +94,7 @@ viewer = pannellum.viewer('panorama', {
             "yaw": 174,
             "type": "equirectangular",
           //Aqui se carga la imagen
-            "panorama": "salonActosMedio.jpg",
+            "panorama": "salonActosMedio1.jpg",
           //Array de puntos para pnchar los de info para informacion y scene para saltar a esa escena
             "hotSpots": [
                 {
@@ -118,6 +118,7 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": -9.3,
                     "yaw": -92.9,
                     "type": "scene",
+                  
                     "cssClass": "custom-hotspot-flecha",
                     "sceneId":"tercera"
                 },
@@ -125,18 +126,27 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": -7.4,
                     "yaw": 91.3,
                     "type": "scene",
+                   
                     "cssClass": "custom-hotspot-flecha",
                     "sceneId":"segunda"
+                },
+				{
+                    "pitch": -3.4,
+                    "yaw": -3,
+                    "type": "scene",
+                  
+                    "cssClass": "custom-hotspot-atras",
+                    "sceneId":"cuarta"
                 }
+				
             ]
-        },
-      
+        },   
       "segunda": {
             "hfov": 120,
             "pitch": -3,
             "yaw": 117,
             "type": "equirectangular",
-            "panorama": "salonActosAtras.jpg",
+            "panorama": "salonActosAtras1.jpg",
             "hotSpots": [
                 {
                     "pitch": -16.5,
@@ -151,18 +161,20 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": -24.1,
                     "yaw": 181.9,
                     "type": "scene",
+                  
                     "cssClass": "custom-hotspot-atras",
                     "sceneId":"primera"
                 }
             ]
-        },
-      
+        },  
       "tercera": {
-         "hfov": 120,
+	  
+	  
+			"hfov": 120,
             "pitch": -3,
             "yaw": 117,
             "type": "equirectangular",
-            "panorama": "salonActosMesa.jpg",
+            "panorama": "salonActosMesa1.jpg",
             "hotSpots": [
                 {
                     "pitch": -18.4,
@@ -183,7 +195,288 @@ viewer = pannellum.viewer('panorama', {
                 }
               
               ]
-      }}
+      },
+	  "cuarta": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "111.jpg",
+			"hotSpots": [
+				{
+					"pitch": -18,
+					"yaw": -84,
+					"type": "scene",
+                   
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "primera"
+				},
+				{
+					"pitch": -6,
+					"yaw": 3.8,
+                   
+					"type": "scene",
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "quinta"
+				},
+				{
+					"pitch": -5,
+					"yaw": 127,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "catorce"
+				}
+			]
+	  },
+	   "quinta": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "22.jpg",
+			"hotSpots": [
+				{
+					"pitch": -10,
+					"yaw": 160,
+					"type": "scene",
+                 
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "cuarta"
+				},
+				{
+					"pitch": -3,
+					"yaw": -21,
+                    
+					"type": "scene",
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "sexta"
+				},
+			]
+	  }, 
+	    "sexta": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "33.jpg",
+			"hotSpots": [
+				{
+					"pitch": -7,
+					"yaw": 163,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "quinta"
+				},
+				{
+					"pitch": -15,
+					"yaw": -7.7,
+					"type": "scene",
+                 
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "septima"
+				},
+				{
+					"pitch": -2,
+					"yaw": 68,
+					"type": "scene",
+                    
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "undecimo"
+				}
+			]
+	  },
+	  "septima": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "44.jpg",
+			"hotSpots": [
+				{
+					"pitch": -15,
+					"yaw": -59,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-atras",
+					"sceneId": "sexta"
+				},
+				{
+					"pitch": -7,
+					"yaw": 53,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "decima"
+				},
+					{
+					"pitch": -11,
+					"yaw": -151,
+					"type": "scene",
+                    
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "novena"
+				}
+			]
+	  },  
+	   "octava": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "55.jpg",
+			"hotSpots": [
+				{
+					"pitch": -15,
+					"yaw": -59,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-atras",
+					"sceneId": "septima"
+				}
+			]
+	  },  
+	   "novena": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "66.jpg",
+			"hotSpots": [
+				{
+					"pitch": -2,
+					"yaw": -147,
+					"type": "scene",
+                 
+					"cssClass": "custom-hotspot-atras",
+					"sceneId": "septima"
+				}
+			]
+	  },  
+	   "decima": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "55.jpg",
+			"hotSpots": [
+				{
+					"pitch": -2,
+					"yaw": -147,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-atras",
+					"sceneId": "septima"
+				}
+			]
+	  },  
+	   "undecimo": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "77.jpg",
+			"hotSpots": [
+				{
+					"pitch": -3.4,
+					"yaw": -171,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "duodecima"
+				},
+				{
+					"pitch": -5,
+					"yaw": -105,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "sexta"
+				}
+				
+			]
+	  },  
+	   "duodecima": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "88.jpg",
+			"hotSpots": [
+				{
+					"pitch": 2.5,
+					"yaw": 80,
+					"type": "scene",
+                   
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "trece"
+				},
+				{
+					"pitch": -5,
+					"yaw": -100,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "undecimo"
+				}
+				
+			]
+	  },  
+	    "trece": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "99.jpg",
+			"hotSpots": [
+				{
+					"pitch": -6.9,
+					"yaw": 139,
+					"type": "scene",
+                   
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "catorce"
+				},
+				{
+					"pitch":  -8.9,
+					"yaw": -63.5,
+					"type": "scene",
+                  
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "duodecima"
+				}	
+			]
+	  },	  
+	    "catorce": {
+			"hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "100.jpg",
+			"hotSpots": [
+				{
+					"pitch": -5,
+					"yaw": -60,
+					"type": "scene",
+                    
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "cuarta"
+				},
+				{
+					"pitch": -14,
+					"yaw": 46,
+					"type": "scene",
+                   
+					"cssClass": "custom-hotspot-flecha",
+					"sceneId": "trece"
+				}
+				
+			]
+	  }
+	  
+	  
+	  }
 });
 //click para ver mas informacion
   
@@ -211,31 +504,72 @@ viewer = pannellum.viewer('panorama', {
   }
 
   //botones de zoom y full screen
-	
+  
+	var fullScreen=0;
+	var alturaTransparente = $('#transparente').height();
+	var anchuraTransparente = $('#transparente').width();
 document.getElementById('fullscreen').addEventListener('click', function(e) {
 	viewer.toggleFullscreen();
+	var altura=0;
+	if(fullScreen==0){
+		fullScreen++; 
+		altura = screen.height;
 		
+		
+	}else{
+	
+		fullScreen--;
+		altura = $(window).height()-100;
+    
+	}
+	
+	document.getElementById("transparente").style.top = altura-alturaTransparente-50+"px";
+	
 });
 
   
 </script>
-	<script>
-		var anchuraTransparente = $('#transparente').width();
+<script>
 		var alturaTransparente = $('#transparente').height();
 		
+
+	   
+	
+	
+	
 	$('#movil').draggable({
 		drag: function(evt,ui)
 		{
+		
+			// zoom fix
+			ui.position.top = ui.position.top;
+			ui.position.left = ui.position.left;
+			
+			
 			if (ui.position.left < 0)
 				 ui.position.left = anchuraTransparente - $(this).width(); 
 			if (ui.position.left + $(this).width() > anchuraTransparente)
 				  ui.position.left = 0;
-			if (ui.position.top < -461 )
+			if (ui.position.top < -461 ){
 				ui.position.top = alturaTransparente - $(this).height();
-			if (ui.position.top + $(this).height() > alturaTransparente+461)
+			}
+			if (ui.position.top + $(this).height() > alturaTransparente+461){
 					ui.position.top = 0;
+			}
+				
+
 		}                 
 	});
+		
+		var anchura = $(window).width(); 
+		var altura = $(window).height();
+		
+		document.getElementById("transparente").style.top = altura-alturaTransparente-50+"px";
+	
+
   </script>
+<script>
+	
+</script>
   </body>
-</html
+</html>
