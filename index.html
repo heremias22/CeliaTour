@@ -57,13 +57,13 @@
           </div>
         <div class="ctrl" id="fullscreen">⤢</div>
         
-		<div id="transparente">
+		<!--<div id="transparente">
 			<div id="movil">
 				<div class="punto-minimapa" onclick="alert('has pulsado el punto')">
 					
 				</div>
 			</div>
-		</div>
+		</div>-->
     </div>
       </div>
 	
@@ -505,32 +505,18 @@ viewer = pannellum.viewer('panorama', {
 
   //botones de zoom y full screen
   
-	var fullScreen=0;
-	var alturaTransparente = $('#transparente').height();
-	var anchuraTransparente = $('#transparente').width();
+	
 document.getElementById('fullscreen').addEventListener('click', function(e) {
 	viewer.toggleFullscreen();
-	var altura=0;
-	if(fullScreen==0){
-		fullScreen++; 
-		altura = screen.height;
-		
-		
-	}else{
 	
-		fullScreen--;
-		altura = $(window).height()-100;
-    
-	}
-	
-	document.getElementById("transparente").style.top = altura-alturaTransparente-50+"px";
 	
 });
 
   
 </script>
-<script>
+<!--<script>
 		var alturaTransparente = $('#transparente').height();
+		var anchuraTransparente = $('#transparente').width();
 		
 
 	   
@@ -561,15 +547,8 @@ document.getElementById('fullscreen').addEventListener('click', function(e) {
 		}                 
 	});
 		
-		var anchura = $(window).width(); 
-		var altura = $(window).height();
 		
-		document.getElementById("transparente").style.top = altura-alturaTransparente-50+"px";
-	
 
-  </script>
-<script>
-	
-</script>
+  </script>-->
   </body>
 </html>
