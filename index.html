@@ -1,210 +1,234 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-  <title>Holita</title>
-    <!-- Javascript de pannellum framework -->
-    <script src="pannellum/pannellum.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Celia Tour</title>
+ <!-- Javascript de pannellum framework -->
+    <script src="pannellum/src/js/pannellum.js"></script>
+	<script src="pannellum/src/js/libpannellum.js"></script>
     <!-- Css de pannellum framework -->
-    <link rel="stylesheet" href="pannellum/pannellum.css">
-     <!-- Estilos del panel de informacion -->
-    <link rel="stylesheet" href="panel.css">
-     <!-- Estilos generales -->
-    <link rel="stylesheet" href="estilos.css">
-    
-  </head>
-  <body>
-    
-    <div class="contenedor">
-      <div id="panorama">
-        <div id="controls">
-        <!-- Plantilla que se debe seguir para cada bloque de informacion -->
-          <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-              <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Escudo Almeria</h2>
-              </div>
-              <div class="modal-body">
-                <img src="museo.jpg">
-                <p>Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body</p>
-                <p>Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...</p>
-              </div>
-              <div class="modal-footer">
-                <h3>(compartir esto con X en redes sociales)</h3>
-              </div>
-            </div>
-          </div>
-          <div id="myModal1" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-              <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Objeto valioso</h2>
-              </div>
-              <div class="modal-body">
-                <img src="almeria.png">
-                <p>Sisi simba in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body Some text in the Modal Body</p>
-                <p>Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...Some other text...</p>
-              </div>
-              <div class="modal-footer">
-                <h3>(compartir esto con X en redes sociales)</h3>
-              </div>
-            </div>
-          </div>
-        <div class="ctrl" id="zoom-in">+</div>
-        <div class="ctrl" id="zoom-out">−</div>
-        <div class="ctrl" id="fullscreen">⤢</div>
-           </div>
-    </div>
-      </div>
-<script>
-  //create viewer
+    <link rel="stylesheet" href="pannellum/src/css/pannellum.css">
+    <link rel="stylesheet" href="css/estilos.css">
+	<style>
+	
+	</style>
+</head>
+
+<body>
+	<div class="contenedor">
+		<div id="panorama">
+          <div class="ctrl" id="fullscreen">⤢</div>
+        </div>
+	</div>
+	
+<script type="text/javascript">
 viewer = pannellum.viewer('panorama', {   
     "default": {
-      
-        "firstScene": "primera",
+        "firstScene": "uno",
         "sceneFadeDuration": 1000,
         "autoLoad": true,
         "showControls": false,
-        //Se utiliza para saber en el punto exacto donde colocar los hotspot al hacer click en consola informa del punto.
-        //"hotSpotDebug": true
+        "compass":false,
+        "hotSpotDebug": true
     },
-  //En escenas va cada foto donde vamos a saltar
-    "scenes": {
-        "primera": {
-          //Angulo de vision
-            "hfov": 110,
-          //Altura si sumanos va hacia arriba si restamos hacia abajo
-            "pitch": 70.4,
-          //A los lados, si sumanos va hacia la derecha y si restamos hacia la izquierda
-            "yaw": 174,
-            "type": "equirectangular",
-          //Aqui se carga la imagen
-            "panorama": "salonActosMedio.jpg",
-          //Array de puntos para pnchar los de info para informacion y scene para saltar a esa escena
-            "hotSpots": [
-                {
-                    "pitch": -7.4,
-                    "yaw": 166.5,
-                    "type": "info",
-                    "cssClass": "custom-hotspot-info",
-                    "clickHandlerFunc": panel,
-                    "clickHandlerArgs": "myModal"
-                },
-                {
-                    "pitch": 84.6,
-                    "yaw": 162.9,
-                    "type": "info",
-                    "text": "Informacion Importante",
-                    "cssClass": "custom-hotspot-info",
-                    "clickHandlerFunc": panel,
-                    "clickHandlerArgs": "myModal1"
-                },
-                {
-                    "pitch": -9.3,
-                    "yaw": -92.9,
-                    "type": "scene",
-                    "cssClass": "custom-hotspot-flecha",
-                    "sceneId":"tercera"
-                },
-                {
-                    "pitch": -7.4,
-                    "yaw": 91.3,
-                    "type": "scene",
-                    "cssClass": "custom-hotspot-flecha",
-                    "sceneId":"segunda"
-                }
-            ]
-        },
-      
-      "segunda": {
-            "hfov": 110,
-            "pitch": -3,
-            "yaw": 117,
-            "type": "equirectangular",
-            "panorama": "salonActosAtras.jpg",
-            "hotSpots": [
-                {
-                    "pitch": -16.5,
-                    "yaw": 5.5,
-                    "type": "info",
-                    "text": "Informacion Importante",
-                    "cssClass": "custom-hotspot-info",
-                    "clickHandlerFunc": panel,
-                    "clickHandlerArgs": "myModal"
-                },
-                {
-                    "pitch": -24.1,
-                    "yaw": 181.9,
-                    "type": "scene",
-                    "cssClass": "custom-hotspot-atras",
-                    "sceneId":"primera"
-                }
-            ]
-        },
-      
-      "tercera": {
-         "hfov": 110,
-            "pitch": -3,
-            "yaw": 117,
-            "type": "equirectangular",
-            "panorama": "salonActosMesa.jpg",
-            "hotSpots": [
-                {
-                    "pitch": -18.4,
-                    "yaw": -4.3,
-                    "type": "scene",
-                    "text": "Atras",
-                    "sceneId": "primera",
-                    "cssClass":"custom-hotspot-atras"
-                },
-                {
-                    "pitch": -1.7,
-                    "yaw": 169.3,
-                    "type": "info",
-                    "text": "Informacion Importante",
-                    "cssClass": "custom-hotspot-info",
-                    "clickHandlerFunc": panel,
-                    "clickHandlerArgs": "myModal"
-                }
-              
-              ]
-      }}
-});
-//click para ver mas informacion
-  
-  function panel(hotSpotDiv,args){
-    // Get the modal
-    var modal = document.getElementById(args);
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    // When the user clicks the button, open the modal 
-    modal.style.display = "block";
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      }
-    }
-  }
 
-  //botones de zoom y full screen
-document.getElementById('zoom-in').addEventListener('click', function(e) {
-    viewer.setHfov(viewer.getHfov() - 10);
+    "scenes": {
+        "uno": {
+            "hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "imagenes/11.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -13.1,
+                    "yaw": 2.2,
+                    "type": "scene",
+                    "sceneId": "dos",
+                    "targetPitch": -1.4,
+                    "targetYaw": -20.9
+                    
+                },
+              
+                 {
+                    "pitch": -16.3,
+                    "yaw": 125.5,
+                    "type": "scene",
+                    "sceneId": "siete"
+                }
+            ]
+        },
+
+        "dos": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/22.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -15.8,
+                    "yaw": 158.6,
+                    "type": "scene", 
+                    "sceneId": "uno",
+                    "targetYaw": 59.6,
+                    "targetPitch": -6.3
+                },
+              
+                {
+                    "pitch": -10.4,
+                    "yaw": -20.5,
+                    "type": "scene", 
+                    "sceneId": "tres",
+                    "targetYaw": 68.3,
+                    "targetPitch": -2.2
+                }
+            ]
+        },
+      
+        "tres": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/33.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10.8,
+                    "yaw": 158.6,
+                    "type": "scene", 
+                    "sceneId": "dos",
+                    "targetYaw": 159,
+                    "targetPitch": -5.5
+                },
+              
+                 {
+                    "pitch": -5.8,
+                    "yaw": 67.9,
+                    "type": "scene", 
+                    "sceneId": "cuatro",
+                    "targetYaw": -161.4,
+                    "targetPitch": -5.2
+                }
+            ]
+        },
+      
+          "cuatro": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/44.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -11,
+                    "yaw": -105.6,
+                    "type": "scene", 
+                    "sceneId": "tres",
+                    "targetYaw": 116,
+                    "targetPitch": -8.04
+                },
+              
+                 {
+                    "pitch": -15.4,
+                    "yaw": -169.3,
+                    "type": "scene", 
+                    "sceneId": "cinco",
+                    "targetYaw": 78.2,
+                    "targetPitch": -1.84
+                }
+            ]
+        },
+      
+        "cinco": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/55.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -16.6,
+                    "yaw": -97.3,
+                    "type": "scene", 
+                    "sceneId": "cuatro",
+                    "targetYaw": -114,
+                    "targetPitch": -7.4
+                },
+              
+                 {
+                    "pitch": -5,
+                    "yaw": 79.4,
+                    "type": "scene", 
+                    "sceneId": "seis",
+                    "targetYaw": 161.8,
+                    "targetPitch": -5.7
+                }
+            ]
+        },
+      
+          "seis": {
+            "hfov": 120,
+            "yaw": 0,
+            "type": "equirectangular",
+            "panorama": "imagenes/66.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10.9,
+                    "yaw": -64.8,
+                    "type": "scene", 
+                    "sceneId": "cinco",
+                    "targetYaw": -99.5,
+                    "targetPitch": -5.4
+                },
+              
+                 {
+                    "pitch": -20.8,
+                    "yaw": 135.5,
+                    "type": "scene", 
+                    "sceneId": "siete"
+                },
+              
+                {
+                    "pitch": -11.8,
+                    "yaw": 178.5,
+                    "type": "scene", 
+                    "sceneId": "uno",
+                    "targetYaw": 0.5,
+                    "targetPitch": -2
+                }
+            ]
+        },
+      
+         "siete": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/77.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -14.6,
+                    "yaw": 49.9,
+                    "type": "scene", 
+                    "sceneId": "seis",
+                    "targetYaw": -64.5,
+                    "targetPitch": -3.4
+                },
+              
+                 {
+                    "pitch": -15.74,
+                    "yaw": -57.9,
+                    "type": "scene", 
+                    "sceneId": "uno",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        }
+    }
 });
-document.getElementById('zoom-out').addEventListener('click', function(e) {
-    viewer.setHfov(viewer.getHfov() + 10);
-});
-document.getElementById('fullscreen').addEventListener('click', function(e) {
+  //boton fullscreen.
+  document.getElementById('fullscreen').addEventListener('click', function(e) {
     viewer.toggleFullscreen();
 });
-  
 </script>
-  </body>
+</body>
+
 </html>
