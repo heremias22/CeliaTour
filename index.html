@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<script type="text/javascript">
+  		function puntos(identificador){
+  			document.getElementsByClassName("punto_seleccionado")[0].className="punto-minimapa";
+  			document.getElementById(identificador).className="punto_seleccionado";
+  		}
+  	</script>
     <meta charset="utf-8">
   <title>Celia Tour</title>
     <!-- Javascript de pannellum framework -->
@@ -59,9 +65,14 @@
         
 		<div id="transparente">
 			<div id="movil">
-				<div class="punto-minimapa" onclick="alert('has pulsado el punto')">
-					
-				</div>
+				<div id="p1f1" class="punto_seleccionado" onclick="puntos('p1f1'); viewer.loadScene('cuarta')"></div>
+				<div id="p1f2" class="punto-minimapa" onclick="puntos('p1f2'); viewer.loadScene('quinta')"></div>
+				<div id="p1f3" class="punto-minimapa" onclick="puntos('p1f3'); viewer.loadScene('sexta')"></div>
+				<div id="p1f4" class="punto-minimapa" onclick="puntos('p1f4'); viewer.loadScene('undecimo')"></div>
+				<div id="p1f5" class="punto-minimapa" onclick="puntos('p1f5'); viewer.loadScene('duodecima')"></div>
+				<div id="p1f6" class="punto-minimapa" onclick="puntos('p1f6'); viewer.loadScene('trece')"></div>
+				<div id="p1f7" class="punto-minimapa" onclick="puntos('p1f7'); viewer.loadScene('catorce')"></div>
+
 			</div>
 		</div>
     </div>
