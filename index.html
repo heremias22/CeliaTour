@@ -57,13 +57,13 @@
           </div>
         <div class="ctrl" id="fullscreen">⤢</div>
         
-		<!--<div id="transparente">
+		<div id="transparente">
 			<div id="movil">
 				<div class="punto-minimapa" onclick="alert('has pulsado el punto')">
 					
 				</div>
 			</div>
-		</div>-->
+		</div>
     </div>
       </div>
 	
@@ -514,7 +514,7 @@ document.getElementById('fullscreen').addEventListener('click', function(e) {
 
   
 </script>
-<!--<script>
+<script>
 		var alturaTransparente = $('#transparente').height();
 		var anchuraTransparente = $('#transparente').width();
 		
@@ -526,29 +526,23 @@ document.getElementById('fullscreen').addEventListener('click', function(e) {
 	$('#movil').draggable({
 		drag: function(evt,ui)
 		{
-		
-			// zoom fix
-			ui.position.top = ui.position.top;
-			ui.position.left = ui.position.left;
-			
-			
-			if (ui.position.left < 0)
+			//anchura transparente: 1089px
+			//altura trasparente: 769px
+
+			if (ui.position.left < -589)
 				 ui.position.left = anchuraTransparente - $(this).width(); 
-			if (ui.position.left + $(this).width() > anchuraTransparente)
+			if (ui.position.left + $(this).width()> anchuraTransparente+589)
 				  ui.position.left = 0;
-			if (ui.position.top < -461 ){
+			if (ui.position.top < -269 ){
 				ui.position.top = alturaTransparente - $(this).height();
 			}
-			if (ui.position.top + $(this).height() > alturaTransparente+461){
+			if (ui.position.top + $(this).height() > alturaTransparente+269){
 					ui.position.top = 0;
 			}
 				
 
 		}                 
 	});
-		
-		
-
-  </script>-->
+  </script>
   </body>
 </html>
