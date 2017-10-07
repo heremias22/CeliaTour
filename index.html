@@ -9,6 +9,30 @@
     <!-- Css de pannellum framework -->
     <link rel="stylesheet" href="pannellum/src/css/pannellum.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <!--librerias JQuery & JQuery ui-->
+    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.16/jquery-ui.js"></script>
+    <script type="text/javascript">
+        function puntos(identificador){
+            document.getElementsByClassName("punto_seleccionado")[0].className="punto-minimapa";
+            document.getElementById(identificador).className="punto_seleccionado";
+            var pixelesAlt=document.getElementById(identificador).style.left;
+            var pixeles2Alt="";
+            var pixelesAnc=document.getElementById(identificador).style.top;
+            var pixeles2Anc=""
+            for(i=0 ; i < pixelesAnc.length-2 ; i++){
+                pixeles2Anc+=pixelesAnc.charAt(i);
+            }
+            for(i=0 ; i < pixelesAlt.length-2 ; i++){
+                pixeles2Alt+=pixelesAlt.charAt(i);
+            }
+            pixeles2Alt=-parseInt(pixeles2Alt)+150;
+            pixeles2Anc=-parseInt(pixeles2Anc)+150;
+            document.getElementById("movil").style.left=pixeles2Alt+"px";
+            document.getElementById("movil").style.top=pixeles2Anc+"px";
+        }
+    </script>
+    
 	<style>
 	
 	</style>
@@ -17,19 +41,41 @@
 <body>
 	<div class="contenedor">
 		<div id="panorama">
-          <div class="ctrl" id="fullscreen">⤢</div>
+          
+         <div id="myModal" class="modal">
+              <button class="plantas" onclick="viewer.loadScene('siete')">Tercera planta</button>
+              <button class="plantas" onclick="viewer.loadScene('seis')">Segunda planta</button>
+              <button class="plantas" onclick="viewer.loadScene('cinco')">Primera planta</button>
+              <button class="plantas" onclick="viewer.loadScene('cuatro')">Planta baja</button>
+          </div>
+          
+          
+          <div class="ctrl" id="fullscreen"></div>
+          <div id="transparente">
+            <div id="movil" style="top: 0px;left:0px;">
+                <div id="p1f1" class="punto_seleccionado" onclick="puntos('p1f1'); viewer.loadScene('uno')" style=" top: 415px;left: 442px;"></div>
+                <div id="p1f2" class="punto-minimapa" onclick="puntos('p1f2'); viewer.loadScene('dos')" style="top: 415px;left: 315px;"></div>
+                <div id="p1f3" class="punto-minimapa" onclick="puntos('p1f3'); viewer.loadScene('tres')" style="top: 415px;left: 170px;"></div>
+                <div id="p1f4" class="punto-minimapa" onclick="puntos('p1f4'); viewer.loadScene('cuatro')" style="top: 195px;left: 170px;"></div>
+                <div id="p1f5" class="punto-minimapa" onclick="puntos('p1f5'); viewer.loadScene('cinco')" style="top: 222px;left: 250px;"></div>
+                <div id="p1f6" class="punto-minimapa" onclick="puntos('p1f6'); viewer.loadScene('seis')" style="top: 300px;left: 446px;"></div>
+                <div id="p1f7" class="punto-minimapa" onclick="puntos('p1f7'); viewer.loadScene('siete')" style="top: 350px;left: 486px;"></div>
+
+            </div>
+        </div>
         </div>
 	</div>
 	
 <script type="text/javascript">
 viewer = pannellum.viewer('panorama', {   
     "default": {
-        "firstScene": "uno",
+        "firstScene": "siete",
         "sceneFadeDuration": 1000,
         "autoLoad": true,
         "showControls": false,
         "compass":false,
-        "hotSpotDebug": true
+        
+        //"hotSpotDebug": true
     },
 
     "scenes": {
@@ -46,6 +92,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene",
                     "sceneId": "dos",
                     "targetPitch": -1.4,
+                    "cssClass": "custom-hotspot-salto",
                     "targetYaw": -20.9
                     
                 },
@@ -54,8 +101,22 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": -16.3,
                     "yaw": 125.5,
                     "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
                     "sceneId": "siete"
+                },
+              
+                
+                 {
+                    "pitch": 20.4,
+                    "yaw": 20.07,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "text": "Cosa",
+                    "clickHandlerFunc": cosa,
+                    "clickHandlerArgs":"es esto real laif?"
                 }
+              
+                
             ]
         },
 
@@ -71,6 +132,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "uno",
                     "targetYaw": 59.6,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -6.3
                 },
               
@@ -80,6 +142,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "tres",
                     "targetYaw": 68.3,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -2.2
                 }
             ]
@@ -97,6 +160,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "dos",
                     "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -5.5
                 },
               
@@ -106,6 +170,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "cuatro",
                     "targetYaw": -161.4,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -5.2
                 }
             ]
@@ -123,6 +188,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "tres",
                     "targetYaw": 116,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -8.04
                 },
               
@@ -132,6 +198,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "cinco",
                     "targetYaw": 78.2,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -1.84
                 }
             ]
@@ -149,6 +216,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "cuatro",
                     "targetYaw": -114,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -7.4
                 },
               
@@ -158,6 +226,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "seis",
                     "targetYaw": 161.8,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -5.7
                 }
             ]
@@ -175,13 +244,15 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "cinco",
                     "targetYaw": -99.5,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -5.4
                 },
               
                  {
                     "pitch": -20.8,
                     "yaw": 135.5,
-                    "type": "scene", 
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
                     "sceneId": "siete"
                 },
               
@@ -191,6 +262,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "uno",
                     "targetYaw": 0.5,
+                    "cssClass": "custom-hotspot-salto",
                     "targetPitch": -2
                 }
             ]
@@ -209,7 +281,8 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "seis",
                     "targetYaw": -64.5,
-                    "targetPitch": -3.4
+                    "targetPitch": -3.4,
+                    "cssClass": "custom-hotspot-salto",
                 },
               
                  {
@@ -218,17 +291,82 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene", 
                     "sceneId": "uno",
                     "targetYaw": -23,
-                    "targetPitch": 2
+                    "targetPitch": 2,
+                    "cssClass": "custom-hotspot-salto",
+                },
+              
+                 {
+                    "pitch": -15.7,
+                    "yaw": -174.07,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "clickHandlerFunc": escaleras
                 }
             ]
         }
     }
 });
+  function cosa(hotspotDiv,args){
+     
+      alert(args);
+  }
+  
+  function escaleras(){
+    var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+    /*var botones = document.getElementsByClassName("plantas");
+    var botonesLargo = botones.length;
+    for (var i = 0; i < botonesLargo; i++) {
+      botones[i].onclick = function(e) {
+          
+          modal.style.display = "none";
+      };
+}*/
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+   
+    } 
+  }
+  
+  
   //boton fullscreen.
   document.getElementById('fullscreen').addEventListener('click', function(e) {
     viewer.toggleFullscreen();
 });
 </script>
+<script>
+        var alturaTransparente = $('#transparente').height();
+        var anchuraTransparente = $('#transparente').width();
+        
+
+       
+    
+    
+    
+    $('#movil').draggable({
+        drag: function(evt,ui)
+        {
+            //anchura transparente: 1089px
+            //altura trasparente: 769px
+
+            if (ui.position.left < -589)
+                 ui.position.left = anchuraTransparente - $(this).width(); 
+            if (ui.position.left + $(this).width()> anchuraTransparente+589)
+                  ui.position.left = 0;
+            if (ui.position.top < -269 ){
+                ui.position.top = alturaTransparente - $(this).height();
+            }
+            if (ui.position.top + $(this).height() > alturaTransparente+269){
+                    ui.position.top = 0;
+            }
+                
+
+        }                 
+    });
+  </script>
 </body>
 
 </html>

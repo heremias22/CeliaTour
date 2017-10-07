@@ -1,3 +1,5 @@
+/* ESTILOS GENERALES */
+
      html {
         height: 100%;
       }
@@ -25,20 +27,162 @@
     .ctrl {
         position: absolute;
         z-index: 2;
-        right: 0px;
+        right: 5%;
         bottom: 0px;
-        padding: 8px 5px;
-        width: 30px;
+        height: 40px;
+        width: 40px;
         text-align: center;
-        background: rgba(10, 10, 10, 0.7);
-        display: inline-block;
+        background-image: url("svg/fullscreenBlanco.svg");
         cursor: pointer;
-        color: white;
         margin-bottom: 20px;
         margin-right: 5px; 
-        border-radius: 50%;
+        background-size:cover;
+        background-position: center;
+        transition: width 0.5s, height 0.5s;
     }
     .ctrl:hover {
-        background: rgba(200, 200, 200, 1);
-        color: black;
+        height: 60px;
+        width: 60px;
     }
+
+/* ICONOS PUNTOS SENSIBLES */
+
+ .custom-hotspot-escaleras {
+        height: 80px;
+        width: 80px;
+        background-image: url("svg/elevator.svg");
+        background-size:cover;
+        background-position: center;
+        transition: width 0.5s, height 0.5s;
+    }
+
+.custom-hotspot-info,
+.custom-hotspot-salto,
+.custom-hotspot-atras{
+        height: 60px;
+        width: 60px;
+        background-size:cover;
+        background-position: center;
+        transition: width 0.5s, height 0.5s;
+    }
+
+.custom-hotspot-info {background-image: url("svg/eyeBlanco.svg");}
+.custom-hotspot-salto {background-image: url("svg/saltoBlanco.svg");}
+.custom-hotspot-atras {background-image: url("svg/puertaBlanco.svg");}
+
+
+.custom-hotspot-escaleras:hover {
+        height: 90px;
+        width: 90px;
+}
+
+.custom-hotspot-info:hover,
+.custom-hotspot-salto:hover,
+.custom-hotspot-atras:hover{
+        height: 80px;
+        width: 80px;
+}
+
+/* ESCALERAS */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); 
+}
+
+
+
+.plantas {
+    display: block;
+    margin: auto;
+    font-size: 1.2em;
+    padding: 22px 16px;
+    color:white;
+    width: 30%;
+    border: none;
+    background-color: #3b3b3b;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 2;
+}
+
+.plantas::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #ffffff;
+    transition: width .3s;
+}
+
+.plantas:hover::after {
+    width: 100%;
+    transition: width .3s;
+    
+}
+
+.plantas:hover {
+   background-color: #535353;
+}
+
+
+/* MAPA FRAN */
+#transparente {
+        z-index: 2;
+    /*background: rgba(0, 0, 0, 0.5);*/
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    -webkit-transition: 0.5s;
+    position: absolute;
+    /*top: 600px;*/
+        left: 0px;
+        bottom: 0px;
+        padding: 8px 5px;
+        margin-bottom: 10px;
+        margin-left: 5px; 
+    
+  }
+  #movil {
+    position: relative;
+    background-image: url("mapanegro.jpeg"); 
+    /*background-repeat: no-repeat;*/
+        background-size: 100% 100%;
+    height: 569px; 
+    width: 889px; 
+    
+        opacity: 0.7;
+  }
+  .punto-minimapa{
+     position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: white;
+    }
+  .punto_seleccionado{
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: cyan;
+    }
+
+
+
+
+
+
+
