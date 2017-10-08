@@ -1250,6 +1250,7 @@ function animateInit() {
     animate();
 }
 
+
 /**
  * Animates view, using requestAnimationFrame to trigger rendering.
  * @private
@@ -2511,6 +2512,7 @@ this.addHotSpot = function(hs, sceneId) {
  * @param {string} hotSpotId - The ID of the hot spot
  * @returns {boolean} True if deletion is successful, else false
  */
+
 this.removeHotSpot = function(hotSpotId) {
     if (!config.hotSpots)
         return false;
