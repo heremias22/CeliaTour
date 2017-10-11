@@ -138,49 +138,45 @@
 }
 
 
-/* MAPA FRAN */
-#transparente {
-        z-index: 2;
-    /*background: rgba(0, 0, 0, 0.5);*/
+/* antiguo mapa */
+/*#transparente {
+    z-index: 2;
     width: 300px;
     height: 300px;
     overflow: hidden;
     -webkit-transition: 0.5s;
     position: absolute;
-    /*top: 600px;*/
-        left: 0px;
-        bottom: 0px;
-        padding: 8px 5px;
-        margin-bottom: 10px;
-        margin-left: 5px; 
-    
-  }
-  #movil {
+    left: 0px;
+    bottom: 0px;
+    padding: 8px 5px;
+    margin-bottom: 10px;
+    margin-left: 5px; 
+}
+#movil {
     z-index: 7;
     position: relative;
     background-image: url("mapanegro.png"); 
-    /*background-repeat: no-repeat;*/
     background-size: 100% 100%;
     height: 569px; 
     width: 889px; 
     opacity: 0.7;
     top: -200px;
     left: -366px;
-  }
-  .punto-minimapa{
-     position: absolute;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: white;
-    }
-  .punto_seleccionado{
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background: cyan;
-    }
+}
+.punto-minimapa{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+}
+.punto_seleccionado{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: cyan;
+}*/
 
 
 
