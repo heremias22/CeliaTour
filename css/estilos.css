@@ -156,8 +156,9 @@
     
   }
   #movil {
+    z-index: 7;
     position: relative;
-    background-image: url("mapanegro.jpeg"); 
+    background-image: url("mapanegro.png"); 
     /*background-repeat: no-repeat;*/
     background-size: 100% 100%;
     height: 569px; 

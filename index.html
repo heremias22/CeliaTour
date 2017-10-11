@@ -30,8 +30,9 @@
           </div>
           
           
-          <div class="ctrl" id="fullscreen"></div>
-          <div id="transparente">
+         /* <div class="ctrl" id="fullscreen"></div>
+          <!--Mapa antiguo-->
+          <!--<div id="transparente">
             <div id="movil">
                 <div id="p1f1" class="punto-minimapa" onclick="puntos('p1f1'); viewer.loadScene('uno')" style=" top: 415px;left: 442px;"></div>
                 <div id="p1f2" class="punto-minimapa" onclick="puntos('p1f2'); viewer.loadScene('dos')" style="top: 415px;left: 315px;"></div>
@@ -42,8 +43,9 @@
                 <div id="p1f7" class="punto_seleccionado" onclick="puntos('p1f7'); viewer.loadScene('siete')" style="top: 350px;left: 486px;"></div>
 
             </div>
+        </div>-->
         </div>
-        </div>
+
 	</div>
 	
 <script type="text/javascript">
@@ -74,9 +76,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "dos",
                     "targetPitch": -1.4,
                     "cssClass": "custom-hotspot-salto",
-                    "targetYaw": -20.9,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f2"
+                    "targetYaw": -20.9
                 },
               
                  {
@@ -84,9 +84,7 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": 125.5,
                     "type": "scene",
                     "cssClass": "custom-hotspot-salto",
-                    "sceneId": "siete",
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f7"
+                    "sceneId": "siete"
                 },
               
                 
@@ -117,9 +115,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "uno",
                     "targetYaw": 59.6,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -6.3,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f1"
+                    "targetPitch": -6.3
                 },
               
                 {
@@ -129,9 +125,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "tres",
                     "targetYaw": 68.3,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -2.2,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f3"
+                    "targetPitch": -2.2
                 }
             ]
         },
@@ -149,9 +143,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "dos",
                     "targetYaw": 159,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -5.5,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f2"
+                    "targetPitch": -5.5
                 },
               
                  {
@@ -161,9 +153,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "cuatro",
                     "targetYaw": -161.4,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -5.2,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f4"
+                    "targetPitch": -5.2
                 }
             ]
         },
@@ -181,9 +171,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "tres",
                     "targetYaw": 116,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -8.04,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f3"
+                    "targetPitch": -8.04
                 },
               
                  {
@@ -193,9 +181,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "cinco",
                     "targetYaw": 78.2,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -1.84,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f5"
+                    "targetPitch": -1.84
                 }
             ]
         },
@@ -213,9 +199,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "cuatro",
                     "targetYaw": -114,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -7.4,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f4"
+                    "targetPitch": -7.4
                 },
               
                  {
@@ -225,9 +209,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "seis",
                     "targetYaw": 161.8,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -5.7,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f6"
+                    "targetPitch": -5.7
                 }
             ]
         },
@@ -245,9 +227,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "cinco",
                     "targetYaw": -99.5,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -5.4,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f5"
+                    "targetPitch": -5.4
                 },
               
                  {
@@ -255,9 +235,7 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": 135.5,
                     "type": "scene",
                     "cssClass": "custom-hotspot-salto",
-                    "sceneId": "siete",
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f7"
+                    "sceneId": "siete"
                 },
               
                 {
@@ -267,9 +245,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "uno",
                     "targetYaw": 0.5,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -2,
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f1"
+                    "targetPitch": -2
                 }
             ]
         },
@@ -288,9 +264,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "seis",
                     "targetYaw": -64.5,
                     "targetPitch": -3.4,
-                    "cssClass": "custom-hotspot-salto",
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f6"
+                    "cssClass": "custom-hotspot-salto"
                 },
               
                  {
@@ -300,9 +274,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "uno",
                     "targetYaw": -23,
                     "targetPitch": 2,
-                    "cssClass": "custom-hotspot-salto",
-                    "clickHandlerFunc": puntosHS,
-                   	"clickHandlerArgs":"p1f1"
+                    "cssClass": "custom-hotspot-salto"
                 },
               
                  {
@@ -316,7 +288,8 @@ viewer = pannellum.viewer('panorama', {
         }
     }
 });
-function puntosHS(hotspotDiv,identificador){
+// movimiento puntos mapa antiguo
+/*function puntosHS(hotspotDiv,identificador){
             document.getElementsByClassName("punto_seleccionado")[0].className="punto-minimapa";
             document.getElementById(identificador).className="punto_seleccionado";
             var pixelesAlt=document.getElementById(identificador).style.left;
@@ -333,7 +306,7 @@ function puntosHS(hotspotDiv,identificador){
             pixeles2Anc=-parseInt(pixeles2Anc)+150;
             document.getElementById("movil").style.left=pixeles2Alt+"px";
             document.getElementById("movil").style.top=pixeles2Anc+"px";
-        }
+        }*/
   function cosa(hotspotDiv,args){
      
       alert(args);
@@ -367,7 +340,8 @@ function puntosHS(hotspotDiv,identificador){
     viewer.toggleFullscreen();
 });
 </script>
-<script>
+<!-- movimiento mapa antiguo -->
+<!-- <script>
         var alturaTransparente = $('#transparente').height();
         var anchuraTransparente = $('#transparente').width();
 
@@ -411,7 +385,7 @@ function puntosHS(hotspotDiv,identificador){
             document.getElementById("movil").style.top=pixeles2Anc+"px";
             alert(pixeles2Anc+" "+pixeles2Alt);
         }
-  </script>
+</script> -->
 </body>
 
 </html>
