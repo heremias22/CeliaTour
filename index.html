@@ -31,9 +31,31 @@
           
           
          <div class="ctrl" id="fullscreen"></div>
-         <div id="mapa">
-            <div id="imagen_mapa"></div>
-            <div id="boton_mapa"></div>
+         <div id="mapa" class="cerrado">  
+           
+         </div>
+         <div id="boton_mapa" class="cerrado_boton" onclick="mapa(document.getElementById('mapa')); mapa(document.getElementById('boton_mapa'))">
+              <p>mapa</p>
+              <script type="text/javascript">
+                function mapa(opcion){
+                    switch (opcion.className){
+                        case "cerrado":
+                            opcion.className="abierto";
+                            break;
+                        case "abierto":
+                            opcion.className="cerrado";
+                            break;
+                        case "cerrado_boton":
+                            opcion.className="abierto_boton";
+                            break;
+                        case "abierto_boton":
+                            opcion.className="cerrado_boton"
+                            break;
+                    }
+                    
+                }
+            </script>
+
          </div>
           <!--Mapa antiguo-->
           <!--<div id="transparente">

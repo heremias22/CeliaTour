@@ -177,6 +177,42 @@
     border-radius: 50%;
     background: cyan;
 }*/
+/*nuevo mapa*/
+
+#mapa{
+    z-index: 2;
+    position: absolute;
+    background-image: url("mapanegro.png");
+    background-size: 100% 100%;
+    /*background-color: black;   */
+    top: 57%;
+    height: 42%;
+    width: 45%; 
+}
+#boton_mapa{
+    z-index: 100;
+    position: absolute;
+    background-color: green;
+    height: 10%;
+    width: 5%;
+    top: 88%;
+}
+.cerrado{
+    transition: left .5s;
+    left: -46%;
+}
+.abierto{
+    transition: left .5s;
+    left: 0.5%;
+}
+.cerrado_boton{
+    transition: left .5s;
+    left: 0.5%;
+}
+.abierto_boton{
+    transition: left .5s;
+    left: 45%;
+}
 
 
 
