@@ -23,10 +23,10 @@
 		<div id="panorama">
           
          <div id="myModal" class="modal">
-              <button class="plantas" onclick="viewer.loadScene('siete')">Tercera planta</button>
-              <button class="plantas" onclick="viewer.loadScene('seis')">Segunda planta</button>
-              <button class="plantas" onclick="viewer.loadScene('cinco')">Primera planta</button>
-              <button class="plantas" onclick="viewer.loadScene('cuatro')">Planta baja</button>
+              <button class="plantas" onclick="viewer.loadScene('p3p1')">Segunda planta</button>
+              <button class="plantas" onclick="viewer.loadScene('p2p1')">Primera planta</button>
+              <button class="plantas" onclick="viewer.loadScene('p1p1')">Planta Baja</button>
+              <button class="plantas" onclick="viewer.loadScene('p0p0')">Sotano</button>
           </div>
           
           
@@ -60,7 +60,7 @@
           <!--Mapa antiguo-->
           <!--<div id="transparente">
             <div id="movil">
-                <div id="p1f1" class="punto-minimapa" onclick="puntos('p1f1'); viewer.loadScene('uno')" style=" top: 415px;left: 442px;"></div>
+                <div id="p1f1" class="punto-minimapa" onclick="puntos('p1f1'); viewer.loadScene('p3p1')" style=" top: 415px;left: 442px;"></div>
                 <div id="p1f2" class="punto-minimapa" onclick="puntos('p1f2'); viewer.loadScene('dos')" style="top: 415px;left: 315px;"></div>
                 <div id="p1f3" class="punto-minimapa" onclick="puntos('p1f3'); viewer.loadScene('tres')" style="top: 415px;left: 170px;"></div>
                 <div id="p1f4" class="punto-minimapa" onclick="puntos('p1f4'); viewer.loadScene('cuatro')" style="top: 195px;left: 170px;"></div>
@@ -78,28 +78,31 @@
 
 viewer = pannellum.viewer('panorama', {   
     "default": {
-        "firstScene": "siete",
+        "firstScene": "p1p1",
         "sceneFadeDuration": 1000,
         "autoLoad": true,
         "showControls": false,
         "compass":false,
         
-        //"hotSpotDebug": true
+        "hotSpotDebug": true
     },
 
     "scenes": {
-        "uno": {
+        
+        //// PLANTA PRIMERA
+        
+        "p2p2": {
             "hfov": 120,
             "pitch": -3,
             "yaw": 117,
             "type": "equirectangular",
-            "panorama": "imagenes/11.jpg",
+            "panorama": "imagenes/primeraplanta/p2p2.jpg",
             "hotSpots": [
                 {
                     "pitch": -13.1,
                     "yaw": 2.2,
                     "type": "scene",
-                    "sceneId": "dos",
+                    "sceneId": "p2p3",
                     "targetPitch": -1.4,
                     "cssClass": "custom-hotspot-salto",
                     "targetYaw": -20.9
@@ -110,35 +113,32 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": 125.5,
                     "type": "scene",
                     "cssClass": "custom-hotspot-salto",
-                    "sceneId": "siete"
+                    "sceneId": "p2p1"
                 },
               
-                
                  {
-                    "pitch": 20.4,
-                    "yaw": 20.07,
-                    "type": "info",
-                    "cssClass": "custom-hotspot-escaleras",
-                    "text": "Cosa",
-                    "clickHandlerFunc": cosa,
-                    "clickHandlerArgs":"es esto real laif?"
+                    "pitch": -8.003,
+                    "yaw": -180.321,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p2p10"
                 }
               
                 
             ]
         },
 
-        "dos": {
+        "p2p3": {
             "hfov": 120,
             "yaw": 5,
             "type": "equirectangular",
-            "panorama": "imagenes/22.jpg",
+            "panorama": "imagenes/primeraplanta/p2p3.jpg",
             "hotSpots": [
                 {
                     "pitch": -15.8,
                     "yaw": 158.6,
                     "type": "scene", 
-                    "sceneId": "uno",
+                    "sceneId": "p2p2",
                     "targetYaw": 59.6,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -6.3
@@ -148,7 +148,7 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": -10.4,
                     "yaw": -20.5,
                     "type": "scene", 
-                    "sceneId": "tres",
+                    "sceneId": "p2p4",
                     "targetYaw": 68.3,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -2.2
@@ -156,17 +156,17 @@ viewer = pannellum.viewer('panorama', {
             ]
         },
       
-        "tres": {
+        "p2p4": {
             "hfov": 120,
             "yaw": 5,
             "type": "equirectangular",
-            "panorama": "imagenes/33.jpg",
+            "panorama": "imagenes/primeraplanta/p2p4.jpg",
             "hotSpots": [
                 {
                     "pitch": -10.8,
                     "yaw": 158.6,
                     "type": "scene", 
-                    "sceneId": "dos",
+                    "sceneId": "p2p3",
                     "targetYaw": 159,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -5.5
@@ -176,25 +176,26 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": -5.8,
                     "yaw": 67.9,
                     "type": "scene", 
-                    "sceneId": "cuatro",
+                    "sceneId": "p2p6",
                     "targetYaw": -161.4,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -5.2
                 }
             ]
         },
+        
       
-          "cuatro": {
+          "p2p6": {
             "hfov": 120,
             "yaw": 5,
             "type": "equirectangular",
-            "panorama": "imagenes/44.jpg",
+            "panorama": "imagenes/primeraplanta/p2p6.jpg",
             "hotSpots": [
                 {
                     "pitch": -11,
                     "yaw": -105.6,
                     "type": "scene", 
-                    "sceneId": "tres",
+                    "sceneId": "p2p4",
                     "targetYaw": 116,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -8.04
@@ -204,7 +205,7 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": -15.4,
                     "yaw": -169.3,
                     "type": "scene", 
-                    "sceneId": "cinco",
+                    "sceneId": "p2p7",
                     "targetYaw": 78.2,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -1.84
@@ -212,17 +213,17 @@ viewer = pannellum.viewer('panorama', {
             ]
         },
       
-        "cinco": {
+        "p2p7": {
             "hfov": 120,
             "yaw": 5,
             "type": "equirectangular",
-            "panorama": "imagenes/55.jpg",
+            "panorama": "imagenes/primeraplanta/p2p7.jpg",
             "hotSpots": [
                 {
                     "pitch": -16.6,
                     "yaw": -97.3,
                     "type": "scene", 
-                    "sceneId": "cuatro",
+                    "sceneId": "p2p6",
                     "targetYaw": -114,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -7.4
@@ -232,7 +233,7 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": -5,
                     "yaw": 79.4,
                     "type": "scene", 
-                    "sceneId": "seis",
+                    "sceneId": "p2p8",
                     "targetYaw": 161.8,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -5.7
@@ -240,78 +241,549 @@ viewer = pannellum.viewer('panorama', {
             ]
         },
       
-          "seis": {
+          "p2p8": {
             "hfov": 120,
             "yaw": 0,
             "type": "equirectangular",
-            "panorama": "imagenes/66.jpg",
+            "panorama": "imagenes/primeraplanta/p2p8.jpg",
             "hotSpots": [
                 {
                     "pitch": -10.9,
                     "yaw": -64.8,
                     "type": "scene", 
-                    "sceneId": "cinco",
+                    "sceneId": "p2p7",
                     "targetYaw": -99.5,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -5.4
                 },
               
                  {
-                    "pitch": -20.8,
-                    "yaw": 135.5,
+                    "pitch": -24.8,
+                    "yaw": 158.04,
                     "type": "scene",
                     "cssClass": "custom-hotspot-salto",
-                    "sceneId": "siete"
-                },
-              
-                {
-                    "pitch": -11.8,
-                    "yaw": 178.5,
-                    "type": "scene", 
-                    "sceneId": "uno",
-                    "targetYaw": 0.5,
-                    "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -2
+                    "sceneId": "p2p1"
                 }
             ]
         },
       
-         "siete": {
+         "p2p1": {
             "hfov": 120,
             "yaw": -0.3,
             "pitch": -7.5,
             "type": "equirectangular",
-            "panorama": "imagenes/77.jpg",
+            "panorama": "imagenes/primeraplanta/p2p1.jpg",
             "hotSpots": [
                 {
-                    "pitch": -14.6,
-                    "yaw": 49.9,
+                    "pitch": -19.88,
+                    "yaw": -105.51,
                     "type": "scene", 
-                    "sceneId": "seis",
+                    "sceneId": "p2p8",
                     "targetYaw": -64.5,
                     "targetPitch": -3.4,
                     "cssClass": "custom-hotspot-salto"
                 },
               
                  {
-                    "pitch": -15.74,
-                    "yaw": -57.9,
+                    "pitch": -19.97,
+                    "yaw": 97.25,
                     "type": "scene", 
-                    "sceneId": "uno",
+                    "sceneId": "p2p2",
                     "targetYaw": -23,
                     "targetPitch": 2,
                     "cssClass": "custom-hotspot-salto"
                 },
               
                  {
-                    "pitch": -15.7,
-                    "yaw": -174.07,
+                    "pitch": -1.27,
+                    "yaw": 2.25,
                     "type": "info",
                     "cssClass": "custom-hotspot-escaleras",
                     "clickHandlerFunc": escaleras
                 }
             ]
-        }
+        },
+        "p2p10": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p10.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -18.81,
+                    "yaw": -179.63,
+                    "type": "scene", 
+                    "sceneId": "p2p2",
+                    "cssClass": "custom-hotspot-salto"
+                }
+            ]
+        },
+        
+        
+        
+        /////// PLANTA BAJA
+        
+        "p1p1": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -17.66,
+                    "yaw": 115.12,
+                    "type": "scene",
+                    "sceneId": "p1p2",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                 {
+                    "pitch": -3.22,
+                    "yaw": 9.54,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "clickHandlerFunc": escaleras
+                },
+                {
+                    "pitch": -21.42,
+                    "yaw": -110.67,
+                    "type": "scene",
+                    "sceneId": "p1p8",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.30,
+                    "targetYaw": 186.41,
+                }
+            ]   
+                },
+        
+        "p1p2": {
+            "hfov": 120,
+            "yaw": -8.48,
+            "pitch": -44.24,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -17.66,
+                    "yaw": 115.12,
+                    "type": "scene",
+                    "sceneId": "p1p2f1",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                {
+                    "pitch": -13.24,
+                    "yaw": -138.68,
+                    "type": "scene",
+                    "sceneId": "p1p3",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -3.74,
+                    "targetYaw": 174.90,
+                },
+                {
+                    "pitch": -19.97,
+                    "yaw": -29.81,
+                    "type": "scene",
+                    "sceneId": "p1p1",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                {
+                    "pitch": -7.72,
+                    "yaw": 36.705,
+                    "type": "scene",
+                    "sceneId": "p1p11",
+                    "cssClass": "custom-hotspot-salto"
+                }
+            ]   
+                },
+        
+         "p1p2f1": {
+            "hfov": 120,
+            "yaw": 181.23,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p2f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -20.70,
+                    "yaw": -176.63,
+                    "type": "scene",
+                    "sceneId": "p1p2f2",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                 {
+                    "pitch": 19.74,
+                    "yaw": 3.34,
+                    "type": "scene",
+                    "sceneId": "p1p2",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.002,
+                    "targetYaw": -41.59,
+                }
+                
+            ]   
+                },
+        
+         "p1p2f2": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p2f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -14.04,
+                    "yaw": -159.59,
+                    "type": "scene",
+                    "sceneId": "p1p2f3",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                {
+                    "pitch": -0.79,
+                    "yaw": 30.65,
+                    "type": "scene",
+                    "sceneId": "p1p2f1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 26.70,
+                    "targetYaw": 2.19,
+                }
+            ]   
+                },
+        
+         "p1p2f3": {
+            "hfov": 120,
+            "yaw": 109.517,
+            "pitch": 18.91,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p2f3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -17.66,
+                    "yaw": 115.12,
+                    "type": "scene",
+                    "sceneId": "p1p2f2",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 25.99,
+                    "targetYaw": 27.86,
+                    
+                }
+            ]   
+                },
+        
+         "p1p3": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10.55,
+                    "yaw": 174.44,
+                    "type": "scene",
+                    "sceneId": "p1p4",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                {
+                    "pitch": -9.06,
+                    "yaw": -4.95,
+                    "type": "scene",
+                    "sceneId": "p1p2",
+                    "cssClass": "custom-hotspot-salto"
+                }
+            ]   
+                },
+        "p1p4": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p4.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -13.55,
+                    "yaw": -88.13,
+                    "type": "scene",
+                    "sceneId": "p1p6",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                {
+                    "pitch": -7.74,
+                    "yaw": -1.98,
+                    "type": "scene",
+                    "sceneId": "p1p3",
+                    "cssClass": "custom-hotspot-salto"
+                },
+              
+                 {
+                    "pitch": -6.96,
+                    "yaw": 16.32,
+                    "type": "scene", 
+                    "sceneId": "p1p4f1",
+                    "targetYaw": -161.4,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.2
+                }
+            ]   
+                },
+        
+        
+         "p1p4f1": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p4f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -15,
+                    "yaw": -95.6,
+                    "type": "scene", 
+                    "sceneId": "p1p4",
+                    "targetYaw": -31.704,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -8.04
+                },
+              
+                 {
+                    "pitch": -8.32,
+                    "yaw": -3.55,
+                    "type": "scene", 
+                    "sceneId": "p1p4f2",
+                    "targetYaw": 78.2,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -1.84
+                }
+            ]
+        },
+        
+        
+         "p1p4f2": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p4f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -11,
+                    "yaw": -105.6,
+                    "type": "scene", 
+                    "sceneId": "p1p4f1",
+                    "targetYaw": -94.85,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -7.43
+                }
+            ]
+        },
+        
+        "p1p6": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p6.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -8.31,
+                    "yaw": 9.85,
+                    "type": "scene",
+                    "sceneId": "p1p7",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                {
+                    "pitch": -9.31,
+                    "yaw": 79.80,
+                    "type": "scene",
+                    "sceneId": "p1p4",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.61,
+                    "targetYaw": -33.95,
+                }
+            ]   
+                },
+        "p1p7": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p7.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -6.53,
+                    "yaw": -4.75,
+                    "type": "scene",
+                    "sceneId": "p1p8",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                 {
+                    "pitch": -10.95,
+                    "yaw": 176.68,
+                    "type": "scene",
+                    "sceneId": "p1p6",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -9.63,
+                    "targetYaw": 46.88,
+                }
+            ]   
+                },
+        "p1p8": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p8.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -22.03,
+                    "yaw": 54.25,
+                    "type": "scene",
+                    "sceneId": "p1p1",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                {
+                    "pitch": -11.34,
+                    "yaw": 188.735,
+                    "type": "scene",
+                    "sceneId": "p1p7",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -4.88,
+                    "targetYaw": 175.88,
+                }
+            ]   
+                }, 
+        
+        "p1p11": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p11.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -11.86,
+                    "yaw": 5.32,
+                    "type": "scene",
+                    "sceneId": "p1p10",
+                    "cssClass": "custom-hotspot-salto"
+                },
+                {
+                    "pitch": -9,
+                    "yaw": -172.40,
+                    "type": "scene",
+                    "sceneId": "p1p2",
+                    "cssClass": "custom-hotspot-salto"
+                }
+            ]   
+                }, 
+        "p1p10": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p10.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -14.08,
+                    "yaw": 168.39,
+                    "type": "scene",
+                    "sceneId": "p1p11",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -10.64,
+                    "targetYaw": -172.63,
+                }
+            ]   
+                }, 
+        
+        
+        // SOTANO
+        
+         "p0p0": {
+            "hfov": 120,
+            "yaw": -14.73,
+            "pitch": 171.05,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p0.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -27.171,
+                    "yaw": 171.51,
+                    "type": "scene",
+                    "sceneId": "p0p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -12.407,
+                    "targetYaw": -165.61,
+                },
+                 {
+                    "pitch": -3.22,
+                    "yaw": 9.54,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "clickHandlerFunc": escaleras
+                }
+            ]   
+                },
+         "p0p1": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p1.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -19,
+                    "yaw": 196,
+                    "type": "scene",
+                    "sceneId": "p0p1f1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 37,
+                    "targetYaw": -179.33,
+                },
+                {
+                    "pitch": -8.76,
+                    "yaw": -18.89,
+                    "type": "scene",
+                    "sceneId": "p0p0",
+                    "cssClass": "custom-hotspot-salto"
+                }
+            ]
+         },
+         "p0p1f1": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p1f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -1.93,
+                    "yaw": 9.91,
+                    "type": "scene",
+                    "sceneId": "p0p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1.55,
+                    "targetYaw": -17.82,
+                }
+            ]
+         },
+        
+        // SEGUNDA PLANTA
+        
+          "p3p1": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p1.jpg",
+            "hotSpots": [
+                 {
+                    "pitch": -3.22,
+                    "yaw": 9.54,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "clickHandlerFunc": escaleras
+                }
+            ]
+         }
+  
     }
 });
 // movimiento puntos mapa antiguo
