@@ -50,7 +50,7 @@
  .custom-hotspot-escaleras {
         height: 80px;
         width: 80px;
-        background-image: url("svg/elevator.svg");
+        background-image: url("svg/stairs.svg");
         background-size:cover;
         background-position: center;
         transition: width 0.5s, height 0.5s;
