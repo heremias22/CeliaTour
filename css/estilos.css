@@ -162,57 +162,104 @@
     opacity: 0.7;
     top: -200px;
     left: -366px;
-}
-.punto-minimapa{
+}*/
+/*.punto-minimapa{
     position: absolute;
     width: 15px;
     height: 15px;
     border-radius: 50%;
     background: white;
-}
-.punto_seleccionado{
+}*/
+#punto{
+    pointer-events: auto;
     position: absolute;
     width: 15px;
     height: 15px;
     border-radius: 50%;
     background: cyan;
-}*/
+}
+#punto2{
+    pointer-events: auto;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: cyan;
+}
 /*nuevo mapa*/
 
 #mapa{
+    pointer-events:none;
     z-index: 2;
     position: absolute;
-    background-image: url("mapanegro.png");
-    background-size: 100% 100%;
+    overflow: visible;
     /*background-color: black;   */
-    top: 57%;
-    height: 42%;
-    width: 45%; 
+}
+
+#primer_piso{
+    background-image: url("mapanegro.png");
+}
+#segundo_piso{
+    background-image: url("mapanegro.png"); 
+}
+
+#subir_piso{
+    z-index: 100;
+    position: absolute;
+    background-image: url("svg/subirpiso.svg");
+    background-size: 100% 100%;
+    width: 60px;
+    height: 60px;
+}
+#bajar_piso{
+    z-index: 100;
+    position: absolute;
+    background-image: url("svg/bajarpiso.svg");
+    background-size: 100% 100%;
+    width: 60px;
+    height: 60px;
 }
 #boton_mapa{
     z-index: 100;
     position: absolute;
-    background-color: green;
-    height: 10%;
-    width: 5%;
-    top: 88%;
+    background-image: url("svg/pinned.svg");
+    background-size: 100% 100%;
+    width: 60px;
+    height: 60px;
+    
 }
+.pisos{
+    background-size: 100% 100%;
+    opacity: 0.6;
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    transition: left .5s;
+}
+.piso_cerrado{
+    left:-300%;
+}
+.piso_abierto{
+   left:0.5%;
+}
+
 .cerrado{
     transition: left .5s;
-    left: -46%;
+    left: -300%;
 }
 .abierto{
     transition: left .5s;
     left: 0.5%;
 }
-.cerrado_boton{
+/*.cerrado_boton{
     transition: left .5s;
     left: 0.5%;
-}
-.abierto_boton{
+}*/
+/*.abierto_boton{
     transition: left .5s;
     left: 45%;
-}
+}*/
 
 
 
