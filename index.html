@@ -13,16 +13,30 @@
     <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.8.16/jquery-ui.js"></script>
     
-	<style>
-	
-	</style>
 </head>
 
 <body>
 	<div class="contenedor">
 		<div id="panorama">
           
-         <div id="myModal" class="modal">
+            <!-- The Modal -->
+        <div id="panel" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span id="close">&times;</span>
+              <h3 id="titulo"></h3>
+            </div>
+            <img id="imagen" src="">
+            <div class="wrapper">
+              <p id="desBreve"></p><br/>
+              <p id="desLarga"></p>
+            </div>
+            <a id="mas" href="#"></a>
+          </div>
+        </div>  
+          
+         <div id="myModal" class="modalEscaleras">
               <button class="plantas" onclick="viewer.loadScene('p3p1')">Segunda planta</button>
               <button class="plantas" onclick="viewer.loadScene('p2p1')">Primera planta</button>
               <button class="plantas" onclick="viewer.loadScene('p1p1')">Planta Baja</button>
@@ -533,6 +547,33 @@ viewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": 26.70,
                     "targetYaw": 2.19,
+                },
+              
+                {
+                    "pitch": 20.4,
+                    "yaw": -20.04,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": baseDatos,
+                    "clickHandlerArgs": "id01"
+                },
+              
+                {
+                    "pitch": 29.4,
+                    "yaw": -10.04,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": baseDatos,
+                    "clickHandlerArgs": "id02"
+                },
+              
+                {
+                    "pitch": 29.4,
+                    "yaw": -30.04,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": baseDatos,
+                    "clickHandlerArgs": "id03"
                 }
             ]   
                 },
@@ -892,32 +933,81 @@ viewer = pannellum.viewer('panorama', {
             document.getElementById("movil").style.left=pixeles2Alt+"px";
             document.getElementById("movil").style.top=pixeles2Anc+"px";
         }*/
-  function cosa(hotspotDiv,args){
-     
-      alert(args);
+
+   /////////////////////PRUEBAS AJAX////////////////////////////////
+  ///////////////////////////////////////////////////////////////
+  function baseDatos(hotspotDiv,args){
+         $.ajax({
+              type: 'POST',
+              url: 'baseDatos.php',
+              data: {idnombre:args},
+              beforeSend: function() {
+                $('#titulo').html("Cargando...");
+                $('#imagen').attr("src","");
+                $('#desBreve').html("Cargando...");
+                $('#desLarga').html("Cargando...");
+              },
+              success: function(resultado) {
+                var json = JSON.parse(resultado);
+                $('#titulo').html(json[0]);
+                $('#imagen').attr("src",json[1]);
+                $('#desBreve').html(json[2]);
+                $('#desLarga').html(json[3]);
+          },
+           error: function(xhr, status) {
+            // check if xhr.status is defined in $.ajax.statusCode
+            // if true, return false to stop this function
+            if(typeof this.statusCode[xhr.status] != 'undefined'){
+            	 return false;
+            }
+            // else continue
+            console.log('ajax.error');
+          },
+            statusCode: {
+                    200: function(response) {
+                        console.log('ajax.statusCode: 200');
+                    },
+                    404: function(response) {
+                        console.log('ajax.statusCode: 404');
+                    },
+                    500: function(response) {
+                        console.log('ajax.statusCode: 500');
+                    }
+                }           
+          });
+            $('.modal').css('display','block');
+            $(window).click(function(event){
+              if($(event.target).hasClass("modal")){ 
+                $('.modal').css('display','none');
+              }
+            })
+            $('#close').click(function(event){
+            $('.modal').css('display','none');
+            })
+            
   }
-
-
+  
+  
+  /////////////////////////PRUEBAS AJAX////////////////////////////
+  ////////////////////////////////////////////////////////////////
+  
   
   function escaleras(){
-    var modal = document.getElementById('myModal');
-    modal.style.display = "block";
-    /*var botones = document.getElementsByClassName("plantas");
-    var botonesLargo = botones.length;
-    for (var i = 0; i < botonesLargo; i++) {
-      botones[i].onclick = function(e) {
-          
-          modal.style.display = "none";
-      };
-}*/
+
+    $("#myModal").css("display","block");
+    $(window).click(function(event){
+      if($(event.target).hasClass("plantas")){ 
+        $('#myModal').css('display','none');
+      }
+    })
+  }
     
     window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
+      if ($(event.target).hasClass("modalEscaleras")) {
+          $("#myModal").css("display","none");
       }
-   
     } 
-  }
+  
   
   
   //boton fullscreen.
