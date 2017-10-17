@@ -260,22 +260,25 @@
     border-radius: 50%;
     background: white;
 }*/
-#punto{
+.puntos{
     pointer-events: auto;
+    cursor: pointer;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+}
+.punto_seleccionado{
+    pointer-events: auto;
+    cursor: pointer;
     position: absolute;
     width: 15px;
     height: 15px;
     border-radius: 50%;
     background: cyan;
 }
-#punto2{
-    pointer-events: auto;
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: cyan;
-}
+
 /*nuevo mapa*/
 
 #mapa{
