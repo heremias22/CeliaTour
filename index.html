@@ -45,13 +45,19 @@
           
           
          <div class="ctrl" id="fullscreen"></div>
-         <div id="mapa" class="cerrado"> 
-            <div id="primer_piso" class="piso_abierto pisos">
-                <div id="punto" onclick="alert('punto');"></div>
-            </div> 
-            <div id="segundo_piso" class="piso_cerrado pisos">
+         <div id="mapa" class="cerrado">
+         <div id="sotano" class="piso_cerrado pisos">
+                <div id="punto" onclick="alert('punto de sotano');"></div>
+            </div>  
+        <div id="primer_piso" class="piso_abierto pisos">
+                <div id="punto" onclick="alert('punto de planta baja');"></div>
+        </div> 
+        <div id="segundo_piso" class="piso_cerrado pisos">
                 <div id="punto2" onclick="alert('punto de segundo piso');"></div>
             </div>
+        <div id="tercer_piso" class="piso_cerrado pisos">
+                <div id="punto" onclick="alert('punto de tercer piso');"></div>
+        </div> 
          </div>
          <div id="boton_mapa" style="transition: left 0.5s ease 0s;left:0.5%;" class="cerrado_boton" onclick="mover(document.getElementById('mapa')); mover(document.getElementById('boton_mapa'));mover(document.getElementById('subir_piso')); mover(document.getElementById('bajar_piso'));">
              
@@ -78,17 +84,18 @@
                 /*movimiento del mapa y botones*/
                 function mapa_responsivo(){
                     var distancia_top=window.innerHeight*0.57;//0.57
-                    var altura=window.innerHeight*0.42;//0.42
                     var anchura=window.innerWidth*0.45;
-                    document.getElementById("mapa").style.top=distancia_top+"px";
+                    var altura=anchura*0.57;//0.42
+                    
+                    document.getElementById("mapa").style.top=window.innerHeight-altura+"px";
                     document.getElementById("mapa").style.height=altura+"px";
                     document.getElementById("mapa").style.width=anchura+"px"; 
                         distancia_top=window.innerHeight*0.92;
-                    document.getElementById("boton_mapa").style.top=distancia_top+"px";
+                    /*document.getElementById("boton_mapa").style.top=distancia_top+"px";
                         distancia_top-=70;
                     document.getElementById("bajar_piso").style.top=distancia_top+"px";
                         distancia_top-=70;
-                    document.getElementById("subir_piso").style.top=distancia_top+"px";
+                    document.getElementById("subir_piso").style.top=distancia_top+"px";*/
                 }
                 
                 function cambiar_piso(opcion){
@@ -99,15 +106,16 @@
                             piso++;
                             switch (piso){
                                 case 1:
-                                    document.getElementById("primer_piso").className="piso_abiert pisos";
-                                    //sotano classname piso cerrado
+                                    document.getElementById("primer_piso").className="piso_abierto pisos";
+                                     document.getElementById("sotano").className="piso_cerrado pisos";
                                 break;
                                 case 2:
                                      document.getElementById("segundo_piso").className="piso_abierto pisos";
                                      document.getElementById("primer_piso").className="piso_cerrado pisos";
                                 break;
                                 case 3:
-                                    alert("aun no hay piso 3");
+                                    document.getElementById("segundo_piso").className="piso_cerrado pisos";
+                                    document.getElementById("tercer_piso").className="piso_abierto pisos";
                                 break;
                             }
                           }
@@ -124,17 +132,18 @@
  
                                 break;
                                 case 2:
-                                     document.getElementById("segundo_piso").className="piso_abierto pisos";
-                                    // aun no hay piso 3
+                                    document.getElementById("tercer_piso").className="piso_cerrado pisos";
+                                    document.getElementById("segundo_piso").className="piso_abierto pisos";
+                                    
                                 break;
                                 case 0:
-                                    alert("aun no hay sotano");
+                                    document.getElementById("primer_piso").className="piso_cerrado pisos";
+                                    document.getElementById("sotano").className="piso_abierto pisos";
                                 break;
                             }
                         }
 
                     }
-                    
                 }
 
                 function mover(opcion){               
@@ -185,7 +194,7 @@ viewer = pannellum.viewer('panorama', {
         "showControls": false,
         "compass":false,
         
-        //"hotSpotDebug": true
+        "hotSpotDebug": true
     },
 
     "scenes": {
