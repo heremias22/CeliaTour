@@ -11,7 +11,8 @@ if(isset($_POST['idnombre'])){
 
 $sql="SELECT datos.titulo,
 datos.imagen,
-datos.desBreve,
+datos.imagen2,
+datos.imagen3,
 datos.desLarga
 FROM datos WHERE datos.id='$idnombre'";
 
@@ -20,9 +21,10 @@ $contenido=array();
 while($row=mysqli_fetch_array($result)){
       $titulo=$row['titulo'];
       $imagen=$row['imagen'];
-      $desBreve=$row['desBreve'];
+      $imagen2=$row['imagen2'];
+      $imagen3=$row['imagen3'];
       $desLarga=$row['desLarga'];
-      $contenido = array($titulo,$imagen,$desBreve,$desLarga);
+      $contenido = array($titulo,$imagen,$imagen2,$imagen3,$desLarga);
    }
      echo json_encode($contenido);
 ?>
