@@ -38,10 +38,10 @@
           
          <div id="myModal" class="modalEscaleras">
                <button class="plantas"id="p4" onclick="viewer.loadScene('p4p1')"> Tejado</button>
-              <button class="plantas" id="p3" onclick="viewer.loadScene('p3p1')"> Segunda planta</button>
-              <button class="plantas" id="p2" onclick="viewer.loadScene('p2p1')"> Primera planta</button>
-              <button class="plantas" id="p1" onclick="viewer.loadScene('p1p1')"> Planta Baja</button>
-              <button class="plantas" id="p0" onclick="viewer.loadScene('p0p0')"> Planta Inferior</button>
+              <button class="plantas" id="p3" onclick="viewer.loadScene('p3p1'); piso_escalera(3); puntos('p3punto1')"> Segunda planta</button>
+              <button class="plantas" id="p2" onclick="viewer.loadScene('p2p1'); piso_escalera(2); puntos('p2punto1')"> Primera planta</button>
+              <button class="plantas" id="p1" onclick="viewer.loadScene('p1p1'); piso_escalera(1); puntos('p1punto1')"> Planta Baja</button>
+              <button class="plantas" id="p0" onclick="viewer.loadScene('p0p0'); piso_escalera(0); puntos('pspunto1')"> Planta Inferior</button>
           </div>
           
           
@@ -59,7 +59,7 @@
                 <div id="pspunto7" class="puntos" style="left: 16.5%;top: 48.5%;" onclick="puntos('pspunto7'); viewer.loadScene('p0p5');"></div>
                 <div id="pspunto8" class="puntos" style="left: 23.5%;top: 61.5%;" onclick="puntos('pspunto8'); viewer.loadScene('p0p1f2');"></div>
                 <div id="pspunto9" class="puntos" style="left: 41.5%;top: 61%;" onclick="puntos('pspunto9'); viewer.loadScene('p0p1f1');"></div>
-                <div id="pspunto10" class="puntos" style="left: 0%;top: 50.5%;" onclick="puntos('pspunto10'); viewer.loadScene('p0p5f1');"></div><
+                <div id="pspunto10" class="puntos" style="left: 0%;top: 50.5%;" onclick="puntos('pspunto10'); viewer.loadScene('p0p5f1');"></div>
                 <div id="pspunto11" class="puntos" style="left: 0%;top: 46.5%;" onclick="puntos('pspunto11'); viewer.loadScene('p0p5f2');"></div>
             </div>  
             <!-- primer piso -->
@@ -94,19 +94,19 @@
             </div>
                 <!-- tercer piso -->
             <div id="tercer_piso" class="piso_cerrado pisos">
-                <div id="p3punto1" class="puntos" style="left: 53%;top: 62%;" onclick="puntos('p3punto10');"></div>
+                <div id="p3punto1" class="puntos" style="left: 53%;top: 62%;" onclick="puntos('p3punto1'); viewer.loadScene('p3p1')"></div>
             </div>
 
          </div>
-         <div id="boton_mapa" style="transition: left 0.5s ease 0s;left:0.5%;" class="cerrado_boton" onclick="mover(document.getElementById('mapa')); mover(document.getElementById('boton_mapa'));mover(document.getElementById('subir_piso')); mover(document.getElementById('bajar_piso'));">
+         <div id="boton_mapa" style="transition: left 0.5s ease 0s;left:0.5%;" class="cerrado_boton boton" onclick="mover(document.getElementById('mapa')); mover(document.getElementById('boton_mapa'));mover(document.getElementById('subir_piso')); mover(document.getElementById('bajar_piso'));">
              
         </div>
 
-        <div id="subir_piso" style="transition: left 0.5s ease 0s;left:0.5%;" class="cerrado_boton" onclick="cambiar_piso(1)">
+        <div id="subir_piso" style="transition: left 0.5s ease 0s;left:0.5%; visibility:hidden;" class="cerrado_boton boton" onclick="cambiar_piso(1)">
             
         </div>
 
-        <div id="bajar_piso" style="transition: left 0.5s ease 0s;left:0.5%;" class="cerrado_boton" onclick="cambiar_piso(-1)">
+        <div id="bajar_piso" style="transition: left 0.5s ease 0s;left:0.5%; visibility:hidden;" class="cerrado_boton boton" onclick="cambiar_piso(-1); this.style">
             
         </div>
          <script type="text/javascript">
@@ -122,19 +122,14 @@
 
                 /*movimiento del mapa y botones*/
                 function mapa_responsivo(){
-                    var distancia_top=window.innerHeight*0.57;//0.57
+                    var distancia_top=window.innerHeight*0.57;
                     var anchura=window.innerWidth*0.45;
-                    var altura=anchura*0.57;//0.42
+                    var altura=anchura*0.57;
                     
                     document.getElementById("mapa").style.top=window.innerHeight-altura+"px";
                     document.getElementById("mapa").style.height=altura+"px";
                     document.getElementById("mapa").style.width=anchura+"px"; 
                         distancia_top=window.innerHeight*0.92;
-                    /*document.getElementById("boton_mapa").style.top=distancia_top+"px";
-                        distancia_top-=70;
-                    document.getElementById("bajar_piso").style.top=distancia_top+"px";
-                        distancia_top-=70;
-                    document.getElementById("subir_piso").style.top=distancia_top+"px";*/
                 }
                 
                 function cambiar_piso(opcion){
@@ -193,12 +188,18 @@
                         case "abierto":
                             opcion.className="cerrado";
                             break;
-                        case "cerrado_boton":
-                            opcion.className="abierto_boton";
+                        case "cerrado_boton boton":
+                            if(opcion.id=="subir_piso" || opcion.id=="bajar_piso"){
+                                opcion.style.visibility="visible";
+                            }
+                            opcion.className="abierto_boton boton";
                             opcion.style.left="45.5%";
                             break;
-                        case "abierto_boton":
-                            opcion.className="cerrado_boton"
+                        case "abierto_boton boton":
+                            if(opcion.id=="subir_piso" || opcion.id=="bajar_piso"){
+                                opcion.style.visibility="hidden";
+                            }
+                            opcion.className="cerrado_boton boton";
                             opcion.style.left="0.5%";
                             break;
                     }
@@ -272,7 +273,7 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene",
                     "cssClass": "custom-hotspot-salto",
                     "clickHandlerFunc": puntos,
-                    "clickHandlerArgs": "p2punto10"
+                    "clickHandlerArgs": "p2punto10",
                     "sceneId": "p2p10"
                 },
               
@@ -1549,7 +1550,7 @@ viewer = pannellum.viewer('panorama', {
   
     }
 });
-// movimiento puntos mapa antiguo
+
 function puntos(hotspotDiv,identificador){
             document.getElementsByClassName("punto_seleccionado")[0].className="puntos";
             document.getElementById(identificador).className="punto_seleccionado";
@@ -1612,8 +1613,27 @@ function puntos(hotspotDiv,identificador){
   
   /////////////////////////PRUEBAS AJAX////////////////////////////
   ////////////////////////////////////////////////////////////////
-  
-  
+  /*cambio de mapa con las escaleras*/
+  function piso_escalera(option){
+      switch(option){
+          case 0:
+            document.getElementsByClassName("piso_abierto pisos")[0].className="piso_cerrado pisos";
+            document.getElementById("sotano").className="piso_abierto pisos";
+              break;
+          case 1:
+            document.getElementsByClassName("piso_abierto pisos")[0].className="piso_cerrado pisos";
+            document.getElementById("primer_piso").className="piso_abierto pisos";
+              break;
+          case 2:
+            document.getElementsByClassName("piso_abierto pisos")[0].className="piso_cerrado pisos";
+            document.getElementById("segundo_piso").className="piso_abierto pisos";
+              break;
+          case 3:
+            document.getElementsByClassName("piso_abierto pisos")[0].className="piso_cerrado pisos";
+            document.getElementById("tercer_piso").className="piso_abierto pisos";
+              break;
+             }
+  }
   function escaleras(){
 
     
@@ -1632,7 +1652,8 @@ function puntos(hotspotDiv,identificador){
       if($(event.target).hasClass("plantas")){ 
         $('#myModal').css('display','none');
       }
-    })
+    });
+      
   }
     
     window.onclick = function(event) {
@@ -1687,7 +1708,7 @@ function puntos(hotspotDiv,identificador){
             document.getElementsByClassName("punto_seleccionado")[0].className="puntos";
             document.getElementById(identificador).className="punto_seleccionado";
         }
-</script> 
+    </script> 
 </body>
 
 </html>
