@@ -19,7 +19,7 @@
 	<div class="contenedor">
 		<div id="panorama">
           
-           <!-- The Modal -->
+             <!-- The Modal -->
         <div id="panel" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
@@ -28,11 +28,14 @@
               <h3 id="titulo"></h3>
             </div>
             <img id="imagen" src="">
+            <div id="galeria">
+              <img id="imagen2" class="imagenG" src="">
+              <img id="imagen3" class="imagenG" src="">
+            </div>
             <div class="wrapper">
-              <p id="desBreve"></p><br/>
               <div id="desLarga"></div>
             </div>
-            <a id="mas" href="#"></a>
+            <!-- <a id="mas" href="#"></a>-->
           </div>
         </div>  
           
@@ -265,6 +268,9 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": 125.5,
                     "type": "scene",
                     "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p2p1",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto1"
                 },
               
                  {
@@ -272,12 +278,17 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": -180.321,
                     "type": "scene",
                     "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p2p10",
                     "clickHandlerFunc": puntos,
+<<<<<<< HEAD
                     "clickHandlerArgs": "p2punto10",
                     "sceneId": "p2p10"
+=======
+                    "clickHandlerArgs": "p2punto10"
+>>>>>>> 2312fd9fa654359ae333a9fd2de8f1f1c523ba65
                 },
               
-                 {
+                {
                     "pitch": -12.003,
                     "yaw": -92.321,
                     "type": "scene",
@@ -392,7 +403,7 @@ viewer = pannellum.viewer('panorama', {
                 }
             ]
         },
-      
+
         "p2p3": {
             "hfov": 120,
             "yaw": 5,
@@ -1567,15 +1578,17 @@ function puntos(hotspotDiv,identificador){
               beforeSend: function() {
                 $('#titulo').html("Cargando...");
                 $('#imagen').attr("src","");
-                $('#desBreve').html("Cargando...");
+                $('#imagen2').attr("src","");
+                $('#imagen3').attr("src","");
                 $('#desLarga').html("Cargando...");
               },
               success: function(resultado) {
                 var json = JSON.parse(resultado);
                 $('#titulo').html(json[0]);
                 $('#imagen').attr("src",json[1]);
-                $('#desBreve').html(json[2]);
-                $('#desLarga').html(json[3]);
+                $('#imagen2').attr("src",json[2]);
+                $('#imagen3').attr("src",json[3]);
+                $('#desLarga').html(json[4]);
           },
            error: function(xhr, status) {
             // check if xhr.status is defined in $.ajax.statusCode
@@ -1662,15 +1675,19 @@ function puntos(hotspotDiv,identificador){
       }
     } 
    //Toggle tamaño imagen.
-  /*  $("#imagen").toggle(function()
-    {$(this).animate({width: "600px"}, 'slow');},
+    $("#imagen").toggle(function()
+    {$(this).addClass('animate');},
     function()
-    {$(this).animate({width: "300px"}, 'slow');
-    });*/
+    {$(this).removeClass('animate');
+    });
     
-    
-    
-    
+     //Toggle tamaño imagen.
+    $(".imagenG").toggle(function()
+    {$(this).addClass('animate');},
+    function()
+    {$(this).removeClass('animate');
+    });
+  
   //boton fullscreen.
   document.getElementById('fullscreen').addEventListener('click', function(e) {
     viewer.toggleFullscreen();
