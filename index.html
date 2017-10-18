@@ -19,7 +19,7 @@
 	<div class="contenedor">
 		<div id="panorama">
           
-            <!-- The Modal -->
+           <!-- The Modal -->
         <div id="panel" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
@@ -30,18 +30,18 @@
             <img id="imagen" src="">
             <div class="wrapper">
               <p id="desBreve"></p><br/>
-              <p id="desLarga"></p>
+              <div id="desLarga"></div>
             </div>
             <a id="mas" href="#"></a>
           </div>
         </div>  
           
          <div id="myModal" class="modalEscaleras">
-              <button class="plantas" onclick="viewer.loadScene('p4p1')">TEJADO</button>
-              <button class="plantas" onclick="viewer.loadScene('p3p1')">Segunda planta</button>
-              <button class="plantas" onclick="viewer.loadScene('p2p1')">Primera planta</button>
-              <button class="plantas" onclick="viewer.loadScene('p1p1')">Planta Baja</button>
-              <button class="plantas" onclick="viewer.loadScene('p0p0')">Planta Inferior</button>
+               <button class="plantas"id="p4" onclick="viewer.loadScene('p4p1')"> Tejado</button>
+              <button class="plantas" id="p3" onclick="viewer.loadScene('p3p1')"> Segunda planta</button>
+              <button class="plantas" id="p2" onclick="viewer.loadScene('p2p1')"> Primera planta</button>
+              <button class="plantas" id="p1" onclick="viewer.loadScene('p1p1')"> Planta Baja</button>
+              <button class="plantas" id="p0" onclick="viewer.loadScene('p0p0')"> Planta Inferior</button>
           </div>
           
           
@@ -264,9 +264,6 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": 125.5,
                     "type": "scene",
                     "cssClass": "custom-hotspot-salto",
-                    "sceneId": "p2p1",
-                    "clickHandlerFunc": puntos,
-                    "clickHandlerArgs": "p2punto1"
                 },
               
                  {
@@ -274,15 +271,127 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": -180.321,
                     "type": "scene",
                     "cssClass": "custom-hotspot-salto",
-                    "sceneId": "p2p10",
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p2punto10"
+                    "sceneId": "p2p10"
+                },
+              
+                 {
+                    "pitch": -12.003,
+                    "yaw": -92.321,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p2p2f1"
                 }
               
                 
             ]
         },
+      
+         "p2p2f1": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p2f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -9.8,
+                    "yaw": -1.0,
+                    "type": "scene", 
+                    "sceneId": "p2p2",
+                    "targetYaw": 59.6,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.3
+                },
+              
+                {
+                    "pitch": -9.4,
+                    "yaw": -94.5,
+                    "type": "scene", 
+                    "sceneId": "p2p2f3",
+                    "targetYaw": 68.3,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.2
+                },
+              
+                 {
+                    "pitch": -8.4,
+                    "yaw": 87.5,
+                    "type": "scene", 
+                    "sceneId": "p2p2f2",
+                    "targetYaw": 68.3,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.2
+                },
+              
+                   {
+                    "pitch": 79.4,
+                    "yaw": 173.5,
+                    "type": "info", 
+                    "targetYaw": 68.3,
+                    "cssClass": "custom-hotspot-info",
+                    "targetPitch": -2.2,
+                    "clickHandlerFunc": baseDatos,
+                    "clickHandlerArgs": "id03"
+                }
+            ]
+        },
 
+         "p2p2f2": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p2f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -20.8,
+                    "yaw": -179.6,
+                    "type": "scene", 
+                    "sceneId": "p2p2f1",
+                    "targetYaw": 59.6,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.3
+                },
+              
+                {
+                    "pitch": -10.4,
+                    "yaw": -20.5,
+                    "type": "info", 
+                    "targetYaw": 68.3,
+                    "cssClass": "custom-hotspot-info",
+                    "targetPitch": -2.2
+                }
+            ]
+        },
+      
+         "p2p2f3": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p2f3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -18.8,
+                    "yaw": -8.6,
+                    "type": "scene", 
+                    "sceneId": "p2p2f1",
+                    "targetYaw": 59.6,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.3
+                },
+              
+                {
+                    "pitch": -10.4,
+                    "yaw": -20.5,
+                    "type": "scene", 
+                    "sceneId": "info",
+                    "targetYaw": 68.3,
+                    "cssClass": "custom-hotspot-info",
+                    "targetPitch": -2.2
+                }
+            ]
+        },
+      
         "p2p3": {
             "hfov": 120,
             "yaw": 5,
@@ -1507,6 +1616,17 @@ function puntos(hotspotDiv,identificador){
   
   function escaleras(){
 
+    
+    nombreEscena = viewer.getScene();
+    pisoActual = nombreEscena.substring(0,2);
+    largo = $(".plantas").length;
+    nombre = $(".plantas").attr("id");
+    $('.plantas').each(function(){
+    $(this).removeClass("plantaElegida");
+    });
+    nombreBuscado = $("#"+pisoActual).addClass("plantaElegida");
+   
+     
     $("#myModal").css("display","block");
     $(window).click(function(event){
       if($(event.target).hasClass("plantas")){ 
@@ -1520,9 +1640,16 @@ function puntos(hotspotDiv,identificador){
           $("#myModal").css("display","none");
       }
     } 
-  
-  
-  
+   //Toggle tamaño imagen.
+  /*  $("#imagen").toggle(function()
+    {$(this).animate({width: "600px"}, 'slow');},
+    function()
+    {$(this).animate({width: "300px"}, 'slow');
+    });*/
+    
+    
+    
+    
   //boton fullscreen.
   document.getElementById('fullscreen').addEventListener('click', function(e) {
     viewer.toggleFullscreen();

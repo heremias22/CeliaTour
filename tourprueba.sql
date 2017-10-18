@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2017 a las 14:26:02
+-- Tiempo de generación: 18-10-2017 a las 06:10:10
 -- Versión del servidor: 5.6.25
 -- Versión de PHP: 5.6.11
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `datos` (
   `titulo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `imagen` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `desBreve` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `desLarga` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+  `desLarga` varchar(10000) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -39,8 +39,9 @@ CREATE TABLE IF NOT EXISTS `datos` (
 --
 
 INSERT INTO `datos` (`id`, `titulo`, `imagen`, `desBreve`, `desLarga`) VALUES
-('id01', 'oveja', 'objeto1.jpg', 'Una oveja particular', 'Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja '),
-('id02', 'objeto', 'objeto2.jpg', 'un objeto particular', 'Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja ');
+('id01', 'oveja', 'objeto1.jpg', 'Una oveja particular', 'Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja '),
+('id02', 'objeto', 'objeto2.jpg', 'un objeto particular', 'Una oveja particular Una oveja particularUna oveja particular Una oveja particularUna oveja '),
+('id03', 'Escudo de armas', 'escudo.jpg', '', 'Gran escudo de armas de grandes dimensiones, finalmente modelado, que constituye el blason de Alfonso XIII, en esencia, el mismo escudo que para su dinastia organizo su cuarto abuelo el rey Carlos III: los cinco cuarteles pertenecientes a la Nacion, uno a su linaje de Borbon-Anjou, y diez a sus demas antepasados.\r\nEn 1931 el ferbor republicano le cambia la corona real cerrada por la mural de la Republica que, muda, se presta acoger alrededor del de Castilla y Leon, los escudos de las principales casas reinantes de Europa, ancestros de nuestros reyes.Las iras contra el "Sr.Borbon" - que asi nombraba la prensa de la epoca al exiliado Alfonso XIII- se dirigen al primero de sus linajes y por eso caen del escuson las tres lises borbonicas, tambien las mismas florecillas de los cuarteles de las casas de Borgoa (IV), de Parma (V),y Medicis- Toscana (VI), mientras deja intactos los palos de Aragon (I), los palos y Aguilas de Aragon-Sicilia (II), la faja de Austria (III), el bandeado de Borgoa viejo (VII)Gran escudo de armas de grandes dimensiones, finalmente modelado, que constituye el blason de Alfonso XIII, en esencia, el mismo escudo que para su dinastia organizo su cuarto abuelo el rey Carlos III: los cinco cuarteles pertenecientes a la Nacion, uno a su linaje de Borbon-Anjou, y diez a sus demas antepasados.\r\nEn 1931 el ferbor republicano le cambia la corona real cerrada por la mural de la Republica que, muda, se presta acoger alrededor del de Castilla y Leon, los escudos de las principales casas reinantes de Europa, ancestros de nuestros reyes.Las iras contra el "Sr.Borbon" - que asi nombraba la prensa de la epoca al exiliado Alfonso XIII- se dirigen al primero de sus linajes y por eso caen del escuson las tres lises borbonicas, tambien las mismas florecillas de los cuarteles de las casas de Borgoa (IV), de Parma (V),y Medicis- Toscana (VI), mientras deja intactos los palos de Aragon (I), los palos y Aguilas de Aragon-Sicilia (II), la faja de Austria (III), el bandeado de Borgoa viejo (VII)');
 
 -- --------------------------------------------------------
 
