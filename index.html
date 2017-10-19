@@ -38,7 +38,7 @@
         </div>  
           
          <div id="myModal" class="modalEscaleras">
-               <button class="plantas"id="p4" onclick="viewer.loadScene('p4p1')"> Tejado</button>
+               <button class="plantas"id="p4" onclick="viewer.loadScene('p4p0')"> Tejado</button>
               <button class="plantas" id="p3" onclick="viewer.loadScene('p3p1'); piso_escalera(3); puntos('p3punto1')"> Segunda planta</button>
               <button class="plantas" id="p2" onclick="viewer.loadScene('p2p1'); piso_escalera(2); puntos('p2punto1')"> Primera planta</button>
               <button class="plantas" id="p1" onclick="viewer.loadScene('p1p1'); piso_escalera(1); puntos('p1punto1')"> Planta Baja</button>
@@ -243,7 +243,7 @@ viewer = pannellum.viewer('panorama', {
         "showControls": false,
         "compass":false,
         
-        //"hotSpotDebug": true
+        "hotSpotDebug": true
     },
 
     "scenes": {
@@ -376,15 +376,6 @@ viewer = pannellum.viewer('panorama', {
                     "targetPitch": -6.3,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p2punto11"
-                },
-              
-                {
-                    "pitch": -10.4,
-                    "yaw": -20.5,
-                    "type": "info", 
-                    "targetYaw": 68.3,
-                    "cssClass": "custom-hotspot-info",
-                    "targetPitch": -2.2
                 }
             ]
         },
@@ -405,16 +396,6 @@ viewer = pannellum.viewer('panorama', {
                     "targetPitch": -6.3,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p2punto11"
-                },
-              
-                {
-                    "pitch": -10.4,
-                    "yaw": -20.5,
-                    "type": "scene", 
-                    "sceneId": "info",
-                    "targetYaw": 68.3,
-                    "cssClass": "custom-hotspot-info",
-                    "targetPitch": -2.2
                 }
             ]
         },
@@ -849,33 +830,6 @@ viewer = pannellum.viewer('panorama', {
                     "targetYaw": 2.19,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p1punto13"
-                },
-              
-                {
-                    "pitch": 20.4,
-                    "yaw": -20.04,
-                    "type": "info",
-                    "cssClass": "custom-hotspot-info",
-                    "clickHandlerFunc": baseDatos,
-                    "clickHandlerArgs": "id01"
-                },
-              
-                {
-                    "pitch": 29.4,
-                    "yaw": -10.04,
-                    "type": "info",
-                    "cssClass": "custom-hotspot-info",
-                    "clickHandlerFunc": baseDatos,
-                    "clickHandlerArgs": "id02"
-                },
-              
-                {
-                    "pitch": 29.4,
-                    "yaw": -30.04,
-                    "type": "info",
-                    "cssClass": "custom-hotspot-info",
-                    "clickHandlerFunc": baseDatos,
-                    "clickHandlerArgs": "id03"
                 }
             ]   
                 },
@@ -1565,14 +1519,19 @@ viewer = pannellum.viewer('panorama', {
         
         
         
+        
+        
+        
+        
+        
         /// TEJADOOOOO
         
-        "p4p1": {
+        "p4p0": {
             "hfov": 120,
             "yaw": -0.3,
             "pitch": -7.5,
             "type": "equirectangular",
-            "panorama": "imagenes/tejado/p4p1.jpg",
+            "panorama": "imagenes/tejado/p4p0.jpg",
             "hotSpots": [
                  {
                     "pitch": -3.22,
@@ -1580,6 +1539,111 @@ viewer = pannellum.viewer('panorama', {
                     "type": "info",
                     "cssClass": "custom-hotspot-escaleras",
                     "clickHandlerFunc": escaleras
+                },
+                {
+                    "pitch": -079,
+                    "yaw": -84.36,
+                    "type": "scene",
+                    "sceneId": "p4p1",
+                    "cssClass": "custom-hotspot-salto",
+                    
+                },
+            ]
+         },
+        "p4p1": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p1.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -12.76,
+                    "yaw": 17.45,
+                    "type": "scene",
+                    "sceneId": "p4p0",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.13,
+                    "targetYaw": 141.39,
+                },
+                {
+                    "pitch": -12.78,
+                    "yaw": 143.35,
+                    "type": "scene",
+                    "sceneId": "p4p2",
+                    "cssClass": "custom-hotspot-salto", "targetPitch": 1.44,
+                    "targetYaw": -12.76,
+                },
+                {
+                    "pitch": -0.21,
+                    "yaw": 31.202,
+                    "type": "scene",
+                    "sceneId": "p4p3",
+                    "cssClass": "custom-hotspot-salto", "targetPitch": 1.44,
+                    "targetYaw": -12.76,
+                },
+                {
+                    "pitch": -11.78,
+                    "yaw": -126.25,
+                    "type": "scene",
+                    "sceneId": "p4p4",
+                    "cssClass": "custom-hotspot-salto", "targetPitch": 1.44,
+                    "targetYaw": -12.76,
+                }
+            ]
+         },
+        "p4p2": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p2.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -57.8,
+                    "yaw": -1,
+                    "type": "scene",
+                    "sceneId": "p4p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.13,
+                    "targetYaw": 141.39,
+                
+                }
+            ]
+         },
+        "p4p3": {
+            "hfov": 120,
+            "yaw": -1.96,
+            "pitch": -86.28,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p3.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -1.99,
+                    "yaw": -84,
+                    "type": "scene",
+                    "sceneId": "p4p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.13,
+                    "targetYaw": 141.39,
+                
+                }
+            ]
+         },
+        "p4p4": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p4.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": 10,
+                    "yaw": -81,
+                    "type": "scene",
+                    "sceneId": "p4p1",
+                    "cssClass": "custom-hotspot-salto"
+                
                 }
             ]
          }
