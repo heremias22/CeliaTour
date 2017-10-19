@@ -89,7 +89,11 @@
 
 /* Modal Content */
 .modal-content {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
     margin: auto;
     padding: 0;
     display: flex;
@@ -97,23 +101,26 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    min-width: 300px;
-    min-height: 200px;
-    max-width: 50%;
-    height: auto;
     background: white;
     border-radius: 5px;
     cursor: default;
 }
 
-.wrapper {
+#wrapper {
   max-width: 70%;
   text-align:left;
   display: inline-block;
-  margin-bottom: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
   
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 0.8em;
+  height: 15%;
+  max-height: 300px;
+  border:none;
+  overflow-y:auto;
+  margin: auto;
+  padding: 5px;
+  cursor: default;
+  margin-bottom: 10px;
 }
 
 #mas {
@@ -133,7 +140,7 @@
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 0.8em;
   width: 100%;
-  height: 200px;
+  min-height: 140px;
   max-height: 30%;
   border:none;
   overflow-y:auto;
@@ -145,7 +152,6 @@
     display: none; 
     position: fixed; 
     z-index: 100; 
-    padding-top: 100px; 
     left: 0;
     top: 0;
     width: 100%; 

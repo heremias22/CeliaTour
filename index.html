@@ -32,9 +32,7 @@
               <img id="imagen2" class="imagenG" src="">
               <img id="imagen3" class="imagenG" src="">
             </div>
-            <div class="wrapper">
-              <div id="desLarga"></div>
-            </div>
+            <div id="wrapper"></div>
             <!-- <a id="mas" href="#"></a>-->
           </div>
         </div>  
@@ -1607,7 +1605,7 @@ function puntos(hotspotDiv,identificador){
                 $('#imagen').attr("src","");
                 $('#imagen2').attr("src","");
                 $('#imagen3').attr("src","");
-                $('#desLarga').html("Cargando...");
+                 $('#wrapper').html("Cargando...");
               },
               success: function(resultado) {
                 var json = JSON.parse(resultado);
@@ -1615,7 +1613,7 @@ function puntos(hotspotDiv,identificador){
                 $('#imagen').attr("src",json[1]);
                 $('#imagen2').attr("src",json[2]);
                 $('#imagen3').attr("src",json[3]);
-                $('#desLarga').html(json[4]);
+                $('#wrapper').html(json[4]);
           },
            error: function(xhr, status) {
             // check if xhr.status is defined in $.ajax.statusCode
