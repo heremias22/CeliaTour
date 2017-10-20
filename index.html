@@ -117,6 +117,10 @@
                 var piso=1;
                 /*evento de resize*/
                 var id;
+                function variable_piso(x){
+                    piso=x;
+                }
+             
                 $(window).resize(function() {
                     clearTimeout(id);
                     alert
@@ -1643,6 +1647,7 @@ function puntos(hotspotDiv,identificador){
             document.getElementById("tercer_piso").className="piso_abierto pisos";
               break;
              }
+      variable_piso(option);
   }
   function escaleras(){
 
