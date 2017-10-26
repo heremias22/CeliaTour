@@ -128,6 +128,11 @@
                 <!--<div id="p3punto16" class="puntos" style="left: 19%;top: 18%;" onclick="puntos('p3punto16'); viewer.loadScene('p3p9')"></div>-->
                 <div id="p3punto17" class="puntos" style="left: 75%;top: 72%;" onclick="puntos('p3punto17'); viewer.loadScene('p3p10')"></div>
             </div>
+             
+             <div id="tejado" class="piso_cerrado pisos">
+                <div id="ptpunto1" class="puntos" style="left: 51%;top: 63%;" onclick="puntos('ptpunto1'); viewer.loadScene('p4p0')"></div>
+                <div id="ptpunto2" class="puntos" style="left: 79%;top: 74%;" onclick="puntos('ptpunto2'); viewer.loadScene('p4p1')"></div>
+             </div>
 
          </div>
          <div id="boton_mapa" style="transition: left 0.5s ease 0s;left:0.5%;" class="cerrado_boton boton" onclick="mover(document.getElementById('mapa')); mover(document.getElementById('boton_mapa'));mover(document.getElementById('subir_piso')); mover(document.getElementById('bajar_piso'));">
@@ -170,23 +175,29 @@
                 
                 function cambiar_piso(opcion){
                     if (opcion==1) {
-                        if (piso==3) {
+                        if (piso==4) {
                             alert("Ya te encuentras en el ultimo piso");
                           }else{
                             piso++;
                             switch (piso){
                                 case 1:
+                                    document.getElementById("sotano").className="piso_cerrado pisos";
                                     document.getElementById("primer_piso").className="piso_abierto pisos";
-                                     document.getElementById("sotano").className="piso_cerrado pisos";
-                                break;
+                                     
+                                    break;
                                 case 2:
-                                     document.getElementById("segundo_piso").className="piso_abierto pisos";
-                                     document.getElementById("primer_piso").className="piso_cerrado pisos";
-                                break;
+                                    document.getElementById("primer_piso").className="piso_cerrado pisos";
+                                    document.getElementById("segundo_piso").className="piso_abierto pisos";
+                                    
+                                    break;
                                 case 3:
                                     document.getElementById("segundo_piso").className="piso_cerrado pisos";
                                     document.getElementById("tercer_piso").className="piso_abierto pisos";
-                                break;
+                                    break;
+                                case 4:
+                                    document.getElementById("tercer_piso").className="piso_cerrado pisos";
+                                    document.getElementById("tejado").className="piso_abierto pisos";
+                                    break;
                             }
                           }
                     }
@@ -196,20 +207,24 @@
                         }else{
                             piso--;
                             switch (piso){
-                                case 1:
-                                    document.getElementById("primer_piso").className="piso_abierto pisos";
-                                    document.getElementById("segundo_piso").className="piso_cerrado pisos";
- 
-                                break;
+                                case 3:
+                                    document.getElementById("tejado").className="piso_cerrado pisos";
+                                    document.getElementById("tercer_piso").className="piso_abierto pisos";
+                                    break;
                                 case 2:
                                     document.getElementById("tercer_piso").className="piso_cerrado pisos";
                                     document.getElementById("segundo_piso").className="piso_abierto pisos";
                                     
-                                break;
+                                    break;
+                                case 1:
+                                    document.getElementById("segundo_piso").className="piso_cerrado pisos";
+                                    document.getElementById("primer_piso").className="piso_abierto pisos";
+                                    
+                                    break;
                                 case 0:
                                     document.getElementById("primer_piso").className="piso_cerrado pisos";
                                     document.getElementById("sotano").className="piso_abierto pisos";
-                                break;
+                                    break;
                             }
                         }
 
@@ -242,20 +257,6 @@
                     
                 }
             </script>
-        
-          <!--Mapa antiguo-->
-          <!--<div id="transparente">
-            <div id="movil">
-                <div id="p1f1" class="punto-minimapa" onclick="puntos('p1f1'); viewer.loadScene('p3p1')" style=" top: 415px;left: 442px;"></div>
-                <div id="p1f2" class="punto-minimapa" onclick="puntos('p1f2'); viewer.loadScene('dos')" style="top: 415px;left: 315px;"></div>
-                <div id="p1f3" class="punto-minimapa" onclick="puntos('p1f3'); viewer.loadScene('tres')" style="top: 415px;left: 170px;"></div>
-                <div id="p1f4" class="punto-minimapa" onclick="puntos('p1f4'); viewer.loadScene('cuatro')" style="top: 195px;left: 170px;"></div>
-                <div id="p1f5" class="punto-minimapa" onclick="puntos('p1f5'); viewer.loadScene('cinco')" style="top: 222px;left: 250px;"></div>
-                <div id="p1f6" class="punto-minimapa" onclick="puntos('p1f6'); viewer.loadScene('seis')" style="top: 300px;left: 446px;"></div>
-                <div id="p1f7" class="punto_seleccionado" onclick="puntos('p1f7'); viewer.loadScene('siete')" style="top: 350px;left: 486px;"></div>
-
-            </div>
-        </div>-->
         </div>
 
 	</div>
@@ -2232,6 +2233,8 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene",
                     "sceneId": "p4p1",
                     "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto2"
                     
                 },
             ]
@@ -2251,6 +2254,8 @@ viewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -2.13,
                     "targetYaw": 141.39,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
                 },
                 {
                     "pitch": -12.78,

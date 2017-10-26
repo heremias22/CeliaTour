@@ -355,6 +355,9 @@
 #tercer_piso{
     background-image: url("planta2.png"); 
 }
+#tejado{
+    background-image: url("tejado.png");
+}
 
 #subir_piso{
     bottom: 0px;
