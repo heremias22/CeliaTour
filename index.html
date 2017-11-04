@@ -130,8 +130,12 @@
             </div>
              
              <div id="tejado" class="piso_cerrado pisos">
-                <div id="ptpunto1" class="puntos" style="left: 51%;top: 63%;" onclick="puntos('ptpunto1'); viewer.loadScene('p4p0')"></div>
-                <div id="ptpunto2" class="puntos" style="left: 79%;top: 74%;" onclick="puntos('ptpunto2'); viewer.loadScene('p4p1')"></div>
+                <div id="ptpunto0" class="puntos" style="left: 58%;top: 62%;" onclick="puntos('ptpunto0'); viewer.loadScene('p4p0')"></div>
+                <div id="ptpunto1" class="puntos" style="left: 79%;top: 74%;" onclick="puntos('ptpunto1'); viewer.loadScene('p4p1')"></div>
+                <div id="ptpunto2" class="puntos" style="left: 6%;top: 85%;" onclick="puntos('ptpunto2'); viewer.loadScene('p4p2')"></div>
+                <div id="ptpunto3" class="puntos" style="left: 6%;top: 15%;" onclick="puntos('ptpunto3'); viewer.loadScene('p4p3')"></div>
+                <div id="ptpunto4" class="puntos" style="left: 94%;top: 61%;" onclick="puntos('ptpunto4'); viewer.loadScene('p4p4')"></div>
+                <div id="ptpunto5" class="puntos" style="left: 94%;top: 91%;" onclick="puntos('ptpunto5'); viewer.loadScene('p4p5')"></div>
              </div>
 
          </div>
@@ -2237,7 +2241,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "p4p1",
                     "cssClass": "custom-hotspot-salto",
                     "clickHandlerFunc": puntos,
-                    "clickHandlerArgs": "ptpunto2"
+                    "clickHandlerArgs": "ptpunto1"
                     
                 },
             ]
@@ -2258,7 +2262,7 @@ viewer = pannellum.viewer('panorama', {
                     "targetPitch": -2.13,
                     "targetYaw": 141.39,
                     "clickHandlerFunc": puntos,
-                    "clickHandlerArgs": "ptpunto1"
+                    "clickHandlerArgs": "ptpunto0"
                 },
                 {
                     "pitch": -2.78,
@@ -2268,6 +2272,8 @@ viewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-salto", 
 					"targetPitch": -17,
                     "targetYaw": -152.51,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto2"
                 },
                 {
                     "pitch": -2,
@@ -2277,6 +2283,8 @@ viewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-salto", 
 					"targetPitch":-20,
                     "targetYaw": 113.76,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto3"
                 },
                 {
                     "pitch": -16.78,
@@ -2286,6 +2294,8 @@ viewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-salto", 
 					"targetPitch": -26,
                     "targetYaw": -173.76,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto4"
                 },
                 {
                     "pitch": -14.78,
@@ -2295,6 +2305,8 @@ viewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-salto", 
 					"targetPitch": -21,
                     "targetYaw": 176,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto5"
                 }
             ]
          },
@@ -2313,6 +2325,8 @@ viewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -1.13,
                     "targetYaw": 20,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
                 
                 }
             ]
@@ -2332,6 +2346,8 @@ viewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -1.93,
                     "targetYaw": 18.58,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
                 
                 }
             ]
@@ -2348,7 +2364,9 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": -3,
                     "type": "scene",
                     "sceneId": "p4p1",
-                    "cssClass": "custom-hotspot-salto"
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
                 
                 }
             ]
@@ -2365,7 +2383,9 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": 40,
                     "type": "scene",
                     "sceneId": "p4p1",
-                    "cssClass": "custom-hotspot-salto"
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
                 
                 }
             ]
