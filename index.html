@@ -37,6 +37,12 @@
           </div>
         </div>  
           
+          <div class="modalAudio">
+            <div id="panelAudio">
+              <audio id="musica" src="" autoplay controls> </audio>
+            </div>
+          </div>
+          
          <div id="myModal" class="modalEscaleras">
                <button class="plantas"id="p4" onclick="viewer.loadScene('p4p0')"> Tejado</button>
               <button class="plantas" id="p3" onclick="viewer.loadScene('p3p1'); piso_escalera(3); puntos('p3punto1')"> Segunda planta</button>
@@ -915,7 +921,15 @@ viewer = pannellum.viewer('panorama', {
                     "targetPitch": 25.99,
                     "targetYaw": 27.86,
                     
-                }
+                },
+              {
+                    "pitch": -21.66,
+                    "yaw": 149.12,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-audio",
+                    "clickHandlerFunc": musica,
+                    "clickHandlerArgs": "pinkfloyd.mp3"
+              }
                 
                 
                 
@@ -2634,7 +2648,22 @@ function escaleras(){
         }
     }
     
-    
+    /////////////PRUEBA AUDIO//////////////////
+  //////////////////////////////////////////////
+  
+  function musica(hotspotDiv,args){
+       $('#musica').attr("src",args);
+       $('.modalAudio').css('display','block');
+            $(window).click(function(event){
+              if($(event.target).hasClass("modalAudio")){ 
+                $('.modalAudio').css('display','none');
+                $('#musica').trigger("pause");
+                //$('#musica').prop("pause");
+              }
+            })
+  }
+  
+  ////////////////////////////////////////////////
     
 </script>
 <!-- movimiento mapa antiguo -->

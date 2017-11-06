@@ -58,7 +58,8 @@
 
 .custom-hotspot-info,
 .custom-hotspot-salto,
-.custom-hotspot-atras{
+.custom-hotspot-atras,
+.custom-hotspot-audio{
         height: 60px;
         width: 60px;
         background-size:cover;
@@ -69,6 +70,7 @@
 .custom-hotspot-info {background-image: url("svg/eyeBlanco.svg");}
 .custom-hotspot-salto {background-image: url("svg/saltoBlanco.svg");}
 .custom-hotspot-atras {background-image: url("svg/puertaBlanco.svg");}
+.custom-hotspot-audio {background-image: url("svg/audio.svg");}
 
 
 .custom-hotspot-escaleras:hover {
@@ -78,12 +80,38 @@
 
 .custom-hotspot-info:hover,
 .custom-hotspot-salto:hover,
-.custom-hotspot-atras:hover{
+.custom-hotspot-atras:hover,
+.custom-hotspot-audio:hover{
         height: 80px;
         width: 80px;
 }
 
+#panelAudio {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    cursor: default;
+}
 
+.modalAudio {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); 
+}
 
 /* PANEL INFORMACION */
 
