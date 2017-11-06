@@ -14,7 +14,7 @@
     <script src="https://code.jquery.com/ui/1.8.16/jquery-ui.js"></script>
     
 </head>
-
+	
 <body>
 	<div class="contenedor">
 		<div id="panorama">
@@ -383,9 +383,7 @@ viewer = pannellum.viewer('panorama', {
                     "pitch": 79.4,
                     "yaw": 173.5,
                     "type": "info", 
-                    "targetYaw": 68.3,
                     "cssClass": "custom-hotspot-info",
-                    "targetPitch": -2.2,
                     "clickHandlerFunc": baseDatos,
                     "clickHandlerArgs": "id03"
                 }
@@ -884,7 +882,44 @@ viewer = pannellum.viewer('panorama', {
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p1punto14"
                     
+                },{
+                    "pitch": 43,
+                    "yaw": -77,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": juego1
+                    
+                },
+                {
+                    "pitch": 40,
+                    "yaw": -1,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": juego2
+                    
+                },
+                {
+                    "pitch": -85,
+                    "yaw": 28,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": juego3
+                    
+                },
+				{
+                    "pitch": 13.66,
+                    "yaw": 186.12,
+                    "type": "scene",
+                    "sceneId": "p1guia",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 25.99,
+                    "targetYaw": 27.86,
+                    
                 }
+                
+                
+                
+                
             ]   
                 },
         
@@ -2389,7 +2424,55 @@ viewer = pannellum.viewer('panorama', {
                 
                 }
             ]
-         }
+         },
+		"premio": {
+            "hfov": 120,
+            "yaw": 25,
+            "pitch": 116.24,
+            "type": "equirectangular",
+            "panorama": "imagenes/premio.png",
+            },
+		
+		"p1guia": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p2f1.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -3,
+                    "yaw": 40,
+                    "type": "scene",
+                    "sceneId": "p2guia",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 18,
+                    "targetYaw": -7,
+                    
+                
+                }
+            ]
+         },
+		
+		"p2guia": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p4f2.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -3,
+                    "yaw": 40,
+                    "type": "scene",
+                    "sceneId": "p1p2f3",
+                    "cssClass": "custom-hotspot-salto",
+                
+                }
+            ]
+         },
+		
+		
   
     }
 });
@@ -2480,9 +2563,8 @@ function puntos(hotspotDiv,identificador){
              }
       variable_piso(option);
   }
-  function escaleras(){
-
     
+function escaleras(){
     nombreEscena = viewer.getScene();
     pisoActual = nombreEscena.substring(0,2);
     largo = $(".plantas").length;
@@ -2525,6 +2607,35 @@ function puntos(hotspotDiv,identificador){
   document.getElementById('fullscreen').addEventListener('click', function(e) {
     viewer.toggleFullscreen();
 });
+    
+    ////////////////////
+    // Pruebas Juego////
+   /////////////////////
+   
+   var solucion = [4, 5];
+    var prueba = [0,0];
+    
+    function juego1(){
+        alert("Has encontrado la primera pieza, enhorabuena");
+        prueba[0]=4;
+    }
+    
+    function juego2(){
+        alert("Has encontrado la segunda pieza, enhorabuena");
+        prueba[1]=5;
+    }
+    
+    function juego3(){
+        if(prueba[0]==4 && prueba[1]==5){
+            alert("Has encontrado las dos piezas, puedes entrar");
+			viewer.loadScene('premio')
+        }else{
+            alert("algo te falta, sigue buscando");
+        }
+    }
+    
+    
+    
 </script>
 <!-- movimiento mapa antiguo -->
 <!-- <script>
