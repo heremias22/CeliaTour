@@ -36,12 +36,12 @@
             <!-- <a id="mas" href="#"></a>-->
           </div>
         </div>  
-          
-          <div class="modalAudio">
+            <div id="botonAudio1"></div>
+            <div id="botonAudio">
             <div id="panelAudio">
-              <audio id="musica" src="" autoplay controls> </audio>
+              <audio id="musica" src="pinkfloyd.mp3"  controls> </audio>
             </div>
-          </div>
+            </div>
           
          <div id="myModal" class="modalEscaleras">
                <button class="plantas"id="p4" onclick="viewer.loadScene('p4p0')"> Tejado</button>
@@ -2648,11 +2648,20 @@ function escaleras(){
         }
     }
     
+    //Toggle tamaño imagen.
+    $("#botonAudio1").toggle(function()
+    {$("#botonAudio").show();},
+    function()
+    {$("#botonAudio").hide();
+    });
+  
+  
+  
     /////////////PRUEBA AUDIO//////////////////
   //////////////////////////////////////////////
   
-  function musica(hotspotDiv,args){
-       $('#musica').attr("src",args);
+ /* function musica(){
+       //$('#musica').attr("src","pinkfloyd.mp3");
        $('.modalAudio').css('display','block');
             $(window).click(function(event){
               if($(event.target).hasClass("modalAudio")){ 
@@ -2662,7 +2671,7 @@ function escaleras(){
               }
             })
   }
-  
+  */
   ////////////////////////////////////////////////
     
 </script>
