@@ -46,13 +46,19 @@
                 </div>
               </div>
             </div>
-          
+            <!-- Boton audio arriba con toggle.
             <div id="botonAudio1"></div>
             <div id="botonAudio">
             <div id="panelAudio">
               <audio id="musica" src="pinkfloyd.mp3"  controls> </audio>
             </div>
+            </div>-->
+          <!-- Audio para punto sensibles, no confundir con el boton audio!!!!.-->
+            <div class="ventanaAudio">
+            <div id="contenedorAudio">
+              <audio id="musica1" src="" autoplay controls> </audio>
             </div>
+          </div>
           
          <div id="myModal" class="modalEscaleras">
                <button class="plantas"id="p4" onclick="viewer.loadScene('p4p0')"> Tejado</button>
@@ -314,7 +320,7 @@ viewer = pannellum.viewer('panorama', {
         "showControls": false,
         "compass":false,
         
-        "hotSpotDebug": true
+        "hotSpotDebug": false
     },
 
     "scenes": {
@@ -425,7 +431,18 @@ viewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-info",
                     "clickHandlerFunc": baseDatos,
                     "clickHandlerArgs": "id03"
-                }
+                },
+              
+                {
+                    "pitch": -21.66,
+                    "yaw": 149.12,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-audio",
+                    "clickHandlerFunc": musica,
+                    "clickHandlerArgs": "pinkfloyd.mp3"
+              }
+              
+                
             ]
         },
 
@@ -955,14 +972,7 @@ viewer = pannellum.viewer('panorama', {
                     "targetYaw": 27.86,
                     
                 },
-              /*{
-                    "pitch": -21.66,
-                    "yaw": 149.12,
-                    "type": "info",
-                    "cssClass": "custom-hotspot-audio",
-                    "clickHandlerFunc": musica,
-                    "clickHandlerArgs": "pinkfloyd.mp3"
-              }*/
+              /**/
                 
                 
                 
@@ -2743,20 +2753,21 @@ function escaleras(){
     });
   
     /////////////PRUEBA AUDIO//////////////////
-  //////////////////////////////////////////////
+  //////////////////PARA PUNTOS SENSIBLES.////////////////////////////
   
- /* function musica(){
-       //$('#musica').attr("src","pinkfloyd.mp3");
-       $('.modalAudio').css('display','block');
+
+   function musica(hotspotDiv,args){
+       $('#musica1').attr("src",args);
+       $('.ventanaAudio').css('display','block');
             $(window).click(function(event){
-              if($(event.target).hasClass("modalAudio")){ 
-                $('.modalAudio').css('display','none');
-                $('#musica').trigger("pause");
+              if($(event.target).hasClass("ventanaAudio")){ 
+                $('.ventanaAudio').css('display','none');
+                $('#contenedorAudio').trigger("pause");
                 //$('#musica').prop("pause");
               }
             })
   }
-  */
+  
   ////////////////////////////////////////////////
     
 </script>
