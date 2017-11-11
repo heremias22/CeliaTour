@@ -19,23 +19,34 @@
 	<div class="contenedor">
 		<div id="panorama">
           
-             <!-- The Modal -->
-        <div id="panel" class="modal">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <div class="modal-header">
-              <span id="close">&times;</span>
-              <h3 id="titulo"></h3>
-            </div>
-            <img id="imagen" src="">
-            <div id="galeria">
-              <img id="imagen2" class="imagenG" src="">
-              <img id="imagen3" class="imagenG" src="">
-            </div>
-            <div id="wrapper"></div>
-            <!-- <a id="mas" href="#"></a>-->
+          <!-- Galeria -->
+            <div id="GmyModal" class="Gmodal">
+              <span class="Gclose cursor" onclick="closeModal()">&times;</span>
+              <div class="Gmodal-content">
+                <img class="GmySlides" src="escudo.jpg" style="width:100%">
+                <img class="GmySlides" src="escudo1.jpg" style="width:100%">
+                <a class="Gprev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="Gnext" onclick="plusSlides(1)">&#10095;</a>
+              </div>
           </div>
-        </div>  
+            
+               <!-- Ventana Modal -->
+              <div class="modal">
+                <div class="overlay"></div>
+                <div class="modal__contents">
+                 <a class="modal__close" href="#">&times;</a>
+                 <h2 id="titulo">Escudo de Armas</h2>
+                 <div id="gallery" onclick="openModal();">
+                   <img src="escudo.jpg">
+                 </div>
+                <div id="texto">
+                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae expedita corrupti laudantium aperiam, doloremque explicabo ipsum earum dicta saepe delectus totam vitae ipsam doloribus et obcaecati facilis eius assumenda, cumque.
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae expedita corrupti laudantium aperiam, doloremque explicabo ipsum earum dicta saepe delectus totam vitae ipsam doloribus et obcaecati facilis eius assumenda, cumque.
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae expedita corrupti laudantium aperiam, doloremque explicabo ipsum earum dicta saepe delectus totam vitae ipsam doloribus et obcaecati facilis eius assumenda, cumque.</p>
+                </div>
+              </div>
+            </div>
+          
             <div id="botonAudio1"></div>
             <div id="botonAudio">
             <div id="panelAudio">
@@ -944,14 +955,14 @@ viewer = pannellum.viewer('panorama', {
                     "targetYaw": 27.86,
                     
                 },
-              {
+              /*{
                     "pitch": -21.66,
                     "yaw": 149.12,
                     "type": "info",
                     "cssClass": "custom-hotspot-audio",
                     "clickHandlerFunc": musica,
                     "clickHandlerArgs": "pinkfloyd.mp3"
-              }
+              }*/
                 
                 
                 
@@ -2533,7 +2544,9 @@ function puntos(hotspotDiv,identificador){
    /////////////////////PRUEBAS AJAX////////////////////////////////
   ///////////////////////////////////////////////////////////////
   function baseDatos(hotspotDiv,args){
-         $.ajax({
+    //Al clikear el ojo del salon de actos.
+     $(".modal").css("visibility","visible");
+         /*$.ajax({
               type: 'POST',
               url: 'baseDatos.php',
               data: {idnombre:args},
@@ -2581,9 +2594,56 @@ function puntos(hotspotDiv,identificador){
             })
             $('#close').click(function(event){
             $('.modal').css('display','none');
-            })
+            })*/
             
   }
+  
+  
+  
+  /////////////////////PANEL y GALERIA dentro del PANEL//////////////////////////////
+  ///////////////////////////////////////////////////
+  
+  //Abrir la galeria y poner la primera imagen.
+  function openModal() {
+  $("#GmyModal").show();
+  currentSlide(1);
+}
+//Cerrar galeria
+function closeModal() {
+  $("#GmyModal").hide();
+}
+//Pone el indice
+var slideIndex = 1;
+showSlides(slideIndex);
+//Suma mas uno al indice
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+//Pone el indice actual.
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+//Muestra el numero de imagenes que hay con la clase gmyslide y va poniendo cada vez que cambiamos con las flechas.
+function showSlides(n) {
+  var i;
+  var slides = $(".GmySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+  //Si le das click fuera de la ventana quitarlo.
+$( ".overlay" ).on( "click", function() {
+  $( ".modal" ).css('visibility',"hidden");
+});
+  //Si el das click a la X se cierra.
+$( ".modal__close" ).on( "click", function() {
+  $( ".modal" ).css('visibility',"hidden");
+});  
+  ///////////////////////////////////////////////////
+  ///////////////////////////////////////////////////
   
   
   /////////////////////////PRUEBAS AJAX////////////////////////////
@@ -2637,19 +2697,6 @@ function escaleras(){
           $("#myModal").css("display","none");
       }
     } 
-   //Toggle tamaño imagen.
-    $("#imagen").toggle(function()
-    {$(this).addClass('animate');},
-    function()
-    {$(this).removeClass('animate');
-    });
-    
-     //Toggle tamaño imagen.
-    $(".imagenG").toggle(function()
-    {$(this).addClass('animate');},
-    function()
-    {$(this).removeClass('animate');
-    });
   
   //boton fullscreen.
   document.getElementById('fullscreen').addEventListener('click', function(e) {
@@ -2681,15 +2728,19 @@ function escaleras(){
             alert("algo te falta, sigue buscando");
         }
     }
+    //Toggle Audio boton.
     
-    //Toggle tamaño imagen.
     $("#botonAudio1").toggle(function()
     {$("#botonAudio").show();},
     function()
     {$("#botonAudio").hide();
     });
-  
-  
+    //Toggle fullscren icono.
+   $("#fullscreen").toggle(function()
+    {$(".ctrl").css("background-image","url('css/svg/fsNormal.svg')");},
+    function()
+    {$(".ctrl").css("background-image","url('css/svg/fullscreenblanco.svg')");
+    });
   
     /////////////PRUEBA AUDIO//////////////////
   //////////////////////////////////////////////
