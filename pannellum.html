@@ -1,0 +1,2854 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Celia Tour</title>
+ <!-- Javascript de pannellum framework -->
+    <script src="pannellum/src/js/pannellum.js"></script>
+	<script src="pannellum/src/js/libpannellum.js"></script>
+    <!-- Css de pannellum framework -->
+    <link rel="stylesheet" href="pannellum/src/css/pannellum.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <!--librerias JQuery & JQuery ui-->
+    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.16/jquery-ui.js"></script>
+    
+</head>
+	
+<body>
+	<div class="contenedor">
+		<div id="panorama">
+          
+          <!-- Galeria -->
+            <div id="GmyModal" class="Gmodal">
+              <span class="Gclose cursor" onclick="closeModal()">&times;</span>
+              <div class="Gmodal-content">
+                <img class="GmySlides" src="escudo.jpg" style="width:100%">
+                <img class="GmySlides" src="escudo1.jpg" style="width:100%">
+                <a class="Gprev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="Gnext" onclick="plusSlides(1)">&#10095;</a>
+              </div>
+          </div>
+            
+               <!-- Ventana Modal -->
+              <div class="modal">
+                <div class="overlay"></div>
+                <div class="modal__contents">
+                 <a class="modal__close" href="#">&times;</a>
+                 <h2 id="titulo">Escudo de Armas</h2>
+                 <div id="gallery" onclick="openModal();">
+                   <img src="escudo.jpg">
+                 </div>
+                <div id="texto">
+                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae expedita corrupti laudantium aperiam, doloremque explicabo ipsum earum dicta saepe delectus totam vitae ipsam doloribus et obcaecati facilis eius assumenda, cumque.
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae expedita corrupti laudantium aperiam, doloremque explicabo ipsum earum dicta saepe delectus totam vitae ipsam doloribus et obcaecati facilis eius assumenda, cumque.
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae expedita corrupti laudantium aperiam, doloremque explicabo ipsum earum dicta saepe delectus totam vitae ipsam doloribus et obcaecati facilis eius assumenda, cumque.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Boton audio arriba con toggle.
+            <div id="botonAudio1"></div>
+            <div id="botonAudio">
+            <div id="panelAudio">
+              <audio id="musica" src="pinkfloyd.mp3"  controls> </audio>
+            </div>
+            </div>-->
+          <!-- Audio para punto sensibles, no confundir con el boton audio!!!!.-->
+            <div class="ventanaAudio">
+            <div id="contenedorAudio">
+              <audio id="musica1" src="" autoplay controls> </audio>
+            </div>
+          </div>
+          
+         <div id="myModal" class="modalEscaleras">
+               <button class="plantas"id="p4" onclick="viewer.loadScene('p4p0')"> Tejado</button>
+              <button class="plantas" id="p3" onclick="viewer.loadScene('p3p1'); piso_escalera(3); puntos('p3punto1')"> Segunda planta</button>
+              <button class="plantas" id="p2" onclick="viewer.loadScene('p2p1'); piso_escalera(2); puntos('p2punto1')"> Primera planta</button>
+              <button class="plantas" id="p1" onclick="viewer.loadScene('p1p1'); piso_escalera(1); puntos('p1punto1')"> Planta Baja</button>
+              <button class="plantas" id="p0" onclick="viewer.loadScene('p0p0'); piso_escalera(0); puntos('pspunto1')"> Planta Inferior</button>
+          </div>
+          
+          
+         <div class="ctrl" id="fullscreen"></div>
+         <div id="mapa" class="cerrado">
+
+            <!-- sotano -->
+            <div id="sotano" class="piso_cerrado pisos">
+                <div id="pspunto1" class="puntos" style="left: 59%;top: 62%;" onclick="puntos('pspunto1'); viewer.loadScene('p0p0');"></div>
+                <div id="pspunto2" class="puntos" style="left: 50%;top: 67.5%;" onclick="puntos('pspunto2'); viewer.loadScene('p0p1');"></div>
+                <div id="pspunto3" class="puntos" style="left: 50%;top: 73.5%;" onclick="puntos('pspunto3'); viewer.loadScene('p0p2');"></div>
+                <div id="pspunto4" class="puntos" style="left: 31.5%;top: 73.5%;" onclick="puntos('pspunto4'); viewer.loadScene('p0p3');"></div>
+                <div id="pspunto5" class="puntos" style="left: 16.5%;top: 73.5%;" onclick="puntos('pspunto5'); viewer.loadScene('p0p4');"></div>
+                <div id="pspunto6" class="puntos" style="left: 7.5%;top: 88%;" onclick="puntos('pspunto6'); viewer.loadScene('p0p4f2');"></div>
+                <div id="pspunto7" class="puntos" style="left: 16.5%;top: 48.5%;" onclick="puntos('pspunto7'); viewer.loadScene('p0p5');"></div>
+                <div id="pspunto8" class="puntos" style="left: 23.5%;top: 61.5%;" onclick="puntos('pspunto8'); viewer.loadScene('p0p1f2');"></div>
+                <div id="pspunto9" class="puntos" style="left: 41.5%;top: 61%;" onclick="puntos('pspunto9'); viewer.loadScene('p0p1f1');"></div>
+                <div id="pspunto10" class="puntos" style="left: 0%;top: 50.5%;" onclick="puntos('pspunto10'); viewer.loadScene('p0p5f1');"></div>
+                <div id="pspunto11" class="puntos" style="left: 0%;top: 46.5%;" onclick="puntos('pspunto11'); viewer.loadScene('p0p5f2');"></div>
+                <div id="pspunto12" class="puntos" style="left: 25%;top: 26%;" onclick="puntos('pspunto12'); viewer.loadScene('p1p9f2');"></div>
+            </div>  
+            <!-- primer piso -->
+            <div id="primer_piso" class="piso_abierto pisos">
+                <div id="p1punto1" class="punto_seleccionado" style="left: 53%;top: 62%;" onclick="puntos('p1punto1'); viewer.loadScene('p1p1');"></div>
+                <div id="p1punto2" class="puntos" style="left: 48%;top: 73.5%;" onclick="puntos('p1punto2');  viewer.loadScene('p1p2');"></div>
+                <div id="p1punto3" class="puntos" style="left: 34%;top: 73.5%;" onclick="puntos('p1punto3'); viewer.loadScene('p1p3');"></div>
+                <div id="p1punto4" class="puntos" style="left: 16.5%;top: 73.5%;" onclick="puntos('p1punto4'); viewer.loadScene('p1p4');"></div>
+                <div id="p1punto5" class="puntos" style="left: 16.5%;top: 50.5%;" onclick="puntos('p1punto5');  viewer.loadScene('p1p5');"></div>
+                <div id="p1punto6" class="puntos" style="left: 17%;top: 34%;" onclick="puntos('p1punto6');  viewer.loadScene('p1p6');"></div>
+                <div id="p1punto7" class="puntos" style="left: 34.5%;top: 43.5%;" onclick="puntos('p1punto7'); viewer.loadScene('p1p7');"></div>
+                <div id="p1punto8" class="puntos" style="left: 50%;top: 53.5%;" onclick="puntos('p1punto8');  viewer.loadScene('p1p8');"></div>
+                <div id="p1punto9" class="puntos" style="left: 64%;top: 73.5%;" onclick="puntos('p1punto9');  viewer.loadScene('p1p11');"></div>
+                <div id="p1punto10" class="puntos" style="left: 75%;top: 71.5%;" onclick="puntos('p1punto10');  viewer.loadScene('p1p10');"></div>
+                <div id="p1punto11" class="puntos" style="left: 25.5%;top: 80.5%;" onclick="puntos('p1punto11'); viewer.loadScene('p1p32f1');"></div>
+                <div id="p1punto12" class="puntos" style="left: 34.3%;top: 86.5%;" onclick="puntos('p1punto12');  viewer.loadScene('p1p32f2');"></div>
+                <div id="p1punto13" class="puntos" style="left: 48.5%;top: 86%;" onclick="puntos('p1punto13');  viewer.loadScene('p1p2f1');"></div>
+                <div id="p1punto14" class="puntos" style="left: 48.5%;top: 91%;" onclick="puntos('p1punto14');  viewer.loadScene('p1p2f2');"></div>
+                <div id="p1punto15" class="puntos" style="left: 48.5%;top: 96%;" onclick="puntos('p1punto15');  viewer.loadScene('p1p2f3');"></div>
+               <!-- <div id="p1punto16" class="puntos" style="left: 8%;top: 52%;" onclick="puntos('p1punto16');  viewer.loadScene('p1p5f1');"></div>-->
+                <div id="p1punto17" class="puntos" style="left: 18%;top: 26%;" onclick="puntos('p1punto17');  viewer.loadScene('p1p9');"></div>
+                <div id="p1punto18" class="puntos" style="left: 25%;top: 30%;" onclick="puntos('p1punto18');  viewer.loadScene('p1p9f1');"></div>
+                <div id="p1punto19" class="puntos" style="left: 41%;top: 48%;" onclick="puntos('p1punto19');  viewer.loadScene('p1p72');"></div>
+                <div id="p1punto20" class="puntos" style="left: 80%;top: 72%;" onclick="puntos('p1punto20');  viewer.loadScene('p1p12');"></div>
+                <div id="p1punto21" class="puntos" style="left: 25.8%;top: 73.5%;" onclick="puntos('p1punto21');  viewer.loadScene('p1p32');"></div>
+                <div id="p1punto22" class="puntos" style="left: 42%;top: 73.5%;" onclick="puntos('p1punto22');  viewer.loadScene('p1p22');"></div>
+            </div> 
+            <!-- segundo piso -->
+            <div id="segundo_piso" class="piso_cerrado pisos">
+                <div id="p2punto1" class="puntos" style="left: 53%;top: 62%;" onclick="puntos('p2punto1'); viewer.loadScene('p2p1');"></div>
+                <div id="p2punto2" class="puntos" style="left: 49%;top: 73.5%;" onclick="puntos('p2punto2'); viewer.loadScene('p2p2');"></div>
+                <div id="p2punto3" class="puntos" style="left: 34%;top: 73.5%;" onclick="puntos('p2punto3'); viewer.loadScene('p2p3');"></div>
+                <div id="p2punto4" class="puntos" style="left: 16.5%;top: 73.5%;" onclick="puntos('p2punto4');  viewer.loadScene('p2p4');"></div>
+                <div id="p2punto5" class="puntos" style="left: 16.5%;top: 53.5%;" onclick="puntos('p2punto5'); viewer.loadScene('p2p5');"></div>
+                <div id="p2punto6" class="puntos" style="left: 17%;top: 34%;" onclick="puntos('p2punto6'); viewer.loadScene('p2p6');"></div>
+                <div id="p2punto7" class="puntos" style="left: 24%;top: 37.5%;" onclick="puntos('p2punto7');  viewer.loadScene('p2p7');"></div>
+                <div id="p2punto8" class="puntos" style="left: 34.5%;top: 43.5%;" onclick="puntos('p2punto8'); viewer.loadScene('p2p72');"></div>
+                <div id="p2punto9" class="puntos" style="left: 49.5%;top: 53%;" onclick="puntos('p2punto9');  viewer.loadScene('p2p8');"></div>
+                <div id="p2punto10" class="puntos" style="left: 79%;top: 71.5%;" onclick="puntos('p2punto10');  viewer.loadScene('p2p10');"></div>
+                <div id="p2punto11" class="puntos" style="left: 49%;top: 86.5%;" onclick="puntos('p2punto11');  viewer.loadScene('p2p2f1');"></div>
+                <div id="p2punto12" class="puntos" style="left: 42%;top: 86.5%;" onclick="puntos('p2punto12');  viewer.loadScene('p2p2f3');"></div>
+                <div id="p2punto13" class="puntos" style="left: 64%;top: 86.5%;" onclick="puntos('p2punto13');  viewer.loadScene('p2p2f2');"></div>
+                
+
+                
+
+            </div>
+                <!-- tercer piso -->
+            <div id="tercer_piso" class="piso_cerrado pisos">
+                <div id="p3punto1" class="puntos" style="left: 50%;top: 62%;" onclick="puntos('p3punto1'); viewer.loadScene('p3p1')"></div>
+                <div id="p3punto2" class="puntos" style="left: 50%;top: 73%;" onclick="puntos('p3punto2'); viewer.loadScene('p3p2')"></div>
+                <!--<div id="p3punto3" class="puntos" style="left: 55%;top: 83%;" onclick="puntos('p3punto3'); viewer.loadScene('p3p2f1')"></div>-->
+                <div id="p3punto4" class="puntos" style="left: 43%;top: 83%;" onclick="puntos('p3punto4'); viewer.loadScene('p3p2f2')"></div>
+                <div id="p3punto5" class="puntos" style="left: 35%;top: 73%;" onclick="puntos('p3punto5'); viewer.loadScene('p3p3')"></div>
+                <div id="p3punto6" class="puntos" style="left: 17%;top: 73%;" onclick="puntos('p3punto6'); viewer.loadScene('p3p4')"></div>
+               <!--<div id="p3punto7" class="puntos" style="left: 17%;top: 83%;" onclick="puntos('p3punto7'); viewer.loadScene('p3p4f1')"></div>-->
+                <div id="p3punto8" class="puntos" style="left: 8%;top: 78%;" onclick="puntos('p3punto8'); viewer.loadScene('p3p4f2')"></div>
+                <div id="p3punto9" class="puntos" style="left: 8%;top: 69%;" onclick="puntos('p3punto9'); viewer.loadScene('p3p4f3')"></div>
+                <div id="p3punto10" class="puntos" style="left: 17%;top: 49%;" onclick="puntos('p3punto10'); viewer.loadScene('p3p5')"></div>
+                <div id="p3punto11" class="puntos" style="left: 8%;top: 50%;" onclick="puntos('p3punto11'); viewer.loadScene('p3p5f1')"></div>
+                <div id="p3punto12" class="puntos" style="left: 17%;top: 33%;" onclick="puntos('p3punto12'); viewer.loadScene('p3p6')"></div>
+                <div id="p3punto13" class="puntos" style="left: 8%;top: 34%;" onclick="puntos('p3punto13'); viewer.loadScene('p3p6f1')"></div>
+                <div id="p3punto14" class="puntos" style="left: 32%;top: 42%;" onclick="puntos('p3punto14'); viewer.loadScene('p3p7')"></div>
+                <div id="p3punto15" class="puntos" style="left: 50%;top: 53%;" onclick="puntos('p3punto15'); viewer.loadScene('p3p8')"></div>
+                <!--<div id="p3punto16" class="puntos" style="left: 19%;top: 18%;" onclick="puntos('p3punto16'); viewer.loadScene('p3p9')"></div>-->
+                <div id="p3punto17" class="puntos" style="left: 75%;top: 72%;" onclick="puntos('p3punto17'); viewer.loadScene('p3p10')"></div>
+            </div>
+             
+             <div id="tejado" class="piso_cerrado pisos">
+                <div id="ptpunto0" class="puntos" style="left: 58%;top: 62%;" onclick="puntos('ptpunto0'); viewer.loadScene('p4p0')"></div>
+                <div id="ptpunto1" class="puntos" style="left: 79%;top: 74%;" onclick="puntos('ptpunto1'); viewer.loadScene('p4p1')"></div>
+                <div id="ptpunto2" class="puntos" style="left: 6%;top: 85%;" onclick="puntos('ptpunto2'); viewer.loadScene('p4p2')"></div>
+                <div id="ptpunto3" class="puntos" style="left: 6%;top: 15%;" onclick="puntos('ptpunto3'); viewer.loadScene('p4p3')"></div>
+                <div id="ptpunto4" class="puntos" style="left: 94%;top: 61%;" onclick="puntos('ptpunto4'); viewer.loadScene('p4p4')"></div>
+                <div id="ptpunto5" class="puntos" style="left: 94%;top: 91%;" onclick="puntos('ptpunto5'); viewer.loadScene('p4p5')"></div>
+             </div>
+
+         </div>
+         <div id="boton_mapa" style="transition: left 0.5s ease 0s;left:0.5%;" class="cerrado_boton boton" onclick="mover(document.getElementById('mapa')); mover(document.getElementById('boton_mapa'));mover(document.getElementById('subir_piso')); mover(document.getElementById('bajar_piso'));">
+             
+        </div>
+
+        <div id="subir_piso" style="transition: left 0.5s ease 0s;left:0.5%; visibility:hidden;" class="cerrado_boton boton" onclick="cambiar_piso(10)">
+            
+        </div>
+
+        <div id="bajar_piso" style="transition: left 0.5s ease 0s;left:0.5%; visibility:hidden;" class="cerrado_boton boton" onclick="cambiar_piso(-10); this.style">
+            
+        </div>
+         <script type="text/javascript">
+                mapa_responsivo();
+                var piso=1;
+                /*evento de resize*/
+                var id;
+                function variable_piso(x){
+                    piso=x;
+                }
+             
+                $(window).resize(function() {
+                    clearTimeout(id);
+                    alert
+                    id = setTimeout(mapa_responsivo, 100);
+                });
+
+                /*movimiento del mapa y botones*/
+                function mapa_responsivo(){
+                    var distancia_top=window.innerHeight*0.57;
+                    var anchura=window.innerWidth*0.45;
+                    var altura=anchura*0.57;
+                    
+                    document.getElementById("mapa").style.top=window.innerHeight-altura+"px";
+                    document.getElementById("mapa").style.height=altura+"px";
+                    document.getElementById("mapa").style.width=anchura+"px"; 
+                        distancia_top=window.innerHeight*0.92;
+                }
+                
+                function cambiar_piso(opcion){
+                    if (opcion==10) {
+                        if (piso==4) {
+                            // aqui puedes poner algo y saltará cuando intentas pasar más allá del tejado
+                        }else{
+                            piso++;
+                            switch (piso){
+                                case 1:
+                                    document.getElementById("sotano").className="piso_cerrado pisos";
+                                    document.getElementById("primer_piso").className="piso_abierto pisos";
+                                     
+                                    break;
+                                case 2:
+                                    document.getElementById("primer_piso").className="piso_cerrado pisos";
+                                    document.getElementById("segundo_piso").className="piso_abierto pisos";
+                                    
+                                    break;
+                                case 3:
+                                    document.getElementById("segundo_piso").className="piso_cerrado pisos";
+                                    document.getElementById("tercer_piso").className="piso_abierto pisos";
+                                    break;
+                                case 4:
+                                    document.getElementById("tercer_piso").className="piso_cerrado pisos";
+                                    document.getElementById("tejado").className="piso_abierto pisos";
+                                    break;
+                            }
+                          }
+                    }else if (opcion==-10) {
+                        if(piso==0){
+                            // aqui puedes poner algo y saltará cuando intentas pasar más allá del sotano
+                        }else{
+                            piso--;
+                            switch (piso){
+                                case 3:
+                                    document.getElementById("tejado").className="piso_cerrado pisos";
+                                    document.getElementById("tercer_piso").className="piso_abierto pisos";
+                                    break;
+                                case 2:
+                                    document.getElementById("tercer_piso").className="piso_cerrado pisos";
+                                    document.getElementById("segundo_piso").className="piso_abierto pisos";
+                                    
+                                    break;
+                                case 1:
+                                    document.getElementById("segundo_piso").className="piso_cerrado pisos";
+                                    document.getElementById("primer_piso").className="piso_abierto pisos";
+                                    
+                                    break;
+                                case 0:
+                                    document.getElementById("primer_piso").className="piso_cerrado pisos";
+                                    document.getElementById("sotano").className="piso_abierto pisos";
+                                    break;
+                            }
+                        }
+
+                    }else{
+                        switch (piso){
+                                case 4:
+                                
+                                case 3:
+                                    
+                                    break;
+                                case 2:
+                                    
+                                    
+                                    break;
+                                case 1:
+                                    
+                                    
+                                    break;
+                                case 0:
+                                    
+                                    break;
+                            }
+                    }
+                    
+                    
+                    
+                }
+
+                function mover(opcion){               
+                    switch (opcion.className){
+                        case "cerrado":
+                            opcion.className="abierto";
+                            break;
+                        case "abierto":
+                            opcion.className="cerrado";
+                            break;
+                        case "cerrado_boton boton":
+                            if(opcion.id=="subir_piso" || opcion.id=="bajar_piso"){
+                                opcion.style.visibility="visible";
+                            }
+                            opcion.className="abierto_boton boton";
+                            opcion.style.left="46.5%";
+                            break;
+                        case "abierto_boton boton":
+                            if(opcion.id=="subir_piso" || opcion.id=="bajar_piso"){
+                                opcion.style.visibility="hidden";
+                            }
+                            opcion.className="cerrado_boton boton";
+                            opcion.style.left="0.5%";
+                            break;
+                    }
+                    
+                }
+            </script>
+        </div>
+
+	</div>
+	
+<script type="text/javascript">
+
+viewer = pannellum.viewer('panorama', {   
+    "default": {
+        "firstScene": "p1p2f3",
+        "sceneFadeDuration": 1000,
+        "autoLoad": true,
+        "showControls": false,
+        "compass":false,
+        
+        "hotSpotDebug": false
+    },
+
+    "scenes": {
+        
+        //// PLANTA PRIMERA
+        
+        "p2p2": {
+            "hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -13.1,
+                    "yaw": 2.2,
+                    "type": "scene",
+                    "sceneId": "p2p3",
+                    "targetPitch": -4.4,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetYaw": 182.06,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto3"
+                },
+              
+                 {
+                    "pitch": -16.3,
+                    "yaw": 125.5,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p2p1",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto1"
+                },
+              
+                 {
+                    "pitch": -8.003,
+                    "yaw": -180.321,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p2p10",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto10"
+                    
+
+                },
+              
+                {
+                    "pitch": -12.003,
+                    "yaw": -92.321,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p2p2f1",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto11"
+                }
+              
+                
+            ]
+        },
+      
+         "p2p2f1": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p2f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -9.8,
+                    "yaw": -83,
+                    "type": "scene", 
+                    "sceneId": "p2p2",
+                    "targetYaw": -83.06,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 0.1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto2"
+                },
+              
+                {
+                    "pitch": -9.4,
+                    "yaw": 185.3,
+                    "type": "scene", 
+                    "sceneId": "p2p2f3",
+                    "targetYaw": -1.9,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.2,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto12"
+                },
+              
+                 {
+                    "pitch": -8.4,
+                    "yaw": 3,
+                    "type": "scene", 
+                    "sceneId": "p2p2f2",
+                    "targetYaw": 2.8,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.2,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto13"
+                },
+              
+                   {
+                    "pitch": 79.4,
+                    "yaw": 173.5,
+                    "type": "info", 
+                    "cssClass": "custom-hotspot-info",
+                    "clickHandlerFunc": baseDatos,
+                    "clickHandlerArgs": "id03"
+                },
+              
+                {
+                    "pitch": -21.66,
+                    "yaw": 149.12,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-audio",
+                    "clickHandlerFunc": musica,
+                    "clickHandlerArgs": "pinkfloyd.mp3"
+              }
+              
+                
+            ]
+        },
+
+         "p2p2f2": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p2f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -20.8,
+                    "yaw": -179.6,
+                    "type": "scene", 
+                    "sceneId": "p2p2f1",
+                    "targetYaw": 59.6,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.3,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto11"
+                }
+            ]
+        },
+      
+         "p2p2f3": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p2f3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -18.8,
+                    "yaw": -8.6,
+                    "type": "scene", 
+                    "sceneId": "p2p2f1",
+                    "targetYaw": 59.6,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.3,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto11"
+                }
+            ]
+        },
+
+        "p2p3": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -8.6,
+                    "yaw": 4.11,
+                    "type": "scene", 
+                    "sceneId": "p2p2",
+                    "targetYaw": 107,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -10,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto2"
+                },
+              
+                {
+                    "pitch": -7.9,
+                    "yaw": -177.79,
+                    "type": "scene", 
+                    "sceneId": "p2p4",
+                    "targetYaw": 68.3,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.2,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto4"
+                }
+            ]
+        },
+      
+        "p2p4": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p4.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10.8,
+                    "yaw": 158.6,
+                    "type": "scene", 
+                    "sceneId": "p2p3",
+                    "targetYaw": 3.6,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto3"
+                },
+              
+                 {
+                    "pitch": -5.8,
+                    "yaw": 67.9,
+                    "type": "scene", 
+                    "sceneId": "p2p5",
+                    "targetYaw": -89.25,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -8.1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto5"
+                },
+              
+                 {
+                    "pitch": -5.8,
+                    "yaw": -18,
+                    "type": "scene", 
+                    "sceneId": "p2p4f3",
+                    "targetYaw": 116,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto5"
+                }
+            ]
+        },
+        
+        "p2p4f3": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p4f3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -16,
+                    "yaw": -68,
+                    "type": "scene", 
+                    "sceneId": "p2p4",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto4"
+                },
+              
+                 {
+                    "pitch": -11.76,
+                    "yaw": 51.79,
+                    "type": "scene", 
+                    "sceneId": "p2p4f2",
+                    "targetYaw": 37,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto6"
+                },
+              
+                 {
+                    "pitch": -9.76,
+                    "yaw": -154.79,
+                    "type": "scene", 
+                    "sceneId": "p2p4f4",
+                    "targetYaw": 155,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto6"
+                }
+            ]
+        },
+        
+        "p2p4f2": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p4f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -21.65,
+                    "yaw": -161.19,
+                    "type": "scene", 
+                    "sceneId": "p2p4f3",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto4"
+                }
+            ]
+        },
+        
+        
+        "p2p4f4": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p4f4.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -5.65,
+                    "yaw": -134.19,
+                    "type": "scene", 
+                    "sceneId": "p2p4f3",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto4"
+                }
+            ]
+        },
+        
+        "p2p5": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p5.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -9.65,
+                    "yaw": 95.19,
+                    "type": "scene", 
+                    "sceneId": "p2p4",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto4"
+                },
+              
+                 {
+                    "pitch": -2.76,
+                    "yaw": -89.79,
+                    "type": "scene", 
+                    "sceneId": "p2p6",
+                    "targetYaw": 37,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto6"
+                }
+            ]
+        },
+        
+      
+          "p2p6": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p6.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -4.12,
+                    "yaw": 92.3,
+                    "type": "scene", 
+                    "sceneId": "p2p5",
+                    "targetYaw": 83,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.04,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto5"
+                },
+              
+                 {
+                    "pitch": -2.6,
+                    "yaw": 27.9,
+                    "type": "scene", 
+                    "sceneId": "p2p7",
+                    "targetYaw": -0.85,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -1.84,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto7"
+                }
+            ]
+        },
+      
+        "p2p7": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p7.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -16,
+                    "yaw": -184.3,
+                    "type": "scene", 
+                    "sceneId": "p2p6",
+                    "targetYaw": 84,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 2,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto6"
+                },
+              
+                 {
+                    "pitch": -12,
+                    "yaw": 0.293,
+                    "type": "scene", 
+                    "sceneId": "p2p72",
+                    "targetYaw": 17.3,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 0.1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto8"
+                }
+            ]
+        },
+        
+        "p2p72": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p72.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -19.46,
+                    "yaw": 181,
+                    "type": "scene", 
+                    "sceneId": "p2p7",
+                    "targetYaw": -184.69,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.86,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto7"
+                },
+              
+                 {
+                    "pitch": -7.67,
+                    "yaw": -3.92,
+                    "type": "scene", 
+                    "sceneId": "p2p8",
+                    "targetYaw": 161.8,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.7,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto9"
+                }
+            ]
+        },
+      
+          "p2p8": {
+            "hfov": 120,
+            "yaw": 0,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p8.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10.9,
+                    "yaw": -64.8,
+                    "type": "scene", 
+                    "sceneId": "p2p72",
+                    "targetYaw": 182.26,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -9.4,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto8"
+                },
+              
+                 {
+                    "pitch": -24.8,
+                    "yaw": 158.04,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p2p1",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto1"
+                }
+            ]
+        },
+      
+         "p2p1": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -19.88,
+                    "yaw": -105.51,
+                    "type": "scene", 
+                    "sceneId": "p2p8",
+                    "targetYaw": -64.5,
+                    "targetPitch": -3.4,
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto9"
+                },
+              
+                 {
+                    "pitch": -19.97,
+                    "yaw": 97.25,
+                    "type": "scene", 
+                    "sceneId": "p2p2",
+                    "targetYaw": -23,
+                    "targetPitch": 2,
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto2"
+                },
+              
+                 {
+                    "pitch": -1.27,
+                    "yaw": 2.25,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "clickHandlerFunc": escaleras
+                }
+            ]
+        },
+        "p2p10": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p10.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -18.81,
+                    "yaw": -179.63,
+                    "type": "scene", 
+                    "sceneId": "p2p2",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto2"
+                }
+            ]
+        },
+        
+        
+        
+        /////// PLANTA BAJAa
+        
+        "p1p1": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -17.66,
+                    "yaw": 115.12,
+                    "type": "scene",
+                    "sceneId": "p1p2",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -11.30,
+                    "targetYaw": 125.41,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto2"
+                },
+                 {
+                    "pitch": -3.22,
+                    "yaw": 9.54,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "clickHandlerFunc": escaleras
+                },
+                {
+                    "pitch": -21.42,
+                    "yaw": -110.67,
+                    "type": "scene",
+                    "sceneId": "p1p8",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.30,
+                    "targetYaw": 186.41,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto8"
+                }
+            ]   
+                },
+        
+        "p1p2": {
+            "hfov": 120,
+            "yaw": -8.48,
+            "pitch": -44.24,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -17.66,
+                    "yaw": 115.12,
+                    "type": "scene",
+                    "sceneId": "p1p2f1",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto13"
+                },
+                {
+                    "pitch": -10.32,
+                    "yaw": -176.34,
+                    "type": "scene",
+                    "sceneId": "p1p22",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -3.74,
+                    "targetYaw": 174.90,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto22"
+                },
+                {
+                    "pitch": -14.21,
+                    "yaw": -70.58,
+                    "type": "scene",
+                    "sceneId": "p1p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto1"
+                },
+                {
+                    "pitch": -1.32,
+                    "yaw": -3.542,
+                    "type": "scene",
+                    "sceneId": "p1p11",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto10"
+                }
+            ]   
+                },
+        
+         "p1p2f1": {
+            "hfov": 120,
+            "yaw": 181.23,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p2f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -27.00,
+                    "yaw": -176.63,
+                    "type": "scene",
+                    "sceneId": "p1p2f2",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto14"
+                },
+                 {
+                    "pitch": 19.74,
+                    "yaw": 3.34,
+                    "type": "scene",
+                    "sceneId": "p1p2",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.002,
+                    "targetYaw": -41.59,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto2"
+                }
+                
+            ]   
+                },
+        
+         "p1p2f2": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p2f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -14.04,
+                    "yaw": -159.59,
+                    "type": "scene",
+                    "sceneId": "p1p2f3",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto15"
+                },
+                {
+                    "pitch": -0.79,
+                    "yaw": 30.65,
+                    "type": "scene",
+                    "sceneId": "p1p2f1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 26.70,
+                    "targetYaw": 2.19,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto13"
+                }
+            ]   
+                },
+        
+         "p1p2f3": {
+            "hfov": 120,
+            "yaw": 109.517,
+            "pitch": 18.91,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p2f3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -17.66,
+                    "yaw": 115.12,
+                    "type": "scene",
+                    "sceneId": "p1p2f2",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 25.99,
+                    "targetYaw": 27.86,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto14"
+                    
+                }
+              /**/
+                
+                
+                
+                
+            ]   
+                },
+        
+        
+         "p1p22": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p22.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10.55,
+                    "yaw": 174.44,
+                    "type": "scene",
+                    "sceneId": "p1p3",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto3",
+                    "targetPitch": -4,
+                    "targetYaw": 180,
+                },
+                {
+                    "pitch": -9.06,
+                    "yaw": -4.95,
+                    "type": "scene",
+                    "sceneId": "p1p2",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto2"
+                }
+            ]   
+                },
+        
+         "p1p3": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10.55,
+                    "yaw": 174.44,
+                    "type": "scene",
+                    "sceneId": "p1p32",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto21",
+                    "targetPitch": -5,
+                    "targetYaw": 179.86,
+                },
+                {
+                    "pitch": -9.06,
+                    "yaw": -4.95,
+                    "type": "scene",
+                    "sceneId": "p1p22",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto2",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto22"
+                }
+            ]   
+                },
+        
+        
+         "p1p32": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p32.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10.55,
+                    "yaw": 174.44,
+                    "type": "scene",
+                    "sceneId": "p1p4",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto4",
+                    "targetPitch": -3,
+                    "targetYaw": -47,
+                },
+                {
+                    "pitch": -9.06,
+                    "yaw": -4.95,
+                    "type": "scene",
+                    "sceneId": "p1p3",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto3"
+                },
+              
+                 {
+                    "pitch": -7,
+                    "yaw": 101,
+                    "type": "scene", 
+                    "sceneId": "p1p32f1",
+                    "targetYaw": -3,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.2,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto11"
+                }
+            ]   
+                },
+        
+        "p1p4": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p4.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -13.55,
+                    "yaw": -88.13,
+                    "type": "scene",
+                    "sceneId": "p1p5",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 0,
+                    "targetYaw": -87.86,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto5"
+                },
+                {
+                    "pitch": -7.74,
+                    "yaw": -1.98,
+                    "type": "scene",
+                    "sceneId": "p1p32",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto21"
+                }
+            ]   
+                },
+        
+        
+         "p1p32f1": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p32f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -15,
+                    "yaw": -95.6,
+                    "type": "scene", 
+                    "sceneId": "p1p32",
+                    "targetYaw": -31.704,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -8.04,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto21"
+                },
+              
+                 {
+                    "pitch": -8.32,
+                    "yaw": -3.55,
+                    "type": "scene", 
+                    "sceneId": "p1p32f2",
+                    "targetYaw": 78.2,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -1.84,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto12"
+                }
+            ]
+        },
+        
+        
+         "p1p32f2": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p32f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -11,
+                    "yaw": -105.6,
+                    "type": "scene", 
+                    "sceneId": "p1p32f1",
+                    "targetYaw": -94.85,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -7.43,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto11"
+                }
+            ]
+        },
+        
+          "p1p5": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p5.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -3.33,
+                    "yaw": 93.33,
+                    "type": "scene",
+                    "sceneId": "p1p4",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto4"
+                },
+                {
+                    "pitch": -9.31,
+                    "yaw": -87.46,
+                    "type": "scene",
+                    "sceneId": "p1p6",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.61,
+                    "targetYaw": -33.95,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto6"
+                }
+            ]   
+                },
+        
+        "p1p6": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p6.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -7.31,
+                    "yaw": 4.26,
+                    "type": "scene",
+                    "sceneId": "p1p7",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto7"
+                },
+                {
+                    "pitch": -11.95,
+                    "yaw": 76.80,
+                    "type": "scene",
+                    "sceneId": "p1p5",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.6,
+                    "targetYaw": 93,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto5"
+                },
+                {
+                    "pitch": -22.49,
+                    "yaw": -97.41,
+                    "type": "scene",
+                    "sceneId": "p1p9",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.6,
+                    "targetYaw": 41,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto17"
+                }
+            ]   
+                },
+        "p1p7": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p7.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -6.53,
+                    "yaw": -4.75,
+                    "type": "scene",
+                    "sceneId": "p1p72",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto19"
+                },
+                 {
+                    "pitch": -10.95,
+                    "yaw": 176.68,
+                    "type": "scene",
+                    "sceneId": "p1p6",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -9.63,
+                    "targetYaw": 46.88,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto6"
+                }
+            ]   
+                },
+        
+        "p1p72": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p72.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -6.53,
+                    "yaw": -4.75,
+                    "type": "scene",
+                    "sceneId": "p1p8",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto8"
+                },
+                 {
+                    "pitch": -10.95,
+                    "yaw": 176.68,
+                    "type": "scene",
+                    "sceneId": "p1p7",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.63,
+                    "targetYaw": 175,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto7"
+                }
+            ]   
+                },
+        "p1p8": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p8.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -22.03,
+                    "yaw": 54.25,
+                    "type": "scene",
+                    "sceneId": "p1p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto1"
+                },
+                {
+                    "pitch": -11.34,
+                    "yaw": 188.735,
+                    "type": "scene",
+                    "sceneId": "p1p72",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -4.88,
+                    "targetYaw": 175.88,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto19"
+                }
+            ]   
+                }, 
+        
+        "p1p9": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p9.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -24.03,
+                    "yaw": 91.04,
+                    "type": "scene",
+                    "sceneId": "p1p6",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto6"
+                },
+                {
+                    "pitch": -12.09,
+                    "yaw": 2.085,
+                    "type": "scene",
+                    "sceneId": "p1p9f1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -4.88,
+                    "targetYaw": 175.88,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto18"
+                }
+            ]   
+                }, 
+        
+        
+        "p1p9f1": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p9f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": 11.3,
+                    "yaw": -27.7,
+                    "type": "scene",
+                    "sceneId": "p1p9",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto17"
+                },
+                {
+                    "pitch": -46.07,
+                    "yaw": -8.13,
+                    "type": "scene",
+                    "sceneId": "p1p9f2",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto12"
+                    
+                }
+            ]   
+                }, 
+        
+        
+        "p1p9f2": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p9f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -22.03,
+                    "yaw": 147.64,
+                    "type": "scene",
+                    "sceneId": "p1p9f1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 12,
+                    "targetYaw": -17,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto18"
+                }
+            ]   
+                }, 
+        
+        "p1p11": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p11.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -11.86,
+                    "yaw": 5.32,
+                    "type": "scene",
+                    "sceneId": "p1p10",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto10"
+                },
+                {
+                    "pitch": -9,
+                    "yaw": -172.40,
+                    "type": "scene",
+                    "sceneId": "p1p2",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto2"
+                }
+            ]   
+                }, 
+        "p1p10": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p10.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -21.08,
+                    "yaw": 128.46,
+                    "type": "scene",
+                    "sceneId": "p1p11",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -10.64,
+                    "targetYaw": -172.63,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto9"
+                },
+                 {
+                    "pitch": -19.08,
+                    "yaw": -5.39,
+                    "type": "scene",
+                    "sceneId": "p1p12",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto20"
+                }
+            ]   
+                }, 
+        
+        "p1p12": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p12.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -14.08,
+                    "yaw": 168.39,
+                    "type": "scene",
+                    "sceneId": "p1p10",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto10",
+                    "targetPitch": -6.407,
+                    "targetYaw": 134.3,
+                }
+            ]   
+                }, 
+        
+        
+        
+        // SOTANO
+        
+         "p0p0": {
+            "hfov": 120,
+            "yaw": -20,
+            "pitch": 190,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p0.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -27.171,
+                    "yaw": 171.51,
+                    "type": "scene",
+                    "sceneId": "p0p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -12.407,
+                    "targetYaw": -165.61,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto2"
+                },
+                 {
+                    "pitch": -3.22,
+                    "yaw": 9.54,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "clickHandlerFunc": escaleras
+                }
+            ]   
+                },
+         "p0p1": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p1.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -19,
+                    "yaw": 196,
+                    "type": "scene",
+                    "sceneId": "p0p1f1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 37,
+                    "targetYaw": -179.33,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto9"
+                },
+                {
+                    "pitch": -8.76,
+                    "yaw": -18.89,
+                    "type": "scene",
+                    "sceneId": "p0p0",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto1"
+                },
+                {
+                    "pitch": -25.35,
+                    "yaw": 102.25,
+                    "type": "scene",
+                    "sceneId": "p0p2",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto3"
+                }
+            ]
+         },
+         "p0p1f1": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p1f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -1.93,
+                    "yaw": 9.91,
+                    "type": "scene",
+                    "sceneId": "p0p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1.55,
+                    "targetYaw": -17.82,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto2"
+                },
+                {
+                    "pitch": -10.55,
+                    "yaw": 161.204,
+                    "type": "scene",
+                    "sceneId": "p0p1f2",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -4.84,
+                    "targetYaw": 179.33,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto8"
+                }
+            ]
+         },
+        
+         "p0p1f2": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p1f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -1.93,
+                    "yaw": 9.91,
+                    "type": "scene",
+                    "sceneId": "p0p1f1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 7.9,
+                    "targetYaw": 9.14,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto9"
+                },
+                 {
+                    "pitch": -13.34,
+                    "yaw": -184.309,
+                    "type": "scene",
+                    "sceneId": "p0p5",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1.69,
+                    "targetYaw": 99.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto6"
+                }
+            ]
+         },
+        
+        "p0p2": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p2.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -21.12,
+                    "yaw": -81.77,
+                    "type": "scene",
+                    "sceneId": "p0p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 13,
+                    "targetYaw": -179.33,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto2"
+                },
+                {
+                    "pitch": -11.94,
+                    "yaw": -176.172,
+                    "type": "scene",
+                    "sceneId": "p0p3",
+                    "cssClass": "custom-hotspot-salto"
+                    ,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto4"
+                }
+            ]
+         },
+        
+        "p0p3": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p3.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -5.93,
+                    "yaw": -1.703,
+                    "type": "scene",
+                    "sceneId": "p0p2",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 13.65,
+                    "targetYaw": -128.805,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto3"
+                },
+                {
+                    "pitch": -10.97,
+                    "yaw": 180.32,
+                    "type": "scene",
+                    "sceneId": "p0p4",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto5"
+                }
+            ]
+         },
+        
+         "p0p4": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p4.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -3.63,
+                    "yaw": 2.507,
+                    "type": "scene",
+                    "sceneId": "p0p3",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 3.19,
+                    "targetYaw": -2.69,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto4"
+                },
+                {
+                    "pitch": -8.76,
+                    "yaw": -87.89,
+                    "type": "scene",
+                    "sceneId": "p0p5",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto7"
+                },
+                {
+                    "pitch": -15.76,
+                    "yaw": -181.89,
+                    "type": "scene",
+                    "sceneId": "p0p4f2",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 16.53,
+                    "targetYaw": -4.78,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto6"
+                }
+            ]
+         },
+        
+        "p0p4f2": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p4f2.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -2.43,
+                    "yaw": 105.07,
+                    "type": "scene",
+                    "sceneId": "p0p4",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -10.01,
+                    "targetYaw": -46.63,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto5"
+                }
+            ]
+         },
+        
+         "p0p5": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p5.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -7.48,
+                    "yaw": 87.43,
+                    "type": "scene",
+                    "sceneId": "p0p4",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -8.09,
+                    "targetYaw": -44.603,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto5"
+                },
+                {
+                    "pitch": -5.37,
+                    "yaw": 177,
+                    "type": "scene",
+                    "sceneId": "p0p5f1",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto10"
+                },
+                {
+                    "pitch": -5.8005,
+                    "yaw": 74,
+                    "type": "scene",
+                    "sceneId": "p0p1f2",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -8.09,
+                    "targetYaw": -44.603,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto8"
+                }
+            ]
+         },
+        
+        "p0p5f1": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p5f1.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -2.293,
+                    "yaw": -8.87,
+                    "type": "scene",
+                    "sceneId": "p0p5",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.13,
+                    "targetYaw": 141.39,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto7"
+                },
+                {
+                    "pitch": -9.05,
+                    "yaw": 164.8,
+                    "type": "scene",
+                    "sceneId": "p0p5f2",
+                    "cssClass": "custom-hotspot-salto", "targetPitch": 1.44,
+                    "targetYaw": -12.76,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto11"
+                }
+            ]
+         },
+        
+        "p0p5f2": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p5f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -3.41,
+                    "yaw": 169.045,
+                    "type": "scene",
+                    "sceneId": "p0p5f1",
+                    "cssClass": "custom-hotspot-salto", "targetPitch": 9.16,
+                    "targetYaw": -12.53,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "pspunto10"
+                }
+            ]
+         },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // SEGUNDA PLANTA
+        
+        
+          "p3p1": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -19.88,
+                    "yaw": -105.51,
+                    "type": "scene", 
+                    "sceneId": "p3p8",
+                    "targetYaw": 172,
+                    "targetPitch": -3.4,
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto15"
+                    
+                },
+              
+                 {
+                    "pitch": -19.97,
+                    "yaw": 89.25,
+                    "type": "scene", 
+                    "sceneId": "p3p2",
+                    "targetYaw": -11,
+                    "targetPitch": -146.9,
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto2"
+                },
+                 {
+                    "pitch": -3.22,
+                    "yaw": 9.54,
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "clickHandlerFunc": escaleras
+                }
+            ]
+                 
+            
+         },
+        
+        
+          "p3p2": {
+            "hfov": 120,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -12.1,
+                    "yaw": -184.93,
+                    "type": "scene",
+                    "sceneId": "p3p3",
+                    "targetPitch": -6.4,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetYaw": -178.35,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto5"
+                },
+              
+                 {
+                    "pitch": -18.3,
+                    "yaw": -90.5,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p3p1",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto1"
+                },
+              
+                 {
+                    "pitch": -8.003,
+                    "yaw": -2.321,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p3p10",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto17"
+                    
+
+                },
+              
+                {
+                    "pitch": -4.003,
+                    "yaw": 96.321,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p3p2f2",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto4"
+                }
+              
+                
+            ]
+        },
+      
+         "p3p2f2": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p2f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -6.8,
+                    "yaw": -61.0,
+                    "type": "scene", 
+                    "sceneId": "p3p2",
+                    "targetYaw": 59.6,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -6.3,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto2"
+                }
+            ]
+        },
+
+        "p3p3": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -8.25,
+                    "yaw": -2.36,
+                    "type": "scene", 
+                    "sceneId": "p3p2",
+                    "targetYaw": -93.49,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -8.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto2"
+                },
+              
+                {
+                    "pitch": -10.4,
+                    "yaw": 180.05,
+                    "type": "scene", 
+                    "sceneId": "p3p4",
+                    "targetYaw": 68.3,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.2,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto6"
+                }
+            ]
+        },
+      
+        "p3p4": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p4.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -7.8,
+                    "yaw": 1.6,
+                    "type": "scene", 
+                    "sceneId": "p3p3",
+                    "targetYaw": -3,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 12.07,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto5"
+                },
+              
+                 {
+                    "pitch": -11.501,
+                    "yaw": -84.5,
+                    "type": "scene", 
+                    "sceneId": "p3p5",
+                    "targetYaw": -89.25,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -8.1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto10"
+                },
+                {
+                    "pitch": -14.73,
+                    "yaw": 164.35,
+                    "type": "scene", 
+                    "sceneId": "p3p4f2",
+                    "targetYaw": -118,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto8"
+                },
+              
+                 {
+                    "pitch": -13.35,
+                    "yaw": 205.9,
+                    "type": "scene", 
+                    "sceneId": "p3p4f3",
+                    "targetYaw": 134.5,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -10.1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto9"
+                }
+            ]
+        },
+        
+        "p3p4f2": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p4f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -6.65,
+                    "yaw": -2.8,
+                    "type": "scene", 
+                    "sceneId": "p3p4",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto6"
+                }
+            ]
+        },
+        
+        "p3p4f3": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p4f3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -11.9,
+                    "yaw": -42.133,
+                    "type": "scene", 
+                    "sceneId": "p3p4",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto6"
+                }
+            ]
+        },
+        
+        "p3p5": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p5.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -9.65,
+                    "yaw": 95.19,
+                    "type": "scene", 
+                    "sceneId": "p3p4",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto6"
+                },
+              
+                 {
+                    "pitch": -2.76,
+                    "yaw": -89.79,
+                    "type": "scene", 
+                    "sceneId": "p3p6",
+                    "targetYaw": -161.4,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.2,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto12"
+                },
+              
+                 {
+                    "pitch": -9.65,
+                    "yaw": -140.19,
+                    "type": "scene", 
+                    "sceneId": "p3p5f1",
+                    "targetYaw": -161.4,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.2,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto11"
+                }
+            ]
+        },
+        
+        "p3p5f1": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p5f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -4.65,
+                    "yaw": 42.133,
+                    "type": "scene", 
+                    "sceneId": "p3p5",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto10"
+                }
+            ]
+        },
+        
+      
+          "p3p6": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p6.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -11.5,
+                    "yaw": 102.6,
+                    "type": "scene", 
+                    "sceneId": "p3p5",
+                    "targetYaw": 83,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.04,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto10"
+                },
+              
+                 {
+                    "pitch": -7.4,
+                    "yaw": 37.9,
+                    "type": "scene", 
+                    "sceneId": "p3p7",
+                    "targetYaw": -0.85,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -1.84,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto14"
+                },
+              
+                 {
+                    "pitch": -13,
+                    "yaw": 204.51,
+                    "type": "scene", 
+                    "sceneId": "p3p6f1",
+                    "targetYaw": -180,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -17.84,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto13"
+                }
+            ]
+        },
+        
+        "p3p6f1": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p6f1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -12,
+                    "yaw": -114.3,
+                    "type": "scene", 
+                    "sceneId": "p3p6",
+                    "targetYaw": 37,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -1.4,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto12"
+                }
+            ]
+        },
+      
+        "p3p7": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p7.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -16,
+                    "yaw": -184.3,
+                    "type": "scene", 
+                    "sceneId": "p3p6",
+                    "targetYaw": 147,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto12"
+                },
+              
+                 {
+                    "pitch": -12,
+                    "yaw": 0.293,
+                    "type": "scene", 
+                    "sceneId": "p3p8",
+                    "targetYaw": 17.3,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 0.1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto15"
+                }
+            ]
+        },
+      
+          "p3p8": {
+            "hfov": 120,
+            "yaw": 0,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p8.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -10.9,
+                    "yaw": 176.8,
+                    "type": "scene", 
+                    "sceneId": "p3p7",
+                    "targetYaw": 182.26,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -9.4,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto14"
+                },
+              
+                 {
+                    "pitch": -18.8,
+                    "yaw": 49.04,
+                    "type": "scene",
+                    "cssClass": "custom-hotspot-salto",
+                    "sceneId": "p3p1",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto1"
+                }
+            ]
+        },
+      
+         
+        "p3p10": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/segundaplanta/p3p10.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -18.81,
+                    "yaw": -179.63,
+                    "type": "scene", 
+                    "sceneId": "p3p2",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p3punto2"
+                }
+            ]
+        },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /// TEJADOOOOO
+        
+        "p4p0": {
+            "hfov": 120,
+            "yaw": -0.3,
+            "pitch": -7.5,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p0.jpg",
+            "hotSpots": [
+                 {
+                      "pitch": -079,
+                    "yaw": -84.36,
+                    
+                    "type": "info",
+                    "cssClass": "custom-hotspot-escaleras",
+                    "clickHandlerFunc": escaleras
+                },
+                {
+                   "pitch": -3.22,
+                    "yaw": 9.54,
+                    "type": "scene",
+                    "sceneId": "p4p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
+                    
+                },
+            ]
+         },
+        "p4p1": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p1.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -12.76,
+                    "yaw": 17.45,
+                    "type": "scene",
+                    "sceneId": "p4p0",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -2.13,
+                    "targetYaw": 141.39,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto0"
+                },
+                {
+                    "pitch": -2.78,
+                    "yaw": -11,
+                    "type": "scene",
+                    "sceneId": "p4p2",
+                    "cssClass": "custom-hotspot-salto", 
+					"targetPitch": -17,
+                    "targetYaw": -152.51,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto2"
+                },
+                {
+                    "pitch": -2,
+                    "yaw": 31.09,
+                    "type": "scene",
+                    "sceneId": "p4p3",
+                    "cssClass": "custom-hotspot-salto", 
+					"targetPitch":-20,
+                    "targetYaw": 113.76,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto3"
+                },
+                {
+                    "pitch": -16.78,
+                    "yaw": 144.25,
+                    "type": "scene",
+                    "sceneId": "p4p4",
+                    "cssClass": "custom-hotspot-salto", 
+					"targetPitch": -26,
+                    "targetYaw": -173.76,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto4"
+                },
+                {
+                    "pitch": -14.78,
+                    "yaw": -128.25,
+                    "type": "scene",
+                    "sceneId": "p4p5",
+                    "cssClass": "custom-hotspot-salto", 
+					"targetPitch": -21,
+                    "targetYaw": 176,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto5"
+                }
+            ]
+         },
+        "p4p2": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p2.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": 0,
+                    "yaw": 20,
+                    "type": "scene",
+                    "sceneId": "p4p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -1.13,
+                    "targetYaw": 20,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
+                
+                }
+            ]
+         },
+        "p4p3": {
+            "hfov": 120,
+            "yaw": -1.96,
+            "pitch": -86.28,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p3.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -1.99,
+                    "yaw": -84,
+                    "type": "scene",
+                    "sceneId": "p4p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -1.93,
+                    "targetYaw": 18.58,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
+                
+                }
+            ]
+         },
+        "p4p4": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p4.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -3,
+                    "yaw": -3,
+                    "type": "scene",
+                    "sceneId": "p4p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
+                
+                }
+            ]
+         },
+        "p4p5": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/tejado/p4p5.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -3,
+                    "yaw": 40,
+                    "type": "scene",
+                    "sceneId": "p4p1",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "ptpunto1"
+                
+                }
+            ]
+         },
+		"premio": {
+            "hfov": 120,
+            "yaw": 25,
+            "pitch": 116.24,
+            "type": "equirectangular",
+            "panorama": "imagenes/premio.png",
+            },
+		
+		"p1guia": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p2f1.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -3,
+                    "yaw": 40,
+                    "type": "scene",
+                    "sceneId": "p2guia",
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 18,
+                    "targetYaw": -7,
+                    
+                
+                }
+            ]
+         },
+		
+		"p2guia": {
+            "hfov": 120,
+            "yaw": 174.69,
+            "pitch": -13.58,
+            "type": "equirectangular",
+            "panorama": "imagenes/sotanoplanta/p0p4f2.jpg",
+            "hotSpots": [
+                   {
+                    "pitch": -3,
+                    "yaw": 40,
+                    "type": "scene",
+                    "sceneId": "p1p2f3",
+                    "cssClass": "custom-hotspot-salto",
+                
+                }
+            ]
+         },
+		
+		
+  
+    }
+});
+
+function puntos(hotspotDiv,identificador){
+            if(identificador=="pspunto12"){
+               piso_escalera(0);
+            }
+            if(identificador=="p1punto18"){
+                piso_escalera(1);
+            }
+            document.getElementsByClassName("punto_seleccionado")[0].className="puntos";
+            document.getElementById(identificador).className="punto_seleccionado";
+            document.getElementsByClassName("punto_seleccionado")[0].className="puntos";
+            document.getElementById(identificador).className="punto_seleccionado";
+            
+        }
+
+   /////////////////////PRUEBAS AJAX////////////////////////////////
+  ///////////////////////////////////////////////////////////////
+  function baseDatos(hotspotDiv,args){
+    //Al clikear el ojo del salon de actos.
+     $(".modal").css("visibility","visible");
+         /*$.ajax({
+              type: 'POST',
+              url: 'baseDatos.php',
+              data: {idnombre:args},
+              beforeSend: function() {
+                $('#titulo').html("Cargando...");
+                $('#imagen').attr("src","");
+                $('#imagen2').attr("src","");
+                $('#imagen3').attr("src","");
+                 $('#wrapper').html("Cargando...");
+              },
+              success: function(resultado) {
+                var json = JSON.parse(resultado);
+                $('#titulo').html(json[0]);
+                $('#imagen').attr("src",json[1]);
+                $('#imagen2').attr("src",json[2]);
+                $('#imagen3').attr("src",json[3]);
+                $('#wrapper').html(json[4]);
+          },
+           error: function(xhr, status) {
+            // check if xhr.status is defined in $.ajax.statusCode
+            // if true, return false to stop this function
+            if(typeof this.statusCode[xhr.status] != 'undefined'){
+            	 return false;
+            }
+            // else continue
+            console.log('ajax.error');
+          },
+            statusCode: {
+                    200: function(response) {
+                        console.log('ajax.statusCode: 200');
+                    },
+                    404: function(response) {
+                        console.log('ajax.statusCode: 404');
+                    },
+                    500: function(response) {
+                        console.log('ajax.statusCode: 500');
+                    }
+                }           
+          });
+            $('.modal').css('display','block');
+            $(window).click(function(event){
+              if($(event.target).hasClass("modal")){ 
+                $('.modal').css('display','none');
+              }
+            })
+            $('#close').click(function(event){
+            $('.modal').css('display','none');
+            })*/
+            
+  }
+  
+  
+  
+  /////////////////////PANEL y GALERIA dentro del PANEL//////////////////////////////
+  ///////////////////////////////////////////////////
+  
+  //Abrir la galeria y poner la primera imagen.
+  function openModal() {
+  $("#GmyModal").show();
+  currentSlide(1);
+}
+//Cerrar galeria
+function closeModal() {
+  $("#GmyModal").hide();
+}
+//Pone el indice
+var slideIndex = 1;
+showSlides(slideIndex);
+//Suma mas uno al indice
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+//Pone el indice actual.
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+//Muestra el numero de imagenes que hay con la clase gmyslide y va poniendo cada vez que cambiamos con las flechas.
+function showSlides(n) {
+  var i;
+  var slides = $(".GmySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+  //Si le das click fuera de la ventana quitarlo.
+$( ".overlay" ).on( "click", function() {
+  $( ".modal" ).css('visibility',"hidden");
+});
+  //Si el das click a la X se cierra.
+$( ".modal__close" ).on( "click", function() {
+  $( ".modal" ).css('visibility',"hidden");
+});  
+  ///////////////////////////////////////////////////
+  ///////////////////////////////////////////////////
+  
+  
+  /////////////////////////PRUEBAS AJAX////////////////////////////
+  ////////////////////////////////////////////////////////////////
+    
+  /*cambio de mapa con las escaleras*/
+  function piso_escalera(option){
+      switch(option){
+          case 0:
+            document.getElementsByClassName("piso_abierto pisos")[0].className="piso_cerrado pisos";
+            document.getElementById("sotano").className="piso_abierto pisos";
+              break;
+          case 1:
+            document.getElementsByClassName("piso_abierto pisos")[0].className="piso_cerrado pisos";
+            document.getElementById("primer_piso").className="piso_abierto pisos";
+              break;
+          case 2:
+            document.getElementsByClassName("piso_abierto pisos")[0].className="piso_cerrado pisos";
+            document.getElementById("segundo_piso").className="piso_abierto pisos";
+              break;
+          case 3:
+            document.getElementsByClassName("piso_abierto pisos")[0].className="piso_cerrado pisos";
+            document.getElementById("tercer_piso").className="piso_abierto pisos";
+              break;
+             }
+      variable_piso(option);
+  }
+    
+function escaleras(){
+    nombreEscena = viewer.getScene();
+    pisoActual = nombreEscena.substring(0,2);
+    largo = $(".plantas").length;
+    nombre = $(".plantas").attr("id");
+    $('.plantas').each(function(){
+    $(this).removeClass("plantaElegida");
+    });
+    nombreBuscado = $("#"+pisoActual).addClass("plantaElegida");
+   
+     
+    $("#myModal").css("display","block");
+    $(window).click(function(event){
+      if($(event.target).hasClass("plantas")){ 
+        $('#myModal').css('display','none');
+      }
+    });
+      
+  }
+    
+    window.onclick = function(event) {
+      if ($(event.target).hasClass("modalEscaleras")) {
+          $("#myModal").css("display","none");
+      }
+    } 
+  
+  //boton fullscreen.
+  document.getElementById('fullscreen').addEventListener('click', function(e) {
+    viewer.toggleFullscreen();
+});
+    
+    ////////////////////
+    // Pruebas Juego////
+   /////////////////////
+   
+   var solucion = [4, 5];
+    var prueba = [0,0];
+    
+    function juego1(){
+        alert("Has encontrado la primera pieza, enhorabuena");
+        prueba[0]=4;
+    }
+    
+    function juego2(){
+        alert("Has encontrado la segunda pieza, enhorabuena");
+        prueba[1]=5;
+    }
+    
+    function juego3(){
+        if(prueba[0]==4 && prueba[1]==5){
+            alert("Has encontrado las dos piezas, puedes entrar");
+			viewer.loadScene('premio')
+        }else{
+            alert("algo te falta, sigue buscando");
+        }
+    }
+    //Toggle Audio boton.
+    
+    $("#botonAudio1").toggle(function()
+    {$("#botonAudio").show();},
+    function()
+    {$("#botonAudio").hide();
+    });
+    //Toggle fullscren icono.
+   $("#fullscreen").toggle(function()
+    {$(".ctrl").css("background-image","url('css/svg/fsNormal.svg')");},
+    function()
+    {$(".ctrl").css("background-image","url('css/svg/fullscreenblanco.svg')");
+    });
+  
+    /////////////PRUEBA AUDIO//////////////////
+  //////////////////PARA PUNTOS SENSIBLES.////////////////////////////
+  
+
+   function musica(hotspotDiv,args){
+       $('#musica1').attr("src",args);
+       $('.ventanaAudio').css('display','block');
+            $(window).click(function(event){
+              if($(event.target).hasClass("ventanaAudio")){ 
+                $('.ventanaAudio').css('display','none');
+                $('#musica1').trigger("pause");
+                //$('#musica').prop("pause");
+              }
+            })
+  }
+  
+  ////////////////////////////////////////////////
+    
+</script>
+
+    <script>
+        function puntos(identificador){
+            
+            document.getElementsByClassName("punto_seleccionado")[0].className="puntos";
+            document.getElementById(identificador).className="punto_seleccionado";
+        }
+    </script> 
+</body>
+
+</html>

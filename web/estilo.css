@@ -1,0 +1,347 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h1 {
+    font-family:"Arvo";
+    font-weight:normal;
+    font-size: 65px;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-family:"Arvo";
+    font-weight: normal;
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    font-family: 'Goudy Bookletter 1911', serif;
+    font-size: 30px;
+}
+
+p {
+    font-family: Oswald;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    margin: 5px 0;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+}
+
+
+.center{ 
+    margin: 0 auto; 
+}
+.contenedor{ 
+    margin: 0 auto; width: 960px; 
+}
+
+
+#header {
+    width: 100%;
+    background: url('img/header-bg2.png');
+    height: 110px;
+    position: absolute;
+    margin-top: 0px;
+    z-index:5
+}
+
+#nav { 
+     float: left;  
+}
+
+#nav img{
+    width: 50px;
+    margin-top: 0px; 
+}
+
+#logo a { 
+    color: #fff; 
+    text-decoration: none; 
+    float: left; 
+    font-size: 45px; 
+    margin-top: 25px; 
+    color: #fff; 
+    font-family:"Wellfleet"; 
+    font-weight: bold; 
+}
+ 
+#nav ul{
+    list-style: none;
+    display: inline;
+    margin: 0 auto;
+}
+
+#nav li{
+    margin-top: 23px;
+    float: left;
+    padding-left: 21px;
+}
+
+#nav img{
+    transition:transform 0.1s ease-out;
+}
+
+#nav img:hover{
+    transform: scale(1.4);
+}
+
+#nav li a { 
+    margin-top: 15px;
+    color: #fff; 
+    opacity:0.9; 
+    font-size: 24px; 
+    text-decoration: none; 
+    font-family: 'Wellfleet'; 
+    display:block;
+    transition:transform 0.1s ease-out;
+}
+
+#nav li a:hover { 
+    color: #fff; 
+    opacity:1; 
+    transform: scale(1.1);
+}
+
+.textico {
+    font-family: 'Goudy Bookletter 1911', serif;
+    font-weight: normal;
+    font-size: 25px;
+    text-align: left;
+    margin: 50px auto;
+    text-align: justify;
+}
+
+.autor { 
+    font-family:"Wellfleet"; 
+    margin: 70px 0 0 75px; 
+    color: #94a4a4; 
+    font-size: 20px; 
+} 
+
+.textico_contenedor { 
+    width: 800px; 
+    margin: 0 auto; 
+}
+#retrato { 
+    background: url('img/retra to.jpg')no-repeat; 
+    width: 200px; 
+    height: 200px; 
+    margin: 0 auto; 
+    position: relative; 
+    bottom: -35px;
+}
+
+#separador { 
+    background: url('img/separador.png')no-repeat; 
+    width: 300px; 
+    height: 35px; 
+    margin: 0px auto 27px auto; 
+}
+
+#lazo { 
+    background: url('img/lazo.png');
+    width: 251px; 
+    height: 48px;
+    margin: 0 auto; 
+    display: block; 
+    position: relative; 
+    transition:transform 0.5s ease-out;
+}
+
+#lazo:hover{
+    background: url('img/lazo.png');
+    width: 251px; 
+    height: 48px;
+    margin: 0 auto; 
+    display: block; 
+    position: relative; 
+    transform: scale(1.1);
+}
+
+#coso { 
+    background: transparent; 
+    width: 24px; 
+    height: 21px; 
+    margin: 0 auto; 
+    display: block; 
+    position: relative; 
+    bottom: -54px; 
+    left: -102px; 
+}
+
+#coso2 { 
+    background: transparent; 
+    width: 24px; 
+    height: 21px; 
+    margin: 0 auto; 
+    display: block; 
+    position: relative; 
+    bottom: -33px; 
+    right: -100px; 
+}
+
+#slider1 h2{
+    margin-top: -50px;
+}
+
+
+#slider1, #slider2{ 
+    width: 100%; 
+}
+
+#slider1{
+    background-image:url('img/portada5.jpg') ;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #fff;
+    height: 600px;
+    margin: 0;
+    padding: 200px 0 260px 0;
+    background-size: cover;
+}
+
+#slider1 .contenedor{
+    text-align:center;
+    margin:0 auto;
+}
+
+
+
+#slider2{
+    background: url(img/paper_fibers.png);
+    color: #333333;
+    height: 350px;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 200px 0;
+}
+
+.textico_contenedor2{
+    position: relative;
+    overflow: visible;
+    margin-top: -00px; 
+}
+
+.textico_contenedor2 .textico{
+    width: 50%;
+    float: left;
+}
+
+.textico_contenedor2 img{
+    margin-top: -160px;
+    width: 39%;
+    float: right;
+}
+
+#slider3{
+    background: url(img/portada2.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #fff;
+    height: 800px;
+    padding: 170px 0 0 0;
+    background-size: cover;
+}
+
+.textico2{
+    font-family: 'Goudy Bookletter 1911', serif;
+    font-weight: normal;
+    font-size: 30px;
+    text-align: left;
+    margin: 100px auto;
+    text-align: justify;
+    background-color:rgba(0,0,0,0.5);
+    padding: 10px;
+}
+    
+#slider4{
+    background: url(img/paper_fibers.png);
+    color: #333333;
+    height: 450px;
+    padding: 100px 0 200px 0;
+}
+
+#slider4 .textico{
+    font-family: "Calligraffitti";
+    font-size: 40px;
+}
+
+#slider4 img{
+    align-content: ="left"
+}
+
+#slider5{
+    background: url(img/portada6.JPG) ;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 550px;
+    margin: 0 auto;
+    padding: 250px 0;
+    color: #fff;
+    background-size: cover;
+}
+
+    
+.mapa a{
+    border: none;
+    background: #3a7999;
+    color: #f2f2f2;
+    padding: 19px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+    text-decoration: none;
+    text-align: center;
+    margin: 35px;
+}
+
+.mapa a:hover {
+    background: rgba(0,0,0,0);
+    color: #3a7999;
+    box-shadow: inset 0 0 0 3px #3a7999;
+}
+
+#elamo { 
+    color: white;
+    background: black; 
+    font-family:"Wellfleet"; 
+    font-size: 14px; 
+    padding: 50px; 
+    text-align: center; 
+}
+
+@keyframes transicion{
+    from{
+        background-image:url('img/portada5.jpg') ;
+    }
+    to{
+        background-image:url('img/portada7.jpg') ;
+    }
+}
+
+.animacion{
+    animation: transicion 2s ease;
+}
