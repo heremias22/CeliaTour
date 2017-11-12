@@ -89,7 +89,7 @@
             </div>  
             <!-- primer piso -->
             <div id="primer_piso" class="piso_abierto pisos">
-                <div id="p1punto1" class="puntos" style="left: 53%;top: 62%;" onclick="puntos('p1punto1'); viewer.loadScene('p1p1');"></div>
+                <div id="p1punto1" class="punto_seleccionado" style="left: 53%;top: 62%;" onclick="puntos('p1punto1'); viewer.loadScene('p1p1');"></div>
                 <div id="p1punto2" class="puntos" style="left: 48%;top: 73.5%;" onclick="puntos('p1punto2');  viewer.loadScene('p1p2');"></div>
                 <div id="p1punto3" class="puntos" style="left: 34%;top: 73.5%;" onclick="puntos('p1punto3'); viewer.loadScene('p1p3');"></div>
                 <div id="p1punto4" class="puntos" style="left: 16.5%;top: 73.5%;" onclick="puntos('p1punto4'); viewer.loadScene('p1p4');"></div>
@@ -103,7 +103,7 @@
                 <div id="p1punto12" class="puntos" style="left: 34.3%;top: 86.5%;" onclick="puntos('p1punto12');  viewer.loadScene('p1p32f2');"></div>
                 <div id="p1punto13" class="puntos" style="left: 48.5%;top: 86%;" onclick="puntos('p1punto13');  viewer.loadScene('p1p2f1');"></div>
                 <div id="p1punto14" class="puntos" style="left: 48.5%;top: 91%;" onclick="puntos('p1punto14');  viewer.loadScene('p1p2f2');"></div>
-                <div id="p1punto15" class="punto_seleccionado" style="left: 48.5%;top: 96%;" onclick="puntos('p1punto15');  viewer.loadScene('p1p2f3');"></div>
+                <div id="p1punto15" class="puntos" style="left: 48.5%;top: 96%;" onclick="puntos('p1punto15');  viewer.loadScene('p1p2f3');"></div>
                <!-- <div id="p1punto16" class="puntos" style="left: 8%;top: 52%;" onclick="puntos('p1punto16');  viewer.loadScene('p1p5f1');"></div>-->
                 <div id="p1punto17" class="puntos" style="left: 18%;top: 26%;" onclick="puntos('p1punto17');  viewer.loadScene('p1p9');"></div>
                 <div id="p1punto18" class="puntos" style="left: 25%;top: 30%;" onclick="puntos('p1punto18');  viewer.loadScene('p1p9f1');"></div>
@@ -185,6 +185,7 @@
              
                 $(window).resize(function() {
                     clearTimeout(id);
+                    alert
                     id = setTimeout(mapa_responsivo, 100);
                 });
 
@@ -203,8 +204,8 @@
                 function cambiar_piso(opcion){
                     if (opcion==10) {
                         if (piso==4) {
-
-                          }else{
+                            // aqui puedes poner algo y saltará cuando intentas pasar más allá del tejado
+                        }else{
                             piso++;
                             switch (piso){
                                 case 1:
@@ -229,7 +230,7 @@
                           }
                     }else if (opcion==-10) {
                         if(piso==0){
-                            
+                            // aqui puedes poner algo y saltará cuando intentas pasar más allá del sotano
                         }else{
                             piso--;
                             switch (piso){
@@ -319,7 +320,7 @@ viewer = pannellum.viewer('panorama', {
         "showControls": false,
         "compass":false,
         
-        "hotSpotDebug": false
+        "hotSpotDebug": true
     },
 
     "scenes": {
@@ -545,6 +546,103 @@ viewer = pannellum.viewer('panorama', {
                     "targetPitch": -8.1,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p2punto5"
+                },
+              
+                 {
+                    "pitch": -5.8,
+                    "yaw": -18,
+                    "type": "scene", 
+                    "sceneId": "p2p4f3",
+                    "targetYaw": 116,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto5"
+                }
+            ]
+        },
+        
+        "p2p4f3": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p4f3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -16,
+                    "yaw": -68,
+                    "type": "scene", 
+                    "sceneId": "p2p4",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto4"
+                },
+              
+                 {
+                    "pitch": -11.76,
+                    "yaw": 51.79,
+                    "type": "scene", 
+                    "sceneId": "p2p4f2",
+                    "targetYaw": 37,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto6"
+                },
+              
+                 {
+                    "pitch": -9.76,
+                    "yaw": -154.79,
+                    "type": "scene", 
+                    "sceneId": "p2p4f4",
+                    "targetYaw": 155,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": 1,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto6"
+                }
+            ]
+        },
+        
+        "p2p4f2": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p4f2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -21.65,
+                    "yaw": -161.19,
+                    "type": "scene", 
+                    "sceneId": "p2p4f3",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto4"
+                }
+            ]
+        },
+        
+        
+        "p2p4f4": {
+            "hfov": 120,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "imagenes/primeraplanta/p2p4f4.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -5.65,
+                    "yaw": -134.19,
+                    "type": "scene", 
+                    "sceneId": "p2p4f3",
+                    "targetYaw": 159,
+                    "cssClass": "custom-hotspot-salto",
+                    "targetPitch": -5.5,
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p2punto4"
                 }
             ]
         },
@@ -572,9 +670,9 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": -89.79,
                     "type": "scene", 
                     "sceneId": "p2p6",
-                    "targetYaw": -161.4,
+                    "targetYaw": 37,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -5.2,
+                    "targetPitch": 1,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p2punto6"
                 }
@@ -625,9 +723,9 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": -184.3,
                     "type": "scene", 
                     "sceneId": "p2p6",
-                    "targetYaw": -114,
+                    "targetYaw": 84,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -7.4,
+                    "targetPitch": 2,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p2punto6"
                 },
@@ -866,8 +964,8 @@ viewer = pannellum.viewer('panorama', {
             "panorama": "imagenes/bajaplanta/p1p2f1.jpg",
             "hotSpots": [
                 {
-                    "pitch": -8.00,
-                    "yaw": -149.63,
+                    "pitch": -27.00,
+                    "yaw": -176.63,
                     "type": "scene",
                     "sceneId": "p1p2f2",
                     "cssClass": "custom-hotspot-salto",
@@ -994,7 +1092,9 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "p1p3",
                     "cssClass": "custom-hotspot-salto",
                     "clickHandlerFunc": puntos,
-                    "clickHandlerArgs": "p1punto3"
+                    "clickHandlerArgs": "p1punto3",
+                    "targetPitch": -4,
+                    "targetYaw": 180,
                 },
                 {
                     "pitch": -9.06,
@@ -1022,7 +1122,9 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "p1p32",
                     "cssClass": "custom-hotspot-salto",
                     "clickHandlerFunc": puntos,
-                    "clickHandlerArgs": "p1punto21"
+                    "clickHandlerArgs": "p1punto21",
+                    "targetPitch": -5,
+                    "targetYaw": 179.86,
                 },
                 {
                     "pitch": -9.06,
@@ -1053,7 +1155,9 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "p1p4",
                     "cssClass": "custom-hotspot-salto",
                     "clickHandlerFunc": puntos,
-                    "clickHandlerArgs": "p1punto4"
+                    "clickHandlerArgs": "p1punto4",
+                    "targetPitch": -3,
+                    "targetYaw": -47,
                 },
                 {
                     "pitch": -9.06,
@@ -1066,11 +1170,11 @@ viewer = pannellum.viewer('panorama', {
                 },
               
                  {
-                    "pitch": -6.96,
-                    "yaw": 16.32,
+                    "pitch": -7,
+                    "yaw": 101,
                     "type": "scene", 
                     "sceneId": "p1p32f1",
-                    "targetYaw": -161.4,
+                    "targetYaw": -3,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -5.2,
                     "clickHandlerFunc": puntos,
@@ -1227,7 +1331,7 @@ viewer = pannellum.viewer('panorama', {
                     "sceneId": "p1p9",
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": -6.6,
-                    "targetYaw": 93,
+                    "targetYaw": 41,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p1punto17"
                 }
@@ -1285,8 +1389,8 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene",
                     "sceneId": "p1p7",
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -9.63,
-                    "targetYaw": 46.88,
+                    "targetPitch": -5.63,
+                    "targetYaw": 175,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p1punto7"
                 }
@@ -1396,8 +1500,8 @@ viewer = pannellum.viewer('panorama', {
                     "type": "scene",
                     "sceneId": "p1p9f1",
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": 27.13,
-                    "targetYaw": 175.88,
+                    "targetPitch": 12,
+                    "targetYaw": -17,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p1punto18"
                 }
@@ -1857,7 +1961,7 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": -105.51,
                     "type": "scene", 
                     "sceneId": "p3p8",
-                    "targetYaw": -64.5,
+                    "targetYaw": 172,
                     "targetPitch": -3.4,
                     "cssClass": "custom-hotspot-salto",
                     "clickHandlerFunc": puntos,
@@ -1951,8 +2055,8 @@ viewer = pannellum.viewer('panorama', {
             "panorama": "imagenes/segundaplanta/p3p2f2.jpg",
             "hotSpots": [
                 {
-                    "pitch": -9.8,
-                    "yaw": -1.0,
+                    "pitch": -6.8,
+                    "yaw": -61.0,
                     "type": "scene", 
                     "sceneId": "p3p2",
                     "targetYaw": 59.6,
@@ -2004,10 +2108,10 @@ viewer = pannellum.viewer('panorama', {
             "hotSpots": [
                 {
                     "pitch": -7.8,
-                    "yaw": 7.6,
+                    "yaw": 1.6,
                     "type": "scene", 
                     "sceneId": "p3p3",
-                    "targetYaw": 49.64,
+                    "targetYaw": -3,
                     "cssClass": "custom-hotspot-salto",
                     "targetPitch": 12.07,
                     "clickHandlerFunc": puntos,
@@ -2231,9 +2335,9 @@ viewer = pannellum.viewer('panorama', {
                     "yaw": -184.3,
                     "type": "scene", 
                     "sceneId": "p3p6",
-                    "targetYaw": -114,
+                    "targetYaw": 147,
                     "cssClass": "custom-hotspot-salto",
-                    "targetPitch": -7.4,
+                    "targetPitch": -2,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p3punto12"
                 },
