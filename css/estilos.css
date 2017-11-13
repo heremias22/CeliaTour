@@ -181,7 +181,7 @@
   position: absolute;
   left: 50%;
   margin-left: -16rem;
-  top: 3rem;
+  top: 2rem;
   min-height: 32rem;
   border-radius: 5px;
 }
@@ -210,7 +210,7 @@
 .modal__close:hover {
     color:black;
   }
-  	 /*Media query cuando la pantalla sea menos de 768px */
+/*Media query cuando la pantalla sea menos de 768px */
 @media (max-width : 48rem) {
  
   .modal__contents {
@@ -231,6 +231,16 @@
   }
   
 }
+
+/*Media query cuando la pantalla sea menos de 1380px */
+@media (max-width : 1380px) {
+    #gallery img{
+    height: 200px;
+  }
+  
+}
+
+
           
   #texto{
     padding: 3%;
@@ -274,7 +284,7 @@
   margin: auto;
   padding: 0;
   width: 90%;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 /* Cerrar galeria */
