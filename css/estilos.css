@@ -177,13 +177,22 @@
 .modal__contents {
   z-index: 2;
   background: white;
-  width: 32rem;
+  width: 60%;
   position: absolute;
   left: 50%;
-  margin-left: -16rem;
-  top: 2rem;
-  min-height: 32rem;
+  top: 50%;
+  margin: 0 auto;
+  transform: translate(-50%,-50%);
+
   border-radius: 5px;
+}
+
+/*Media query cuando la pantalla sea menos de 1380px */
+@media (max-width : 1380px) {
+    #gallery img{
+    height: 200px;
+  }
+  
 }
 /* titulo */
 .modal__contents h1 {
@@ -210,7 +219,7 @@
 .modal__close:hover {
     color:black;
   }
-/*Media query cuando la pantalla sea menos de 768px */
+  	 /*Media query cuando la pantalla sea menos de 768px */
 @media (max-width : 48rem) {
  
   .modal__contents {
@@ -231,19 +240,9 @@
   }
   
 }
-
-/*Media query cuando la pantalla sea menos de 1380px */
-@media (max-width : 1380px) {
-    #gallery img{
-    height: 200px;
-  }
-  
-}
-
-
           
   #texto{
-    padding: 3%;
+    padding: 1%;
     text-align: left;
     border:none;
     overflow-y:auto;
