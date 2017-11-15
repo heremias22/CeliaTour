@@ -1,0 +1,568 @@
+/* ESTILOS GENERALES */
+
+     html {
+        height: 100%;
+      }
+     body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        position: fixed;
+        cursor: default;
+        width: 100%;
+        height: 100%;
+      }
+	 .contenedor {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height: 100%;
+        max-width: 100%;
+      }
+      #panorama {
+        height: 100vh;
+      }
+    /* Controles de pannellum, zoom y full screen */
+   
+    .ctrl {
+        position: absolute;
+        z-index: 2;
+        right: 5%;
+        bottom: 0px;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        background-image: url("svg/fullscreenBlanco.svg");
+        cursor: pointer;
+        margin-bottom: 20px;
+        margin-right: 5px; 
+        background-size:cover;
+        background-position: center;
+        transition: width 0.5s, height 0.5s;
+    }
+   /* .ctrl:hover {
+        height: 60px;
+        width: 60px;
+    }*/
+/* ICONO SENSIBLE AUDIO */
+
+#contenedorAudio {
+    z-index: 101;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    cursor: default;
+}
+
+.ventanaAudio {
+    display: none; 
+    position: fixed; 
+    z-index: 2; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); 
+}
+
+
+
+
+/* icono de escaleras */
+ .custom-hotspot-escaleras {
+        height: 60px;
+        width: 60px;
+        background-image: url("svg/elevator.svg");
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: width 0.5s, height 0.5s;
+    }
+
+.custom-hotspot-escaleras:hover {
+        height: 70px;
+        width: 70px;
+}
+
+.custom-hotspot-info,
+.custom-hotspot-salto,
+.custom-hotspot-atras,
+.custom-hotspot-audio{
+        height: 50px;
+        width: 60px;
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: width 0.5s, height 0.5s;
+    }
+
+.custom-hotspot-info {background-image: url("svg/eyeBlanco.svg");}
+.custom-hotspot-salto {background-image: url("svg/saltoBlanco.svg");}
+.custom-hotspot-atras {background-image: url("svg/puertaBlanco.svg");}
+.custom-hotspot-audio {background-image: url("svg/audio.svg");}
+
+
+.custom-hotspot-info:hover,
+.custom-hotspot-salto:hover,
+.custom-hotspot-atras:hover,
+.custom-hotspot-audio:hover{
+        height: 60px;
+        width: 70px;
+}
+
+/* Audio */
+
+
+/* Copia del id que aparece para la visita guiada solo con el nombre copiado */
+#panelAudioPrueba {
+  position:absolute;
+  z-index: 100;
+  top: 15px;
+  left: 50px;
+  padding: 0;
+  display: none;
+}
+/*X que aparece al lado del audio arriba */
+#botonPause {
+  position: relative;
+  float: right;
+  color:white;
+  left: 10px;
+  z-index: 100;
+  cursor:default;
+  color: crimson;
+}
+/*usado para visita guiada */
+#panelAudio {
+    position: absolute;
+    z-index: 100;
+    top: 1%;
+    left: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    cursor: default;
+}
+
+#botonAudio {
+  display: none;
+}
+
+#botonAudio1 {
+    position: absolute;
+    top: 1%;
+    left: 10px;
+    z-index: 100;
+    height: 30px;
+    width: 30px;
+    background-size:cover;
+    background-position: center;
+    transition: width 0.5s, height 0.5s;
+    background-image: url("svg/audio.svg");
+   cursor: pointer;
+}
+
+/* PANEL INFORMACION */
+
+/* fondo negro cuando se abre */
+.overlay {
+  background: rgba(0,0,0,.5);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#GmyModal{
+  z-index: 3;
+}
+.modal {
+  visibility: hidden;
+  z-index: 2;
+}
+/* contenido */
+.modal__contents {
+  z-index: 2;
+  background: white;
+  width: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 0 auto;
+  transform: translate(-50%,-50%);
+
+  border-radius: 5px;
+}
+
+/*Media query cuando la pantalla sea menos de 1380px */
+@media (max-width : 1380px) {
+    #gallery img{
+    height: 200px;
+  }
+  
+}
+/* titulo */
+.modal__contents h1 {
+   z-index: 2;
+  margin: 0;
+  padding: 0;
+  line-height: 32rem;
+  text-align: center;
+  display: block;
+  
+}
+/* icono de cierre */
+.modal__close {
+   z-index: 2;
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.modal__close:hover {
+    color:black;
+  }
+  	 /*Media query cuando la pantalla sea menos de 768px */
+@media (max-width : 48rem) {
+ 
+  .modal__contents {
+  	top: 0;
+  	left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  #gallery img{
+    height: 150px;
+  }
+  
+  .Gmodal-content {
+    width: 100%;
+  }
+  
+}
+          
+  #texto{
+    padding: 1%;
+    text-align: left;
+    border:none;
+    overflow-y:auto;
+    cursor: default;
+  }
+  #titulo{
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  #gallery img{
+    max-height: 300px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+          
+.Gmodal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Contenido del modelo */
+.Gmodal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Cerrar galeria */
+.Gclose {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.Gclose:hover,
+.Gclose:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.GmySlides {
+  display: none;
+}
+
+.Gcursor {
+  cursor: pointer
+}
+
+/* Botones siguiente y atras*/
+.Gprev,
+.Gnext {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Boton siguiente posicionarlo a la derecha*/
+.Gnext {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Añadir background negro  */
+.Gprev:hover,
+.Gnext:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+/* ESCALERAS */
+
+.modalEscaleras {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); 
+}
+
+
+
+.plantas {
+    display: block;
+    margin: auto;
+    font-size: 1.2em;
+    padding: 22px 16px;
+    color:white;
+    width: 30%;
+    border: none;
+    background-color: #3b3b3b;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 2;
+}
+
+.plantas::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #ffffff;
+    transition: width .3s;
+}
+
+.plantas:hover::after {
+    width: 100%;
+    transition: width .3s;
+    
+}
+
+.plantas:hover {
+   background-color: #535353;
+}
+
+
+.plantaElegida {
+  
+  background-color: #222222;
+}
+
+
+
+/* antiguo mapa */
+/*#transparente {
+    z-index: 2;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    -webkit-transition: 0.5s;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding: 8px 5px;
+    margin-bottom: 10px;
+    margin-left: 5px; 
+}
+#movil {
+    z-index: 7;
+    position: relative;
+    background-image: url("mapanegro.png"); 
+    background-size: 100% 100%;
+    height: 569px; 
+    width: 889px; 
+    opacity: 0.7;
+    top: -200px;
+    left: -366px;
+}*/
+/*.punto-minimapa{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+}*/
+.puntos{
+    pointer-events: auto;
+    cursor: pointer;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+}
+.punto_seleccionado{
+    pointer-events: auto;
+    cursor: pointer;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: cyan;
+}
+
+/*nuevo mapa*/
+
+#mapa{
+    pointer-events:none;
+    z-index: 2;
+    position: absolute;
+    overflow: visible;
+    /*background-color: black;   */
+}
+#sotano{
+    background-image: url("sotano.png");
+}
+#primer_piso{
+    background-image: url("plantabaja.png");
+}
+#segundo_piso{
+    background-image: url("planta1.png"); 
+}
+#tercer_piso{
+    background-image: url("planta2.png"); 
+}
+#tejado{
+    background-image: url("tejado.png");
+}
+
+#subir_piso{
+    bottom: 0px;
+    margin-bottom: 100px;
+    z-index: 2;
+    position: absolute;
+    background-image: url("svg/subirPiso22.svg");
+    background-size: 100% 100%;
+    width: 30px;
+    height: 30px;
+}
+#bajar_piso{
+  
+    bottom: 0px;
+    margin-bottom: 60px;
+    z-index: 2;
+    position: absolute;
+    background-image: url("svg/bajarpiso22.svg");
+    background-size: 100% 100%;
+    width: 30px;
+    height: 30px;
+}
+#boton_mapa{
+    bottom: 0px;
+    margin-bottom: 10px;
+    z-index: 2;
+    position: absolute;
+    background-image: url("svg/pinned.svg");
+    background-size: 100% 100%;
+    width: 40px;
+    height: 40px;
+    
+}
+.pisos{
+    background-size: 100% 100%;
+    opacity: 0.6;
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    transition: left .5s;
+}
+.piso_cerrado{
+    left:-300%;
+}
+.piso_abierto{
+   left:0.5%;
+}
+
+.cerrado{
+    transition: left .5s;
+    left: -300%;
+}
+.abierto{
+    transition: left .5s;
+    left: 0.5%;
+}
+.boton{
+    cursor: pointer;
+}
+
+
+
+
+
+
+

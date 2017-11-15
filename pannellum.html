@@ -52,12 +52,17 @@ En 1931 el fervor republicano le cambia la corona real cerrada por la mural de l
               <audio id="musica" src="pinkfloyd.mp3"  controls> </audio>
             </div>
             </div>-->
-          <!-- Audio para punto sensibles, no confundir con el boton audio!!!!.-->
-            <div class="ventanaAudio">
+          <!-- Audio para punto sensibles, no confundir con el boton audio!!!!.
+            <div class="ventanaAudio">-->
+            <div id="panelAudioPrueba">
+              <div id="botonPause">X</div>
+              <audio id="musica1" src=""  controls> </audio>
+            </div>
+              <!--
             <div id="contenedorAudio">
               <audio id="musica1" src="" autoplay controls> </audio>
             </div>
-          </div>
+          </div>-->
           
          <div id="myModal" class="modalEscaleras">
                <button class="plantas"id="p4" onclick="viewer.loadScene('p4p0')"> Tejado</button>
@@ -319,7 +324,7 @@ viewer = pannellum.viewer('panorama', {
         "showControls": false,
         "compass":false,
         
-        "hotSpotDebug": true
+        "hotSpotDebug": false
     },
 
     "scenes": {
@@ -2818,7 +2823,7 @@ function escaleras(){
     });
     //Toggle fullscren icono.
    $("#fullscreen").toggle(function()
-    {$(".ctrl").css("background-image","url('css/svg/fsNormal.svg')");},
+    {$(".ctrl").css("background-image","url('css/svg/fsnormal.svg')");},
     function()
     {$(".ctrl").css("background-image","url('css/svg/fullscreenblanco.svg')");
     });
@@ -2829,15 +2834,28 @@ function escaleras(){
 
    function musica(hotspotDiv,args){
        $('#musica1').attr("src",args);
-       $('.ventanaAudio').css('display','block');
+       var pantalleo = $("#panelAudioPrueba").css("display");
+      if(pantalleo == "block"){
+        $('#panelAudioPrueba').hide();
+      }else {
+        $('#panelAudioPrueba').show();
+        
+      }
+        
+      /* $('.ventanaAudio').css('display','block');
             $(window).click(function(event){
               if($(event.target).hasClass("ventanaAudio")){ 
                 $('.ventanaAudio').css('display','none');
                 $('#musica1').trigger("pause");
                 //$('#musica').prop("pause");
               }
-            })
+            })*/
   }
+  
+  $("#panelAudioPrueba #botonPause").click(function(){
+    $('#musica1').trigger("pause");
+    $('#panelAudioPrueba').hide();
+  });
   
   ////////////////////////////////////////////////
     
