@@ -1,55 +1,12 @@
 $(document).ready(function(){
-    
-/*     Que cambie y descambie tras cada hoever
-    
-// para libre
-
-$('#opcionlibre').bind("mouseenter",function(){
-    $('#slider1').css("background-image", "url('img/portadalibre.jpg')");
-    $('#slider1 .contenedor').children().fadeOut(250);
-});
-    
-    
-$('#opcionlibre').bind("mouseleave",function(){
-    $('#slider1').css("background-image", "url('img/portada5.jpg')");
-    $('#slider1 .contenedor').children().fadeIn(250);
-});
-    
-    // para guiada
-
-$('#opcionguiada').bind("mouseenter",function(){
-    $('#slider1').css("background-image", "url('img/portadaguiada.jpg')");
-    $('#slider1 .contenedor').children().fadeOut(250);
-});
-    
-    
-$('#opcionguiada').bind("mouseleave",function(){
-    $('#slider1').css("background-image", "url('img/portada5.jpg')");
-    $('#slider1 .contenedor').children().fadeIn(250);
-});
-    
-       // para puntos destacados
-
-$('#opciondestacada').bind("mouseenter",function(){
-    $('#slider1').css("background-image", "url('img/portadadestacada.jpg')");
-    $('#slider1 .contenedor').children().fadeOut(250);
-});
-    
-    
-$('#opciondestacada').bind("mouseleave",function(){
-    $('#slider1').css("background-image", "url('img/portada5.jpg')");
-    $('#slider1 .contenedor').children().fadeIn(250);
-});
-
-*/
-    
-    
+    $('#cambio').hide();
+ 
 // para que cambie el background a INICIO al hacer hover
     
 $('#header img').bind("mouseenter",function(){
     $('#slider1').css("background-image", "url('web/img/portada5.jpg')");
-
-    $('#slider1 .contenedor').children().fadeIn(250);
+    $('#cambio').fadeOut();
+    $('#slider1 .contenedor').children().fadeIn();
     
     $('#slider1').unbind("click");
     
@@ -59,21 +16,16 @@ $('#header img').bind("mouseenter",function(){
 
     
 $('#opcionlibre').bind("mouseenter",function(){
+    $('#cambio').fadeIn();
+    $('#destacado').fadeOut();
+    $('#guiada').fadeOut();
+    $('#libre').fadeIn();
+    $('#slider1 .contenedor').children().fadeOut();
     
-    $('#slider1').css("background-image", "url('web/img/portadalibre.jpg')");  
-    $('#slider1 .contenedor').children().fadeOut(250);
-    
-    // intento fallido para conseguir una animacion
-    /*$('#slider1').animate({opacity: 0.1}, 'slow', function() {
-        $(this)
-            .css({'background-image':"url('img/portadalibre.jpg')"})
-            .animate({opacity: 1});
-    });
-    */
-    
-    $('#slider1').bind("click",function(){
-        window.location.href = "pannellum.html";
-    });
+    //$('#slider1').css("background-image", "url('web/img/portada5.jpg')");  
+    //$('#libre').bind("click",function(){
+    //   window.location.href = "pannellum.html";
+    //});
     
 });
     
@@ -81,10 +33,11 @@ $('#opcionlibre').bind("mouseenter",function(){
 
     
 $('#opcionguiada').bind("mouseenter",function(){
-    $('#slider1').css("background-image", "url('web/img/portadaguiada.jpg')");
-    $('#slider1 .contenedor').children().fadeOut(250);
-    
-    $('#slider1').unbind("click");
+    $('#cambio').fadeIn();
+    $('#destacado').fadeOut();
+    $('#guiada').fadeIn();
+    $('#libre').fadeOut();
+    $('#slider1 .contenedor').children().fadeOut();
     
 });
     
@@ -92,10 +45,11 @@ $('#opcionguiada').bind("mouseenter",function(){
 
     
 $('#opciondestacada').bind("mouseenter",function(){
-    $('#slider1').css("background-image", "url('web/img/portadadestacada.jpg')");
-    $('#slider1 .contenedor').children().fadeOut(250);
-    
-    $('#slider1').unbind("click");
+    $('#cambio').fadeIn();
+    $('#destacado').fadeIn();
+    $('#guiada').fadeOut();
+    $('#libre').fadeOut();
+    $('#slider1 .contenedor').children().fadeOut();
     
 });
 

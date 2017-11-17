@@ -12,7 +12,7 @@ body{
 h1 {
     font-family:"Lato";
     font-weight:normal;
-    font-size: 65px;
+    font-size: 100px;
     text-align: center;
     color: #fff;
     margin: 0;
@@ -216,8 +216,21 @@ p {
     color: #fff;
     height: 500px;
     margin: 0;
-    padding: 200px 0 260px 0;
+    padding: 300px 0 260px 0;
     background-size: cover;
+}
+
+#cambio{
+    width: 100%;
+    position:absolute;
+    background-color: rgba(0,0,0,.3);
+    height: 100%;
+}
+
+#libre, #guiada, #destacado{
+    margin: 20% 0  0;
+    width: 100%;
+    position: absolute;
 }
 
 #slider1 .contenedor{
@@ -225,6 +238,26 @@ p {
     margin:0 auto;
 	vertical-align: middle;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
