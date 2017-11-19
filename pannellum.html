@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <title>Celia Tour</title>
  <!-- Javascript de pannellum framework -->
     <script src="pannellum/src/js/pannellum.js"></script>
@@ -55,7 +56,7 @@ En 1931 el fervor republicano le cambia la corona real cerrada por la mural de l
           <!-- Audio para punto sensibles, no confundir con el boton audio!!!!.
             <div class="ventanaAudio">-->
             <div id="panelAudioPrueba">
-              <div id="botonPause">X</div>
+              <div id="botonPause">&times;</div>
               <audio id="musica1" src=""  controls> </audio>
             </div>
               <!--
@@ -323,7 +324,7 @@ viewer = pannellum.viewer('panorama', {
         "autoLoad": true,
         "showControls": false,
         "compass":false,
-        
+        "preview": "preview2.png",
         "hotSpotDebug": false
     },
 

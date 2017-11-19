@@ -121,9 +121,39 @@
 
 /* Audio */
 
+
+/* Copia del id que aparece para la visita guiada solo con el nombre copiado */
+#panelAudioPrueba {
+  position:absolute;
+  z-index: 100;
+  top: 15px;
+  left: 50px;
+  padding: 0;
+  display: none;
+}
+/*X que aparece al lado del audio arriba */
+#botonPause {
+  position: relative;
+  float: right;
+  color:crimson;
+  left: 10px;
+  z-index: 100;
+  font-size: 35px;
+  cursor:default;
+  font-weight: bold;
+}
+
+#botonPause:hover {
+  position: relative;
+  float: right;
+  color:#585858;
+  text-decoration: none;
+}
+
+
+/*usado para visita guiada */
 #panelAudio {
     position: absolute;
-
     z-index: 100;
     top: 1%;
     left: 50px;
@@ -177,7 +207,6 @@
 .modal__contents {
   z-index: 2;
   background: white;
-  width: 60%;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -187,13 +216,6 @@
   border-radius: 5px;
 }
 
-/*Media query cuando la pantalla sea menos de 1380px */
-@media (max-width : 1380px) {
-    #gallery img{
-    height: 200px;
-  }
-  
-}
 /* titulo */
 .modal__contents h1 {
    z-index: 2;
@@ -219,30 +241,100 @@
 .modal__close:hover {
     color:black;
   }
-  	 /*Media query cuando la pantalla sea menos de 768px */
-@media (max-width : 48rem) {
- 
-  .modal__contents {
-  	top: 0;
-  	left: 0;
-    bottom: 0;
-    width: 100%;
-    margin: 0;
-    border-radius: 0;
-  }
+  	 
+/*Media queries */
+
+/* -----------ordenador ----------- */
+@media screen and (min-width : 1800px){
   
-  #gallery img{
-    height: 150px;
+   #gallery img{
+    height: 300px;
   }
   
   .Gmodal-content {
     width: 100%;
+    max-width: 700px;
+  }
+  #texto {
+    padding:5px !Important;
+    font-size: 1em;
+  }
+  
+  .modal__contents {
+    width: 40%;
+  } 
+  
+}
+/* -----------portatil ----------- */
+@media screen 
+  and (min-width : 1200px)
+  and (max-width :1799px){
+  
+  #gallery img{
+    height: 250px;
+  }
+  #texto {
+    padding:5px !Important;
+    font-size: 0.9em;
+  }
+  .modal__contents {
+    width: 50%;
+  } 
+    
+  .Gmodal-content {
+    width: 80%;
+    max-width: 600px;
+  }
+
+  
+  
+}
+/* -----------tablet ----------- */
+@media screen 
+  and (min-width : 900px)
+  and (max-width :1199px){
+  
+  #gallery img{
+    height: 200px;
+  }
+  #texto {
+    padding:5px !Important;
+    font-size: 0.8em;
+  }
+    .Gmodal-content {
+    width: 60%;
   }
   
 }
+/* -----------tablet/movil ----------- */
+@media screen and (max-width :899px){
+
+  #gallery img{
+    height: 200px;
+  }
+    
+  #texto {
+    padding:5px !Important;
+    font-size: 0.7em;
+  }
+  
+  .modal__contents {
+  	height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 0;
+  }
+    
+  .Gmodal-content {
+    width: 60%;
+  }
+  
+}
+
           
   #texto{
-    padding: 1%;
+    padding-right: 2%;
+    padding-left: 2%;
     text-align: left;
     border:none;
     overflow-y:auto;
@@ -282,8 +374,6 @@
   background-color: #fefefe;
   margin: auto;
   padding: 0;
-  width: 90%;
-  max-width: 500px;
 }
 
 /* Cerrar galeria */
