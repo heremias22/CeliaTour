@@ -325,7 +325,7 @@ viewer = pannellum.viewer('panorama', {
         "showControls": false,
         "compass":false,
         "preview": "preview2.png",
-        "hotSpotDebug": false
+        "hotSpotDebug": true
     },
 
     "scenes": {
@@ -1266,9 +1266,37 @@ viewer = pannellum.viewer('panorama', {
                     "targetYaw": -33.95,
                     "clickHandlerFunc": puntos,
                     "clickHandlerArgs": "p1punto6"
+                }, 
+                {
+                    "pitch": 1,
+                    "yaw": -166,
+                    "type": "scene",
+                    "sceneId": "p1p5f1",
+                    "cssClass": "custom-hotspot-salto",
+
                 }
             ]   
                 },
+        
+          "p1p5f1": {
+            "hfov": 120,
+            "yaw": 60,
+            "pitch": 22,
+            "type": "equirectangular",
+            "panorama": "imagenes/bajaplanta/p1p5f1.JPG",
+            "hotSpots": [
+                {
+                    "pitch": -1,
+                    "yaw": 4,
+                    "type": "scene",
+                    "sceneId": "p1p5",
+                    "cssClass": "custom-hotspot-salto",
+                    "clickHandlerFunc": puntos,
+                    "clickHandlerArgs": "p1punto5"
+                }
+            ]   
+                },
+        
         
         "p1p6": {
             "hfov": 120,
