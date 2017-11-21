@@ -1,0 +1,3 @@
+# CeliaTour
+Proyecto para realizar un tour virtual del centro educativo I.E.S. Celia Viñas.
+El tour virtual constará de varios modos, cada uno con particularidades, por ejemplo en uno podremos acceder a cualquier punto con total libertad y saltando por donde queramos por el mapa, la visita guiada nos llevará automaticamente por los sitios más emblematicos del instituto... 
