@@ -46,15 +46,12 @@ p {
 }
 
 
-.center{ 
-    margin: 0 auto; 
-}
-.contenedor{ 
+.contenedor_portada{ 
     margin: 0 auto; width: 960px; 
 }
 
 
-#header {
+#header_portada {
     width: 100%;
     background: url('img/header-bg2.png');
     height: 110px;
@@ -63,11 +60,11 @@ p {
     z-index:5
 }
 
-#nav { 
+#nav_portada { 
      float: left;  
 }
 
-#nav img{
+#nav_portada img{
     width: 50px;
     margin-top: 0px; 
 }
@@ -83,27 +80,27 @@ p {
     font-weight: bold; 
 }
  
-#nav ul{
+#nav_portada ul{
     list-style: none;
     display: inline;
     margin: 0 auto;
 }
 
-#nav li{
+#nav_portada li{
     margin-top: 23px;
     float: left;
     padding-left: 21px;
 }
 
-#nav img{
+#nav_portada img{
     transition:transform 0.1s ease-out;
 }
 
-#nav img:hover{
+#nav_portada img:hover{
     transform: scale(1.4);
 }
 
-#nav li a { 
+#nav_portada li a { 
     margin-top: 15px;
     color: #fff; 
     opacity:0.9; 
@@ -114,50 +111,20 @@ p {
     transition:transform 0.1s ease-out;
 }
 
-#nav li a:hover { 
+#nav_portada li a:hover { 
     color: #fff; 
     opacity:1; 
     transform: scale(1.1);
 }
 
-.textico {
-    font-family: 'Lato', serif;
-    font-weight: normal;
-    font-size: 25px;
-    text-align: left;
-    margin: 50px auto;
-    text-align: justify;
-}
-
-.autor { 
-    font-family:"Lato"; 
-    margin: 70px 0 0 75px; 
-    color: #94a4a4; 
-    font-size: 20px; 
-} 
-
-.textico_contenedor { 
-    width: 800px; 
-    margin: 0 auto; 
-	padding: 30px;
-}
-#retrato { 
-    background: url('img/retra to.jpg')no-repeat; 
-    width: 200px; 
-    height: 200px; 
-    margin: 0 auto; 
-    position: relative; 
-    bottom: -35px;
-}
-
-#separador { 
+#separador_portada { 
     background: url('img/separador.png')no-repeat; 
     width: 300px; 
     height: 35px; 
     margin: 0px auto 27px auto; 
 }
 
-#lazo { 
+#lazo_portada { 
     background: url('img/lazo.png');
     width: 251px; 
     height: 48px;
@@ -167,7 +134,7 @@ p {
     transition:transform 0.5s ease-out;
 }
 
-#lazo:hover{
+#lazo_portada:hover{
     background: url('img/lazo.png');
     width: 251px; 
     height: 48px;
@@ -199,16 +166,16 @@ p {
     right: -100px; 
 }
 
-#slider1 h2{
+#slider1_portada h2{
     margin-top: -50px;
 }
 
 
-#slider1, #slider2{ 
+#slider1_portada{ 
     width: 100%; 
 }
 
-#slider1{
+#slider1_portada{
     background-image:url('img/portada5.jpg') ;
     background-position: center;
     background-attachment: fixed;
@@ -220,146 +187,26 @@ p {
     background-size: cover;
 }
 
-#cambio{
+#cambio_portada{
     width: 100%;
     position:absolute;
     background-color: rgba(0,0,0,.3);
     height: 100%;
 }
 
-#libre, #guiada, #destacado{
+#libre_portada, #guiada_portada, #destacado_portada{
     margin: 20% 0  0;
     width: 100%;
     position: absolute;
 }
 
-#slider1 .contenedor{
+#slider1_portada .contenedor_portada{
     text-align:center;
     margin:0 auto;
 	vertical-align: middle;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#slider2{
-    background: url(img/paper_fibers.png);
-    color: #333333;
-    height: 350px;
-    margin: 0 auto;
-    overflow: visible;
-    padding: 200px 0;
-}
-
-.textico_contenedor2{
-    position: relative;
-    overflow: visible;
-    margin-top: -00px; 
-}
-
-.textico_contenedor2 .textico{
-    width: 50%;
-    float: left;
-}
-
-.textico_contenedor2 img{
-    margin-top: -160px;
-    width: 39%;
-    float: right;
-}
-
-#slider3{
-    background: url(img/portada2.jpg);
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: #fff;
-    height: 800px;
-    padding: 170px 0 0 0;
-    background-size: cover;
-}
-
-.textico2{
-    font-family: 'Lato', serif;
-    font-weight: normal;
-    font-size: 25px;
-    text-align: left;
-    margin: 100px auto;
-    text-align: justify;
-    background-color:rgba(0,0,0,0.7);
-    padding: 40px;
-}
-    
-#slider4{
-    background: url(img/paper_fibers.png);
-    color: #333333;
-    height: 450px;
-    padding: 100px 0 200px 0;
-}
-
-#slider4 .textico{
-    font-family: "Calligraffitti";
-    font-size: 40px;
-}
-
-#slider4 img{
-    align-content: ="left"
-}
-
-#slider5{
-    background: url(img/portada6.JPG) ;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    height: 550px;
-    margin: 0 auto;
-    padding: 250px 0;
-    color: #fff;
-    background-size: cover;
-}
-
-    
-.mapa a{
-    border: none;
-    background: #3a7999;
-    color: #f2f2f2;
-    padding: 19px;
-    font-size: 18px;
-    border-radius: 5px;
-    position: relative;
-    box-sizing: border-box;
-    transition: all 500ms ease;
-    text-decoration: none;
-    text-align: center;
-    margin: 35px;
-}
-
-.mapa a:hover {
-    background: rgba(0,0,0,0);
-    color: #3a7999;
-    box-shadow: inset 0 0 0 3px #3a7999;
-}
-
-#elamo { 
+#elamo_portada { 
     color: white;
     background: black; 
     font-family:"Lato"; 
@@ -368,15 +215,3 @@ p {
     text-align: center; 
 }
 
-@keyframes transicion{
-    from{
-        background-image:url('img/portada5.jpg') ;
-    }
-    to{
-        background-image:url('img/portada7.jpg') ;
-    }
-}
-
-.animacion{
-    animation: transicion 2s ease;
-}
