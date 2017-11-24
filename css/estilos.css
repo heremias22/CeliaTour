@@ -27,7 +27,7 @@
     .ctrl {
         position: absolute;
         z-index: 2;
-        right: 5%;
+        right: 5px;
         bottom: 0px;
         height: 40px;
         width: 40px;
@@ -44,8 +44,170 @@
         height: 60px;
         width: 60px;
     }*/
+
 /* ICONO SENSIBLE AUDIO */
 
+
+/* MENU */
+
+.overlay_menu {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+}
+
+.contenido_menu {
+  padding-top: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 500px;
+ /* position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%)*/
+}
+
+
+
+.cerrar {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.cerrar:hover {
+  color: crimson;
+}
+
+.boton_menu {
+  position: absolute;
+  top: 20px;
+  left: 5px;
+  height: 30px;
+  width: 30px;
+  background-image: url("svg/botonmenu.svg");
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 3;
+  cursor: default;
+  
+}
+
+.cuadrado {
+  width: 160px;
+  height: 160px;
+  background-color: #ffffff;
+  margin: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.fila1,
+.fila2{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.imagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius:15%;
+  cursor: default;
+}
+
+.container_imagen {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin:15px 15px;
+  cursor: pointer;
+  
+  /*opacity: 0.7;*/
+  
+}
+
+/* CONTROLES VISITA GUIADA */
+
+.menu_vguiada {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  margin:0 auto;
+  bottom: 10px;
+  cursor: default;
+  width: 100%;
+}
+
+#menu_guiada_show {
+  display: none;
+}
+
+.menu_vguiada ul {
+  display: flex;
+  /*si lo quitas aparece 40 padding left en el menu*/
+  padding-left: 0 !important;
+  list-style:none;
+}
+
+.menu_vguiada ul li {
+  margin: 0 10px;
+}
+
+
+/* FIN CONTROLES GUIADA */
+.overlay_imagen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 15%;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.53);
+}
+
+.container_imagen:hover .overlay_imagen {
+  opacity: 0;
+}
+
+.texto {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 50px;
+  
+}
+
+
+  
+
+/* FIN MENU */
 #contenedorAudio {
     z-index: 101;
     position: absolute;
@@ -138,7 +300,7 @@
   color:crimson;
   left: 10px;
   z-index: 100;
-  font-size: 35px;
+  font-size: 25px;
   cursor:default;
   font-weight: bold;
 }
@@ -172,7 +334,7 @@
 
 #botonAudio1 {
     position: absolute;
-    top: 1%;
+    top: 20px;
     left: 10px;
     z-index: 100;
     height: 30px;
@@ -282,8 +444,8 @@
   } 
     
   .Gmodal-content {
-    width: 80%;
-    max-width: 600px;
+    width: 70%;
+    max-width: 500px;
   }
 
   
@@ -309,6 +471,9 @@
 /* -----------tablet/movil ----------- */
 @media screen and (max-width :899px){
 
+  
+
+  
   #gallery img{
     height: 200px;
   }
@@ -330,8 +495,7 @@
   }
   
 }
-
-          
+        
   #texto{
     padding-right: 2%;
     padding-left: 2%;
@@ -629,10 +793,4 @@
 .boton{
     cursor: pointer;
 }
-
-
-
-
-
-
 

@@ -22,7 +22,7 @@
 </head>
 	
 <body>
-	    <div id="portadaca">
+	    <div id="portadaca" style="display:none">
      <div id="cambio_portada">
          <img id="libre_portada" src="web/img/portadalibremini2.png">
          <img id="destacado_portada" src="web/img/portadadestacadamini.png">
@@ -34,7 +34,7 @@
             <nav id="nav_portada">
              <ul>
                  <li><img src="web/img/logo.png"/> </li>
-                 <li><a href="pannellum.html" id="opcionlibre_portada">Modo Libre</a></li>
+                 <li><a href="" id="opcionlibre_portada">Modo Libre</a></li>
                  <li><a href="" id="opcionguiada_portada">Visita Guiada</a></li>
                  <li><a href="" id="opciondestacada_portada">Puntos D</a></li>
 				 <li><a href="" >Biblioteca</a></li>
@@ -67,6 +67,26 @@
 	
 	<div class="contenedor">
 		<div id="panorama">
+          
+          <!-- CONTROLES VISITA GUIADA -->
+          <div id="menu_guiada_show">
+          <div class="menu_vguiada">
+          <ul>
+            <li>
+              <button onclick="anterior();">Ant</button>
+            </li>
+            <li>
+              <button>pau/pla</button>
+            </li>
+            <li>
+              <button>menu</button>
+            </li>
+            <li>
+              <button onclick="siguiente();">Sig</button>
+            </li>
+          </ul>
+          </div>
+            </div>
           
           <!-- Galeria -->
             <div id="GmyModal" class="Gmodal">
@@ -107,7 +127,75 @@ En 1931 el fervor republicano le cambia la corona real cerrada por la mural de l
               <div id="botonPause">&times;</div>
               <audio id="musica1" src=""  controls> </audio>
             </div>
-              <!--
+          <div class="boton_menu"></div>
+          
+          <div class="overlay_menu" id="nav_menu">
+          <div class="cerrar" onclick="$('#nav_menu').hide();">&times;</div>
+          <div class="contenido_menu">
+            
+            <div class="fila1">
+            
+            <div data-tilt data-tilt-transition="true" data-tilt-scale="1.2" class="js_tilt">
+             <div class="container_imagen" id="boton_libre">
+             <img src="vistalibre1.jpg" class="imagen">
+              <div class="overlay_imagen">
+               <p class="texto">
+               Visita Libre</p></div></div>
+               </div>
+            
+          
+             <div data-tilt data-tilt-transition="true" data-tilt-scale="1.2" class="js_tilt">
+               <div class="container_imagen" id="boton_guiada">
+             <img src="visitaguiada.JPG" class="imagen">
+              <div class="overlay_imagen">
+               <p class="texto">
+               Visita Guiada</p></div></div>
+              </div>
+            
+            
+            <div data-tilt data-tilt-transition="true" data-tilt-scale="1.2" class="js_tilt">
+               <div class="container_imagen">
+             <img src="puntosd.JPG" class="imagen">
+              <div class="overlay_imagen">
+               <p class="texto">
+               Puntos D</p></div></div>
+              </div>
+            
+            </div>
+            
+            <div class="fila2">
+            
+            <div data-tilt data-tilt-transition="true" data-tilt-scale="1.2" class="js_tilt">
+               <div class="container_imagen">
+             <img src="biblioteca.jpg" class="imagen">
+              <div class="overlay_imagen">
+               <p class="texto">
+               Biblioteca</p></div></div>
+              </div>
+            
+ 
+            
+            <div data-tilt data-tilt-transition="true" data-tilt-scale="1.2" class="js_tilt">
+               <div class="container_imagen">
+             <img src="glosario1.jpg" class="imagen">
+              <div class="overlay_imagen">
+               <p class="texto">
+               Glosario</p></div></div>
+              </div>
+            
+            <div data-tilt data-tilt-transition="true" data-tilt-scale="1.2" class="js_tilt">
+                <a href='index.html'><div class="container_imagen">
+            <img src="portada.png" class="imagen">
+              <div class="overlay_imagen">
+               <p class="texto">
+               Portada</p></div></div></a>
+              </div>
+            
+            </div>
+             
+          </div>
+          </div>
+              <!--https://codepen.io/JacobStone/pen/GfLEn https://gijsroge.github.io/tilt.js/
             <div id="contenedorAudio">
               <audio id="musica1" src="" autoplay controls> </audio>
             </div>
@@ -372,8 +460,8 @@ viewer = pannellum.viewer('panorama', {
         "autoLoad": true,
         "showControls": false,
         "compass":false,
-        "preview": "preview2.png",
-        "hotSpotDebug": true
+        "preview": "preview22.png",
+        "hotSpotDebug": false
     },
 
     "scenes": {
@@ -2909,6 +2997,7 @@ function escaleras(){
   //////////////////PARA PUNTOS SENSIBLES.////////////////////////////
   
 
+  
    function musica(hotspotDiv,args){
        $('#musica1').attr("src",args);
        var pantalleo = $("#panelAudioPrueba").css("display");
@@ -2934,7 +3023,88 @@ function escaleras(){
     $('#panelAudioPrueba').hide();
   });
   
+ 
+  
+  /*
+    $(".boton_menu").toggle(function()
+    {$("#nav_menu").show();},
+    function()
+    {$("#nav_menu").hide();
+    });
+  */
+  //boton menu toggle hidden y visible
+  $(".boton_menu").click(function(){
+    if($("#nav_menu").is(":hidden")){
+      $("#nav_menu").show();
+    } else {
+       $("#nav_menu").hide();
+    }
+  });
   ////////////////////////////////////////////////
+  //VISITA GUIADA MENU
+  //Al terminar el audio de la escena saldra un mensaje de cuenta atras para el salto a la siguiente
+  //Pausa > el audio, 
+  //debe tener un boton que dice en que sitio te encuentras.
+  //Automatizar todo.
+  
+  
+  array_escenas = ["p0p1f1","p4p3","p2p5"];
+  indice_escenas = 0;
+  
+ 
+    
+    $("#boton_guiada").click(function(){
+    if($("#menu_guiada_show").is(":hidden")){
+      viewer.loadScene(array_escenas[0]);
+      $("#menu_guiada_show").show();
+      $(".menu_libre_show").hide();
+      $("#nav_menu").hide();
+    } else {
+       $("#menu_guiada_show").hide();
+       viewer.loadScene("p1p2f3");
+      $(".menu_libre_show").show();
+      $("#nav_menu").hide();
+    }
+    });
+  /*
+  $("#boton_libre").click(function(){
+    
+    if($(".menu_libre_show").is(":hidden")){
+      viewer.loadScene("p1p2f3");
+      $(".menu_libre_show").show();
+      $("#nav_menu").hide();
+    } else {
+       $("#menu_libre_show").hide();
+       viewer.loadScene("p1p2f3");
+      $("#nav_menu").hide();
+    }
+    });*/
+    
+  
+  
+  
+  function anterior(){
+    indice_escenas--;
+    if(indice_escenas<0){
+      indice_escenas= 0;
+    } else {
+      viewer.loadScene(array_escenas[indice_escenas]);
+    } 
+    }
+  
+   function siguiente(){
+     indice_escenas++;
+    if(indice_escenas==array_escenas.length){
+      indice_escenas=0;
+      viewer.loadScene(array_escenas[indice_escenas]);
+    } else {
+      viewer.loadScene(array_escenas[indice_escenas]);
+    } 
+    }
+  
+  
+  
+  ///////////FIN VISITA GUIADA  
     
 </script>
 
@@ -2945,6 +3115,8 @@ function escaleras(){
             document.getElementById(identificador).className="punto_seleccionado";
         }
     </script> 
+     <!-- Javascript plugin TILT.JS -->
+  <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
 </body>
 
 </html>
