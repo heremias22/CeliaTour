@@ -3,11 +3,14 @@
     padding:0px;
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
+#portadaca{
+  width: 100%;
+  position:relative;
+  top:-10px;
+  /*display: none;*/
 }
+
+
 
 h1 {
     font-family:"Lato";
@@ -33,18 +36,6 @@ h3{
     font-family: 'Lato', serif;
     font-size: 30px;
 }
-
-p {
-    font-family: Lato;
-    font-weight: normal;
-    font-size: 16px;
-    text-align: center;
-    margin: 5px 0;
-    padding: 0;
-    z-index: 1;
-    position: relative;
-}
-
 
 .contenedor_portada{ 
     margin: 0 auto; width: 960px; 
@@ -144,32 +135,9 @@ p {
     transform: scale(1.1);
 }
 
-#coso { 
-    background: transparent; 
-    width: 24px; 
-    height: 21px; 
-    margin: 0 auto; 
-    display: block; 
-    position: relative; 
-    bottom: -54px; 
-    left: -102px; 
-}
-
-#coso2 { 
-    background: transparent; 
-    width: 24px; 
-    height: 21px; 
-    margin: 0 auto; 
-    display: block; 
-    position: relative; 
-    bottom: -33px; 
-    right: -100px; 
-}
-
 #slider1_portada h2{
     margin-top: -50px;
 }
-
 
 #slider1_portada{ 
     width: 100%; 

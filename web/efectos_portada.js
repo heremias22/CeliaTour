@@ -24,6 +24,12 @@ $('#opcionlibre_portada').bind("mouseenter",function(){
   
 });
     
+$('#opcionlibre_portada').click(function(){
+  $('#portadaca').fadeOut();
+  
+});    
+    
+    
 // para que cambie el background a GUIADA al hacer hover
 
     
@@ -58,21 +64,21 @@ $('#opciondestacada_portada').bind("mouseenter",function(){
     });
 
     // para activar el scroll    
-    $('#lazo_portada').on('click',function(){
+    /*$('#lazo_portada').on('click',function(){
       $('html, body').css({
         overflow: 'auto',
         height: 'auto'
     });  
-    });
+    });*/
     
     // para darle efecto al historia
-    
+    /*
     $('#lazo_portada').on('click', function(e){
         e.preventDefault();
        $('html,body').animate({
            scrollTop: 1000
        }, 800); 
-    });
+    });*/
     
 //}
 });
