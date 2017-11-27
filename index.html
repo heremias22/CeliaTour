@@ -23,7 +23,7 @@
 	
 <body>
 	    <div id="portadaca" >
-     <div id="cambio_portada">
+     <div id="cambio_portada" style="display: none;">
          <img id="libre_portada" src="web/img/portadalibremini2.png">
          <img id="destacado_portada" src="web/img/portadadestacadamini.png">
          <img id="guiada_portada" src="web/img/portadaguiadamini.png">
@@ -3035,9 +3035,9 @@ function escaleras(){
   //boton menu toggle hidden y visible
   $(".boton_menu").click(function(){
     if($("#nav_menu").is(":hidden")){
-      $("#nav_menu").show();
+      $("#nav_menu").fadeIn("fast");
     } else {
-       $("#nav_menu").hide();
+       $("#nav_menu").fadeOut("fast");
     }
   });
   ////////////////////////////////////////////////
@@ -3110,7 +3110,6 @@ function escaleras(){
 
     <script>
         function puntos(identificador){
-            
             document.getElementsByClassName("punto_seleccionado")[0].className="puntos";
             document.getElementById(identificador).className="punto_seleccionado";
         }
