@@ -32,7 +32,7 @@
         height: 40px;
         width: 40px;
         text-align: center;
-        background-image: url("svg/fullscreenBlanco.svg");
+        background-image: url("svg/fullscreenblanco.svg");
         cursor: pointer;
         margin-bottom: 20px;
         margin-right: 5px; 
@@ -267,9 +267,9 @@
         transition: width 0.5s, height 0.5s;
     }
 
-.custom-hotspot-info {background-image: url("svg/eyeBlanco.svg");}
-.custom-hotspot-salto {background-image: url("svg/saltoBlanco.svg");}
-.custom-hotspot-atras {background-image: url("svg/puertaBlanco.svg");}
+.custom-hotspot-info {background-image: url("svg/eyeblanco.svg");}
+.custom-hotspot-salto {background-image: url("svg/saltoblanco.svg");}
+.custom-hotspot-atras {background-image: url("svg/puertablanco.svg");}
 .custom-hotspot-audio {background-image: url("svg/audio.svg");}
 
 
@@ -739,7 +739,7 @@
     margin-bottom: 100px;
     z-index: 2;
     position: absolute;
-    background-image: url("svg/subirPiso22.svg");
+    background-image: url("svg/subirpiso22.svg");
     background-size: 100% 100%;
     width: 30px;
     height: 30px;
