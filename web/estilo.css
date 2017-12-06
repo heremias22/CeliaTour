@@ -10,11 +10,6 @@
   /*display: none;*/
 }
 
-#cambio_portada{
-	
-}
-
-
 
 h1 {
     font-family:"Lato";
@@ -166,13 +161,13 @@ h3{
     height: 100%;
 }
 
-#libre_portada, #guiada_portada, #destacado_portada{
+#libre_portada, #guiada_portada, #destacado_portada, #biblioteca_portada, #porfolio_portada, #creditos_portada {
     margin: 20% 0  0;
     width: 100%;
     position: absolute;
 }
 
-#slider1_portada .contenedor_portada{
+#slider1_portada .contenedor_portada {
     text-align:center;
     margin:0 auto;
 	vertical-align: middle;
@@ -187,3 +182,10 @@ h3{
     text-align: center; 
 }
 
+   @media only screen and (orientation:portrait){
+        #apaisado { display:none; }
+        #warning-message { display:block; }
+    }
+    @media only screen and (orientation:landscape){
+        #warning-message { display:none; }
+    }

@@ -5,8 +5,8 @@ $(document).ready(function(){
     
 $('#header_portada img').bind("mouseenter",function(){
     $('#slider1_portada').css("background-image", "url('web/img/portada5.jpg')");
-    $('#cambio_portada').fadeOut();
-    $('#slider1_portada .contenedor_portada').children().fadeIn();
+    $('#cambio_portada').fadeOut("fast");
+    $('#slider1_portada .contenedor_portada').children().fadeIn("fast");
     
     $('#slider1_portada').unbind("click");
     
@@ -16,16 +16,15 @@ $('#header_portada img').bind("mouseenter",function(){
 
     
 $('#opcionlibre_portada').bind("mouseenter",function(){
-    $('#cambio_portada').fadeIn();
-    $('#destacado_portada').fadeOut();
-    $('#guiada_portada').fadeOut();
-    $('#libre_portada').fadeIn();
-    $('#slider1_portada .contenedor_portada').children().fadeOut();
+    $('#cambio_portada').fadeIn("fast");
+    $('#libre_portada').fadeIn("fast");
+    $('#libre_portada').siblings().fadeOut("fast");
+    $('#slider1_portada .contenedor_portada').children().fadeOut("fast");
   
 });
     
 $('#opcionlibre_portada').click(function(){
-  $('#portadaca').fadeOut();
+  $('#portadaca').fadeOut("fast");
   
 });    
     
@@ -34,11 +33,10 @@ $('#opcionlibre_portada').click(function(){
 
     
 $('#opcionguiada_portada').bind("mouseenter",function(){
-    $('#cambio_portada').fadeIn();
-    $('#destacado_portada').fadeOut();
-    $('#guiada_portada').fadeIn();
-    $('#libre_portada').fadeOut();
-    $('#slider1_portada .contenedor_portada').children().fadeOut();
+    $('#cambio_portada').fadeIn("fast");
+    $('#guiada_portada').fadeIn("fast");
+    $('#guiada_portada').siblings().fadeOut("fast");
+    $('#slider1_portada .contenedor_portada').children().fadeOut("fast");
     
 });
     
@@ -46,16 +44,70 @@ $('#opcionguiada_portada').bind("mouseenter",function(){
 
     
 $('#opciondestacada_portada').bind("mouseenter",function(){
-    $('#cambio_portada').fadeIn();
-    $('#destacado_portada').fadeIn();
-    $('#guiada_portada').fadeOut();
-    $('#libre_portada').fadeOut();
-    $('#slider1_portada .contenedor_portada').children().fadeOut();
-    
+    $('#cambio_portada').fadeIn("fast");
+    $('#destacado_portada').fadeIn("fast");
+    $('#destacado_portada').siblings().fadeOut("fast");
+    $('#slider1_portada .contenedor_portada').children().fadeOut("fast");
 });
 
 
+// para que cambie el background a BIBLIOTECA al hacer hover
 
+    
+$('#opcionbiblioteca_portada').bind("mouseenter",function(){
+    $('#cambio_portada').fadeIn("fast");
+    $('#biblioteca_portada').fadeIn("fast");
+    $('#biblioteca_portada').siblings().fadeOut("fast");
+    $('#slider1_portada .contenedor_portada').children().fadeOut("fast");
+    
+});
+    
+    // para que cambie el background a PORFOLIO al hacer hover
+
+    
+$('#opcionporfolio_portada').bind("mouseenter",function(){
+    $('#cambio_portada').fadeIn("fast");
+    $('#porfolio_portada').fadeIn("fast");
+    $('#porfolio_portada').siblings().fadeOut("fast");
+    $('#slider1_portada .contenedor_portada').children().fadeOut("fast");
+    
+});
+    
+    // para que cambie el background a  al hacer hover
+
+    
+$('#opcioncredito_portada').bind("mouseenter",function(){
+    $('#cambio_portada').fadeIn("fast");
+    $('#creditos_portada').fadeIn("fast");
+    $('#creditos_portada').siblings().fadeOut("fast");
+    $('#slider1_portada .contenedor_portada').children().fadeOut("fast");
+    
+});
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // para desactivar el scroll cuando la pantalla sea grande 
 //if ($(window).width()<800){
     $('html, body').css({
