@@ -62,6 +62,11 @@ $('#opcionbiblioteca_portada').bind("mouseenter",function(){
     
 });
     
+$('#opcionbiblioteca_portada').bind("click",function(){
+    viewer.loadScene("p2p4f3");
+    $("#portadaca").fadeOut("fast");
+});    
+    
     // para que cambie el background a PORFOLIO al hacer hover
 
     
@@ -85,7 +90,10 @@ $('#opcioncredito_portada').bind("mouseenter",function(){
 });
     
     
-    
+$('#opcioncredito_portada').bind("click",function(){
+    viewer.loadScene("p3p6f1");
+    $("#portadaca").fadeOut("fast");
+});    
     
     
     
