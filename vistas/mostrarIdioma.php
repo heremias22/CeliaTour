@@ -1,5 +1,6 @@
 <?php
     $tablaIdioma = $datos["tablaIdioma"];
+    echo "<h3>Idiomas</h3>";
     echo "<table class='tabla'>";
     echo "<tr><th>Idioma</th><th>Nivel</th><th>Opción</th><tr>";
     foreach ($tablaIdioma as $idioma){

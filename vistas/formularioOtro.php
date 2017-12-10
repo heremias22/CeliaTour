@@ -1,4 +1,6 @@
 <?php 
+    echo "<h3>Otros</h3>";
+
     $tablaOtro = $datos["tablaOtro"];
 echo "<form  action='index.php' method='post'>";
     // la idea de esto es que te saque un array de todos los otros que tiene un usuario y luego buscar el correspondiente otro en el array y salga marcao
