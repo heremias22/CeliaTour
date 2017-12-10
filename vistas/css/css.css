@@ -1,0 +1,268 @@
+*{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    
+}
+
+h3{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+#tablaLogin{
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: auto;
+  background-color: #f9f9f9;
+}
+.row{
+  border: 1px solid black;
+}
+.enlaces{
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  transition: color 1s;
+}
+td#tdAlta{
+  text-align: center;
+}
+.enlaces:hover{
+  color: #336eff;
+
+}
+div#divLogin{
+  position: relative;
+  width: 100%;
+  top: 50%;
+  margin-top: -250px;
+}
+div#divImagenLogin{
+  background-image: url("escudo.png");
+  background-size: 100% 100%;
+  width: 300px;
+  height: 370px;
+  margin: auto;
+}
+div#mensajeLogin{
+  background-color: #f9f9f9;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 4px 10px 4px 10px;
+  display: table;
+  margin: auto;
+  max-width: 30%;
+}
+body{
+  height: 100%;
+  background-color: #336eff;
+  margin: 0 auto;
+  text-align: center;
+}
+span{
+  font-family: 'Open Sans', sans-serif;
+}
+a:hover{
+  color: #336eff;
+}
+td,tr{
+  padding: 4px;
+}
+.botonSubmit{
+  cursor: pointer;
+  width: 90%;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 8px;
+  color: #f9f9f9 ;
+  background-color: #336eff;
+  transition: background-color 1s;
+  max-width: 120px;
+}
+.botonSubmit:hover{
+  background-color: #3336ff ;
+}
+div#divRegistro{
+  position: relative;
+  background-color: #f9f9f9;
+  width: 600px;
+  margin: auto;
+  top: 50%;
+  border-radius: 8px;
+  margin-top: -200px;
+}
+form#formularioRegistro{
+  display: inline-block;
+  margin: auto;
+}
+div#divRegistroInterior{
+  display: flex;
+  padding: 20px;
+}
+td.centrado{
+  text-align: center;
+}
+div#textoRegistro{
+  text-align: justify;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-weight: bolder;
+}
+input{
+  border: 1px solid black;
+  border-radius: 6px;
+}
+a#botonDesconectar{
+  float: right;
+}
+a.botonesMenu{
+  color: black;
+  text-decoration: none;
+  padding: 20px 10px 20px 10px;
+}
+div#barraSuperior{
+  position: relative;
+  height: 6%;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: black;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  width: 98%;
+  left:1%;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+}
+div#todosUsuarios{
+  position: relative;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  height: 90%;
+  overflow: auto;
+  display: inline-flex;
+
+}
+div.divsMenu{
+  height: 100%;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  float: left;
+}
+div.divDesconectar{
+  height: 100%;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  float: right;
+}
+.divsMenu:hover{
+  border-bottom-left-radius: 7px;
+  background-color: #336eff;
+  transition: background-color 1s;
+}
+.divDesconectar:hover{
+  border-bottom-right-radius: 8px;
+  background-color: #C70039;
+  transition: background-color 1s;
+}
+div.info{
+  display: inline-flex;
+  position: relative;
+  align-items: center;*/
+}
+.usuario{
+  display: inline-flex;
+  padding: 10px;
+}
+form.formularioBusqueda{
+  padding-top: 10px;
+  padding-left: 10px; 
+}
+#divFormularioBusqueda{
+  display: inline-flex;
+  height: 100%;
+  align-items:center;
+  float: left;
+}
+#borrarVAdmin, #modificarVAdmin{
+  text-decoration: none;
+}
+#borrarVAdmin{
+  color: #C70039;
+}
+#modificarVAdmin{
+  color: #336eff;
+}
+div#todosUsuarios > table > tr{
+  margin-left: 5px;
+}
+div#noUsuarios{
+  background-color: #f9f9f9;
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  border-radius: 8px;
+  text-align: center;
+}
+span#textoNoUsuarios{
+  line-height: 500px;
+  font-size: 30px;
+}
+#declinarRegistro{
+  text-decoration: none;
+  color:#C70039; 
+}
+#iconoBasura{
+  width: 50px;
+  height: 25px;
+}
+#iconoModificar{
+  width: 57px;
+  height: 25px;
+}
+#iconoDeclinar{
+  width: 50px;
+  height: 25px;
+
+}
+#validarImagen{
+  width: 50px;
+  height: 25px;
+  border:none;
+}
+#vistausuario{
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: auto;
+  background-color: #f9f9f9;
+  width: 80%;
+  
+}
+#vistausuario .tabla {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;   
+    margin: auto;
+
+}
+
+.tabla td, .tabla th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#vistausuario .tabla tr:nth-child(even){background-color: #f2f2f2;}
+
+#vistausuario .tabla tr:hover {background-color: #ddd;}
+
+#vistausuario .tabla th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #336eff;
+    color: white;
+}
